@@ -225,6 +225,9 @@
     font-stretch: normal;
     text-decoration: none;
   }
+  .frame21-input {
+    border-color: rgba(0, 0, 0, 1);
+  }
   .frame21-image2501 {
     top: 0px;
     left: 0px;
