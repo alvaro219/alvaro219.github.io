@@ -95,7 +95,7 @@
     background-color: rgba(217, 217, 217, 1);
   }
   .frame21-input:hover {
-    background-color: ffbf00;
+    background-color: rgba(255,191,0);
   }
   .frame21-input:active {
     box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6),     inset 2px 2px 3px rgba(0, 0, 0, 0.6);
