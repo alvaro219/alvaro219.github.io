@@ -227,6 +227,9 @@
   }
   .frame21-input {
     border-color: rgba(0, 0, 0, 1);
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 19px;
   }
   .frame21-image2501 {
     top: 0px;
