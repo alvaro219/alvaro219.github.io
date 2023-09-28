@@ -360,7 +360,7 @@
   position: absolute;
   align-items: flex-start;
 }
-.frame21-text22 {
+.grupo-competencias {
   left: 0px;
   color: rgba(0, 0, 0, 1);
   width: 1204px;
@@ -376,53 +376,8 @@
   font-stretch: normal;
   text-decoration: none;
 }
-.frame21-text24 {
-  left: 0px;
-  color: rgb(0, 0, 0);
-  width: 1204px;
-  bottom: 38px;
-  height: auto;
-  position: absolute;
-  font-size: 30px;
-  font-style: Regular;
-  text-align: left;
-  font-family: Inter;
-  font-weight: 400;
-  line-height: 25px;
-  font-stretch: normal;
-  text-decoration: none;
-}
-.frame21-text25 {
-  top: 38px;
-  left: 0px;
-  color: rgba(0, 0, 0, 1);
-  width: 1204px;
-  height: auto;
-  position: absolute;
-  font-size: 30px;
-  font-style: Regular;
-  text-align: left;
-  font-family: Inter;
-  font-weight: 400;
-  line-height: 25px;
-  font-stretch: normal;
-  text-decoration: none;
-}
-.frame21-text27 {
-  top: 0px;
-  left: 0px;
-  color: rgb(0, 0, 0);
-  width: 1204px;
-  height: auto;
-  position: absolute;
-  font-size: 30px;
-  font-style: Regular;
-  text-align: left;
-  font-family: Inter;
-  font-weight: 400;
-  line-height: 25px;
-  font-stretch: normal;
-  text-decoration: none;
+.competencia {
+  margin-bottom: 10px;
 }
 .frame21-line6 {
   top: 8px;
