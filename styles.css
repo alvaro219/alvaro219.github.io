@@ -114,10 +114,24 @@ ul {
 }
 
 .cuadro-contacto {
+  margin-bottom: 25px;
   border-color: #000000;
   border-style: solid;
   border-width: 1px;
   border-radius: 8px;
   box-shadow: 5px 5px 10px 0px #d4d4d4;
   background-color: #f1f1f1;
+}
+
+.copyright {
+  margin-left: 0px;
+  margin-right: 0px;
+  background-color: #7d7d7d;
+  height: 50px;
+}
+
+.w-copyright {
+  position: initial;
+  font-size: 35px;
+  color: rgba(255, 255, 255, 1);
 }
