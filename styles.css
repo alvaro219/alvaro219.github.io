@@ -43,17 +43,20 @@ main {
 .FotodePerfil {
   border-color: rgba(0, 0, 0, 1);
   border-style: solid;
+  margin-left: auto;
   border-width: 5px;
   border-radius: 19px;
   position: relative;
 }
 
 .DivFotodePerfil {
+  width: 90%;
   margin: auto;
   display: flex;
 }
 
 .Presentacion {
+  margin-right:auto;
   margin-left: 25px;
   font-family: Monospace;
 }
@@ -109,7 +112,9 @@ ul {
 }
 
 .aptitudes {
-  margin-left: 45px;
+  margin-right:auto;
+  margin-left:auto;
+  width:85%;
   font-size: 20px;
 }
 
@@ -131,7 +136,6 @@ ul {
 }
 
 .w-copyright {
-  position: initial;
-  font-size: 35px;
+  font-size: 25px;
   color: rgba(255, 255, 255, 1);
 }
