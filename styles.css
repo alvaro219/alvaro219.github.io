@@ -56,7 +56,7 @@ main {
 }
 
 .Presentacion {
-  margin-right:auto;
+  margin-right: auto;
   margin-left: 25px;
   font-family: Monospace;
 }
@@ -112,13 +112,17 @@ ul {
 }
 
 .aptitudes {
-  margin-right:auto;
-  margin-left:auto;
-  width:85%;
+  margin-right: auto;
+  margin-left: auto;
+  width: 85%;
   font-size: 20px;
 }
 
 .cuadro-contacto {
+  margin-left: 200px;
+  margin-right: 200px;
+  width: auto;
+  height: 200px;
   margin-bottom: 25px;
   border-color: #000000;
   border-style: solid;
@@ -126,6 +130,45 @@ ul {
   border-radius: 8px;
   box-shadow: 5px 5px 10px 0px #d4d4d4;
   background-color: #f1f1f1;
+}
+
+.contacta {
+  font-size: 35px;
+  text-align: left;
+  margin-left: 35px;
+  text-decoration: underline;
+}
+
+.input-nombre {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.i-Nombre {
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+.i-Apellidos {
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+.i-Tu-Correo {
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+.input-mensaje {
+  text-align: center;
+}
+
+.i-Mensaje {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 90%;
+  height: 70px;
 }
 
 .copyright {
