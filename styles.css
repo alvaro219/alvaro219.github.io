@@ -167,11 +167,10 @@ ul {
 .i-Mensaje {
   margin-top: 12px;
   margin-bottom: 11px;
-  width: 90%;
-  height: 70px;
+ 
 }
 
-.boton-enviar{
+.boton-enviar {
   text-align: center;
   margin-bottom: 15px;
 }
