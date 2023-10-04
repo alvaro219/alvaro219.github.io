@@ -128,10 +128,9 @@ ul {
 }
 
 .cuadro-contacto {
-  margin-left: 200px;
-  margin-right: 200px;
+  margin: auto;
   width: auto;
-  height: 200px;
+  height: auto;
   margin-bottom: 25px;
   border-color: #000000;
   border-style: solid;
@@ -139,6 +138,8 @@ ul {
   border-radius: 8px;
   box-shadow: 5px 5px 10px 0px #d4d4d4;
   background-color: #f1f1f1;
+  max-width: fit-content;
+  min-width: fit-content;
 }
 
 .contacta {
