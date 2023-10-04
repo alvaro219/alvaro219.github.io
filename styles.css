@@ -17,9 +17,12 @@ nav {
   padding: 0.5rem;
   gap: 0.5rem;
   border-bottom: solid 1px #aaa;
-  background-color: #eee;
+  background-color: rgb(235, 235, 235);
 }
 
+.pestaña {
+  background-color: white;
+}
 nav a {
   display: inline-block;
   min-width: 9rem;
@@ -28,20 +31,16 @@ nav a {
   border: solid 1px #aaa;
   text-align: center;
   text-decoration: none;
-  color: #555;
+  color: #000000;
 }
 
 nav a[aria-current='page'] {
-  color: #000;
-  background-color: #d4d4d4;
+  color: rgb(255, 255, 255);
+  background-color: #ffffff;
 }
 
 main {
   padding: 1rem;
-}
-
-header {
-  background-color: white;
 }
 
 .FotodePerfil {
