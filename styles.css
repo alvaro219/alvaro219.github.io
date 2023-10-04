@@ -10,6 +10,7 @@ body {
 }
 
 nav {
+  min-width: 500px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -56,9 +57,13 @@ main {
   width: 90%;
   margin: auto;
   display: flex;
+  max-width: fit-content;
+  min-width: fit-content;
 }
 
 .Presentacion {
+  max-width: fit-content;
+  min-width: fit-content;
   margin-right: auto;
   margin-left: 25px;
   font-family: Monospace;
@@ -100,10 +105,12 @@ main {
 }
 
 .aptitudes-y-habilidades {
+  min-width: 400px;
   margin-top: 50px;
 }
 
 .titulo {
+  min-width: fit-content;
   font-size: 40px;
   font-weight: 500;
   font-family: Monospace;
@@ -115,6 +122,8 @@ ul {
 }
 
 .aptitudes {
+  max-width: 1000px;
+  min-width: 400px;
   margin-right: auto;
   margin-left: auto;
   width: 85%;
@@ -122,6 +131,8 @@ ul {
 }
 
 .ul-competencias {
+  max-width: 1000px;
+  min-width: 400px;
   margin-right: auto;
   margin-left: auto;
   width: 85%;
