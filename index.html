@@ -113,20 +113,21 @@
       
         <div class="cuadro-contacto">
           <span class="contacta">Contacta conmigo:</span>
-          <div class="input-nombre">
-            <input class="i-Nombre" type="text" placeholder="Nombre" />
-            <input class="i-Apellidos" type="text" placeholder="Apellidos" />
-            <input class="i-Tu-Correo" type="text" placeholder="Tu Correo-e" />
+          <form action="https://formsubmit.co/alvaroxam72@gmail.com" method="POST"><div class="input-nombre">
+            <input class="i-Nombre" type="text" name="name" placeholder="Nombre" />
+            <input class="i-Tu-Correo" type="text" name="e-mail" placeholder="Tu Correo-e" />
+            <input class="i-Asunto" type="text" name="subject" placeholder="Asunto" />
           </div>
           <div class="input-mensaje">
             <textarea
-              class="i-Mensaje"
-              
+              class="i-Mensaje" name="message"
               placeholder="Escribe tu Mensaje" rows="4" cols="79"></textarea>
           </div>
           <div class="boton-enviar">
             <input type="submit" value="Enviar" />
           </div>
+        </form>
+          
         </div>
       </center>
     </main>
