@@ -110,7 +110,8 @@ main {
 }
 
 .aptitudes-y-habilidades {
-  min-width: 400px;
+  text-align: center;
+  min-width: 676px;
   margin-top: 50px;
 }
 
@@ -127,17 +128,23 @@ ul {
 }
 
 .aptitudes {
+  text-align: left;
   max-width: 1000px;
-  min-width: 400px;
+  min-width: 676px;
   margin-right: auto;
   margin-left: auto;
   width: 85%;
   font-size: 20px;
 }
 
+.competencias {
+  min-width: 676px;
+  text-align: center;
+}
 .ul-competencias {
+  text-align: left;
   max-width: 1000px;
-  min-width: 400px;
+  min-width: 676px;
   margin-right: auto;
   margin-left: auto;
   width: 85%;
@@ -277,7 +284,7 @@ ul {
     line-height: 50px;
     font-weight: 800;
   }
-  
+
   .Profesion {
     text-align: left;
     margin-bottom: 5px;
