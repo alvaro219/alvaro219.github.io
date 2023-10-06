@@ -208,6 +208,7 @@ ul {
 }
 
 .copyright {
+  min-width: 676px;
   display: block;
   margin-left: 0px;
   margin-right: 0px;
@@ -265,7 +266,7 @@ ul {
 /**Tablet**/
 @media (min-width: 768px) and (max-width: 990px) {
   nav {
-    min-width: 450px;
+    min-width: 768px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
