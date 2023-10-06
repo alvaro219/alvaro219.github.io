@@ -208,7 +208,7 @@ ul {
 }
 
 .copyright {
-  min-width: 676px;
+  min-width: 767px;
   display: block;
   margin-left: 0px;
   margin-right: 0px;
@@ -261,6 +261,16 @@ ul {
     line-height: 35px;
     font-weight: 400;
   }
+
+  .aptitudes {
+    text-align: left;
+    max-width: 1000px;
+    min-width: 676px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 85%;
+    font-size: 23px;
+  }
 }
 
 /**Tablet**/
@@ -275,30 +285,5 @@ ul {
     gap: 0.5rem;
     border-bottom: solid 1px #aaa;
     background-color: rgb(230, 141, 8);
-  }
-
-  .Nombre {
-    text-align: left;
-    margin-top: 25px;
-    margin-bottom: 10px;
-    font-size: 40px;
-    line-height: 50px;
-    font-weight: 800;
-  }
-
-  .Profesion {
-    text-align: left;
-    margin-bottom: 5px;
-    font-size: 25px;
-    line-height: 35px;
-    font-weight: 400;
-  }
-
-  .Caracteristicas {
-    text-align: left;
-    margin-bottom: 15px;
-    font-size: 25px;
-    line-height: 35px;
-    font-weight: 400;
   }
 }
