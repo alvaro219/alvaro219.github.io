@@ -3,7 +3,8 @@
 }
 
 body {
-  margin: 0;
+  min-width: 767px;
+  margin: auto;
   font-family: system-ui, sans-serif;
   color: black;
   background-color: white;
@@ -41,6 +42,7 @@ nav a[aria-current='page'] {
 }
 
 main {
+  min-width: 767px;
   padding: 1rem;
 }
 
@@ -151,6 +153,8 @@ ul {
 }
 
 .cuadro-contacto {
+  align-items: center;
+  justify-content: center;
   margin: auto;
   width: auto;
   height: auto;
@@ -173,6 +177,7 @@ ul {
 }
 
 .input-nombre {
+  min-width: 648px;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
