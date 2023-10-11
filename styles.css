@@ -387,6 +387,10 @@ iframe {
   border-radius: 4px;
 }
 
+.center-ventana {
+  min-width: 767px;
+}
+
 .u-ventana {
   font-size: 25px;
   text-align: center;
