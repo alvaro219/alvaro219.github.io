@@ -405,6 +405,7 @@ iframe {
   margin-bottom: 0px;
   max-height: 100px;
   max-width: 200px;
+  margin-left: 15px;
 }
 
 .t-texto {
@@ -443,4 +444,29 @@ iframe {
 
 .c-texto {
   margin-left: 15px;
+}
+
+.m-texto {
+  text-align: left;
+  font-weight: 700;
+  margin-bottom: 0px;
+  max-height: 100px;
+  max-width: 200px;
+}
+
+.modos {
+  text-align: left;
+  background-color: #f5f29a;
+  display: inline-block;
+  max-width: 900px;
+  max-height: 400px;
+  border: solid 2px #b86300;
+  border-radius: 4px;
+}
+
+.d-texto {
+  margin-left: 5px;
+  margin-right: 15px;
+  font-size: 18px;
+  text-align: left;
 }
