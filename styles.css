@@ -378,7 +378,8 @@ li {
 
 .b-ventana {
   background-color: #f5f29a;
-  max-width: 400px;
+  margin-left: 15px;
+  max-width: 600px;
   max-height: 400px;
   min-width: 600px;
 }
