@@ -380,6 +380,7 @@ li {
   background-color: #f5f29a;
   max-width: 400px;
   max-height: 400px;
+  min-width: 600px;
 }
 
 iframe {
@@ -426,6 +427,7 @@ iframe {
 .m-ventana {
   max-width: 500px;
   max-height: 1220px;
+  min-width: 600px;
 }
 
 .clase {
