@@ -388,6 +388,7 @@ iframe {
 }
 
 .u-ventana {
+  font-size: 25px;
   text-align: center;
   display: inline-block;
   position: relative;
@@ -395,8 +396,10 @@ iframe {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 35px;
+  padding-left: 25px;
+  padding-right: 25px;
   min-width: 240px;
-  max-width: 340px;
+  max-width: 600px;
 }
 
 .texto {
