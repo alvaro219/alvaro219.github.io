@@ -3,7 +3,7 @@
 }
 
 body {
-  min-width: 767px;
+  min-width: 675px;
   margin: auto;
   font-family: system-ui, sans-serif;
   color: black;
@@ -11,7 +11,7 @@ body {
 }
 
 nav {
-  min-width: 767px;
+  min-width: 675px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -42,7 +42,7 @@ nav a[aria-current='page'] {
 }
 
 main {
-  min-width: 767px;
+  min-width: 675px;
   padding: 1rem;
 }
 
@@ -388,7 +388,7 @@ iframe {
 }
 
 .center-ventana {
-  min-width: 767px;
+  min-width: 700px;
 }
 
 .u-ventana {
