@@ -581,9 +581,15 @@ ul li:hover ul.dropdown-a {
 }
 
 .div-compra {
+  margin-top: 25px;
+  margin-bottom: 25px;
   display: inline-block;
 }
 
 .li-competencias {
   font-size: 45px;
+}
+
+.tech-center {
+  min-width: 767px;
 }
