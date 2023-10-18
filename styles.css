@@ -306,10 +306,6 @@ li {
   background-color: rgb(61, 22, 32);
 }
 
-.m-tecnico {
-  border-bottom: solid 1px #b86300;
-}
-
 .t-copyright {
   min-width: 767px;
   display: block;
@@ -606,4 +602,41 @@ ul li:hover ul.dropdown-a {
 
 .tech-center {
   min-width: 767px;
+}
+
+.update {
+  margin: auto;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  max-width: 1000px;
+  border-bottom: solid 2px #b86300;
+}
+
+.upd-img {
+  width: 90%;
+  margin-right: 15px;
+  display: flex;
+  min-width: fit-content;
+}
+
+.img-div {
+  border-radius: 16px;
+  box-shadow: 5px 5px 10px 0px #9b9b9b;
+}
+
+footer {
+  border-top: solid 2px #b86300;
+}
+
+.fecha {
+  font-size: 20px;
+  vertical-align: super;
+}
+
+.comentarios {
+  color: #b86300;
+}
+
+.icono {
+  margin: 0px;
 }
