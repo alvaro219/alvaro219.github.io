@@ -306,20 +306,24 @@ li {
   background-color: rgb(61, 22, 32);
 }
 
-.t-copyright {
-  min-width: 767px;
-  display: block;
-  margin-left: 0px;
-  margin-right: 0px;
-  background-color: #3d1620;
-  height: 60px;
-  text-align: center;
-}
-
 .t-w-copyright {
-  padding: 11px 10px 16px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  min-width: 767px;
   font-size: 25px;
   color: rgba(255, 255, 255, 1);
+  text-align: center;
+  background-color: #3d1620;
+}
+
+.t-copyright {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  min-width: 767px;
+  font-size: 25px;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  background-color: #7d7d7d;
 }
 
 .sistema {
@@ -624,7 +628,7 @@ ul li:hover ul.dropdown-a {
   box-shadow: 5px 5px 10px 0px #9b9b9b;
 }
 
-footer {
+.footer-e {
   border-top: solid 2px #b86300;
 }
 
