@@ -39,7 +39,7 @@ nav a[aria-current='page'] {
 
 main {
   min-width: 767px;
-  padding: 1rem;
+  margin: 1rem;
 }
 
 .FotodePerfil {
@@ -274,6 +274,20 @@ li {
     margin-left: auto;
     width: 85%;
     font-size: 23px;
+  }
+
+  ul li a:hover {
+    background: #752e40;
+  }
+
+  ul li:hover ul.dropdown {
+    display: block;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  ul li:hover ul.dropdown-a {
+    display: inline-block;
   }
 }
 
