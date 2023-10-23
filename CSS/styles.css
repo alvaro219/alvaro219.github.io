@@ -484,9 +484,9 @@ iframe {
   text-align: left;
   background-color: #f5f29a;
   display: inline-block;
-  max-width: 900px;
-  max-height: 400px;
-  min-width: 735px;
+  max-width: 700px;
+  max-height: 500px;
+  min-width: 650px;
   border: solid 2px #b86300;
   border-radius: 4px;
 }
@@ -576,11 +576,7 @@ ul li:hover ul.dropdown-a {
 .h1-compra {
   margin-right: 25px;
   margin-left: 25px;
-  padding-left: 25px;
-  padding-right: 25px;
-  border: solid 2px #b86300;
-  border-radius: 6px;
-  background: linear-gradient(to right, #3d1620, #5c11a7, #3d1620);
+  width: 350px;
   color: #f5f29a;
   font-size: 35px;
   text-decoration: none;
@@ -589,11 +585,7 @@ ul li:hover ul.dropdown-a {
 .h1-trailer {
   margin-right: 25px;
   margin-left: 25px;
-  padding-left: 71px;
-  padding-right: 71px;
-  border: solid 2px #b86300;
-  border-radius: 6px;
-  background: linear-gradient(to right, #3d1620, #5c11a7, #3d1620);
+  width: 350px;
   color: #f5f29a;
   font-size: 35px;
   text-decoration: none;
@@ -605,8 +597,14 @@ ul li:hover ul.dropdown-a {
 }
 
 .div-compra {
+  width: 400px;
+  border: solid 2px #b86300;
+  border-radius: 6px;
+  background: linear-gradient(to right, #3d1620, #5c11a7, #3d1620);
   margin-top: 25px;
   margin-bottom: 25px;
+  margin-left: 25px;
+  margin-right: 25px;
   display: inline-block;
 }
 
@@ -616,6 +614,7 @@ ul li:hover ul.dropdown-a {
 
 .tech-center {
   min-width: 767px;
+  box-sizing: initial;
 }
 
 .update {
@@ -712,6 +711,86 @@ ul li:hover ul.dropdown-a {
   border-radius: 25px 25px 0 25px;
 }
 
+.overlay_asaltantes {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #343863;
+  border-radius: 25px 25px 0 25px;
+}
+
+.overlay_controladores {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #883315;
+  border-radius: 25px 25px 0 25px;
+}
+
+.overlay_luchadores {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #b85d46;
+  border-radius: 25px 25px 0 25px;
+}
+
+.overlay_tanques {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #ae6030;
+  border-radius: 25px 25px 0 25px;
+}
+
+.overlay_conjuradores {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #448b6d;
+  border-radius: 25px 25px 0 25px;
+}
+
+.overlay_sanadores {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #4f8a3f;
+  border-radius: 25px 25px 0 25px;
+}
+
+.overlay_exaltadores {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #2495c2;
+  border-radius: 25px 25px 0 25px;
+}
+
+.overlay_misticos {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #855468;
+  border-radius: 25px 25px 0 25px;
+}
+
 .overlay::before,
 .overlay::after {
   content: '';
@@ -801,4 +880,61 @@ button:hover {
 
 .swiper-pagination-bullet-active {
   background-color: black;
+}
+
+.titulo_clase {
+  background-color: #f6f39b;
+  border: solid 2px #b86300;
+  max-width: 800px;
+  min-width: 400px;
+}
+
+.ul_clase {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  max-width: 900px;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.li_clase {
+  text-align: justify;
+}
+
+.desc_clase {
+  max-width: 600px;
+  text-align: justify;
+}
+
+.marco_clase {
+  margin-bottom: 25px;
+  display: inline-flex;
+  max-width: fit-content;
+  min-width: fit-content;
+}
+
+.foto_clase {
+  background-color: white;
+  border-color: rgba(0, 0, 0, 1);
+  border-style: solid;
+  margin-left: auto;
+  border-width: 5px;
+  border-radius: 19px;
+  position: relative;
+}
+
+.div_clase {
+  max-width: 380px;
+  display: inline-block;
+  background-color: #f6f39b;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.evoluciones {
+  background-color: #b86300;
+  border: solid 2px #b86300;
+  display: block;
+  max-width: 767px;
+  max-height: 500px;
 }
