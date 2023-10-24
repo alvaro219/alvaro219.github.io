@@ -1,13 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
 
 body {
-  padding: 3em 2em;
   font-family: 'Open Sans', Arial, sans-serif;
   font-size: 1em;
   margin: 0;
   padding: 0;
   line-height: 1;
-  background: #111111;
 }
 .pen {
   max-width: 635px;
@@ -25,7 +23,43 @@ body {
   -o-animation: 1s appear 1 forwards;
   animation: 1s appear 1 forwards;
 }
-
+.credit {
+  display: block;
+  max-width: 400px;
+  text-align: center;
+  margin: 150px auto 0;
+  padding: 0;
+  font-size: 0.8em;
+  color: #f0f0f0;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.9);
+}
+.credit p a,
+.credit a {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+}
+.credit p a:hover,
+.credit a:hover,
+.credit p a:active,
+.credit a:active {
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+  color: white;
+}
+.credit p a.button,
+.credit a.button {
+  padding: 6px 12px;
+  margin-top: 10px;
+  background: #000000;
+  border-radius: 3px;
+}
+.credit p a.button:hover,
+.credit a.button:hover {
+  background: #2b2b2b;
+}
+.credit p:last-of-type {
+  margin-bottom: 30px;
+}
 .stage {
   max-width: 635px;
   width: 100%;
@@ -39,23 +73,15 @@ body {
 .element {
   background: green;
   width: 202px;
-  -webkit-transform-origin: 50% 50%;
-  -ms-transform-origin: 50% 50%; /* para Internet Explorer */
   transform-origin: 50% 50%;
   height: inherit;
   margin: 0 7px 0 0;
   display: inline-block;
-  -webkit-transition: all 0.25s ease-in-out;
-  -moz-transition: all 0.25s ease-in-out;
-  -ms-transition: all 0.25s ease-in-out;
-  -o-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
-  -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0);
-  -ms-transform: translate3d(0, 0, 0);
-  -o-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
+  cursor: pointer;
 }
+
 .element.active {
   width: 282px;
   -webkit-transition: all 0.25s ease-in-out;
@@ -64,6 +90,7 @@ body {
   -o-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
 }
+
 .element.inactive {
   width: 162px;
   -webkit-transition: all 0.25s ease-in-out;
@@ -74,19 +101,19 @@ body {
   opacity: 0.4;
 }
 
-.element.michael {
+.element.explorador {
   background: url('https://w0.peakpx.com/wallpaper/771/236/HD-wallpaper-fantasy-art-warrior-armor-archer-elven-female-warrior-figure-hugging-armor.jpg')
     45% 0 no-repeat;
   background-size: cover;
 }
 
-.element.franklin {
+.element.ladron {
   background: url('https://i.pinimg.com/originals/b7/db/19/b7db19a14db891e76a4c02b18d7d40c0.png')
     45% 0 no-repeat;
   background-size: cover;
 }
 
-.element.trevor {
+.element.lancero {
   background: url('https://static.wixstatic.com/media/af1176_f2c167c7833b434abaadc90eed39f8f2~mv2.jpg/v1/crop/x_0,y_165,w_2828,h_3642/fill/w_560,h_650,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/The%20Way%20of%20the%20Spartans%20(11)_remini-enhanced.jpg')
     45% 0 no-repeat;
   background-size: cover;
@@ -648,9 +675,9 @@ iframe {
   text-align: left;
   background-color: #f5f29a;
   display: inline-block;
-  max-width: 900px;
-  max-height: 400px;
-  min-width: 735px;
+  max-width: 700px;
+  max-height: 500px;
+  min-width: 650px;
   border: solid 2px #b86300;
   border-radius: 4px;
 }
@@ -875,6 +902,86 @@ ul li:hover ul.dropdown-a {
   border-radius: 25px 25px 0 25px;
 }
 
+.overlay_asaltantes {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #343863;
+  border-radius: 25px 25px 0 25px;
+}
+
+.overlay_controladores {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #883315;
+  border-radius: 25px 25px 0 25px;
+}
+
+.overlay_luchadores {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #b85d46;
+  border-radius: 25px 25px 0 25px;
+}
+
+.overlay_tanques {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #ae6030;
+  border-radius: 25px 25px 0 25px;
+}
+
+.overlay_conjuradores {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #448b6d;
+  border-radius: 25px 25px 0 25px;
+}
+
+.overlay_sanadores {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #4f8a3f;
+  border-radius: 25px 25px 0 25px;
+}
+
+.overlay_exaltadores {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #2495c2;
+  border-radius: 25px 25px 0 25px;
+}
+
+.overlay_misticos {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #855468;
+  border-radius: 25px 25px 0 25px;
+}
+
 .overlay::before,
 .overlay::after {
   content: '';
@@ -966,9 +1073,61 @@ button:hover {
   background-color: black;
 }
 
-.clase_nombre {
-  font-size: 35px;
-  margin-bottom: 10px;
+.titulo_clase {
+  background-color: #f6f39b;
+  border: solid 2px #b86300;
+  max-width: 800px;
+  min-width: 400px;
+}
+
+.ul_clase {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  max-width: 900px;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.li_clase {
+  text-align: justify;
+}
+
+.desc_clase {
+  max-width: 600px;
+  text-align: justify;
+}
+
+.marco_clase {
+  margin-bottom: 25px;
+  display: inline-flex;
+  max-width: fit-content;
+  min-width: fit-content;
+}
+
+.foto_clase {
+  background-color: white;
+  border-color: rgba(0, 0, 0, 1);
+  border-style: solid;
+  margin-left: auto;
+  border-width: 5px;
+  border-radius: 19px;
+  position: relative;
+}
+
+.div_clase {
+  max-width: 380px;
+  display: inline-block;
+  background-color: #f6f39b;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.evoluciones {
+  background-color: #b86300;
+  border: solid 2px #b86300;
+  display: block;
+  max-width: 767px;
+  max-height: 500px;
 }
 
 .h2_clase_nombre {
@@ -976,4 +1135,18 @@ button:hover {
   min-width: 600px;
   font-size: 20px;
   font-weight: 300;
+}
+
+.clase_nombre {
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+.img_clase {
+  border-color: 6px solid rgba(0, 0, 0, 1);
+  border-style: solid;
+  margin-left: auto;
+  border-width: 4px;
+  border-radius: 15%;
+  position: relative;
 }
