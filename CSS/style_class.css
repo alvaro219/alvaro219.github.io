@@ -7,6 +7,7 @@ body {
   padding: 0;
   line-height: 1;
 }
+
 .pen {
   max-width: 635px;
   width: 100%;
@@ -23,6 +24,7 @@ body {
   -o-animation: 1s appear 1 forwards;
   animation: 1s appear 1 forwards;
 }
+
 .credit {
   display: block;
   max-width: 400px;
@@ -33,12 +35,14 @@ body {
   color: #f0f0f0;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.9);
 }
+
 .credit p a,
 .credit a {
   color: white;
   text-decoration: none;
   font-weight: 700;
 }
+
 .credit p a:hover,
 .credit a:hover,
 .credit p a:active,
@@ -46,6 +50,7 @@ body {
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
   color: white;
 }
+
 .credit p a.button,
 .credit a.button {
   padding: 6px 12px;
@@ -53,13 +58,16 @@ body {
   background: #000000;
   border-radius: 3px;
 }
+
 .credit p a.button:hover,
 .credit a.button:hover {
   background: #2b2b2b;
 }
+
 .credit p:last-of-type {
   margin-bottom: 30px;
 }
+
 .stage {
   max-width: 635px;
   width: 100%;
@@ -70,6 +78,7 @@ body {
   -o-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
 }
+
 .element {
   background: green;
   width: 202px;
@@ -830,6 +839,11 @@ ul li:hover ul.dropdown-a {
 
 .footer-e {
   border-top: solid 2px #b86300;
+  width: 100vw;
+}
+
+.dt_header{
+  width: 100vw;
 }
 
 .fecha {
@@ -1132,9 +1146,10 @@ button:hover {
 
 .h2_clase_nombre {
   max-width: 750px;
-  min-width: 600px;
+  min-width: 300px;
   font-size: 20px;
   font-weight: 300;
+  text-align: center;
 }
 
 .clase_nombre {

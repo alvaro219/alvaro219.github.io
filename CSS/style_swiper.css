@@ -1,17 +1,18 @@
 body {
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
     height: 100vh;
     width: 100vw;
-    overflow: hidden;
+    overflow-x: hidden;
   }
   
   .swiper-container {
     position: relative;
-    width: 100%;
+    width: 95%;
     height: 1000px;
     overflow: hidden;
+    margin: auto;
   }
   
   .swiper-container > .swiper-slide__content {
@@ -36,29 +37,30 @@ body {
     height: 300px;
   }
   
-  .clase_nombre{
+  .clase_nombre {
     justify-content: center;
-    align-items: center;
     margin: auto;
     display: flex;
   }
   
-  .h2_clase_nombre{
-    justify-content: center;
+  .h2_clase_nombre {
     align-items: center;
     margin: auto;
     margin-bottom: 15px;
+    min-width: 200px;
   }
   
-  .img_clase{
+  .img_clase {
+    margin-bottom: 10px;
     justify-content: center;
     align-items: center;
     margin: auto;
     display: flex;
   }
   
-  .asaltante{
-    border-color: black;
+  .element.asaltante{
+    border-style: solid;
+    border-color: #343863;
     border-radius: 3px;
   }
   

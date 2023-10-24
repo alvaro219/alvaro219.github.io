@@ -639,6 +639,11 @@ ul li:hover ul.dropdown-a {
 
 .footer-e {
   border-top: solid 2px #b86300;
+  width: 100vw;
+}
+
+.dt_header{
+  width: 100vw;
 }
 
 .fecha {
