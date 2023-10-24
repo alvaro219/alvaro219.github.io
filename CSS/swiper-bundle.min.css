@@ -31,7 +31,6 @@
   margin-right: auto;
   position: relative;
   overflow: hidden;
-  overflow: clip;
   list-style: none;
   padding: 0;
   z-index: 1;
