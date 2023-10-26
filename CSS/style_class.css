@@ -11,7 +11,7 @@ body {
 .pen {
   max-width: 635px;
   width: 100%;
-  margin: 50px auto 0;
+  margin: 5px auto 0;
   opacity: 0;
   position: relative;
   -webkit-transition: all 0.25s ease-in-out;
@@ -111,25 +111,153 @@ body {
 }
 
 .element.explorador {
-  background: url('https://w0.peakpx.com/wallpaper/771/236/HD-wallpaper-fantasy-art-warrior-armor-archer-elven-female-warrior-figure-hugging-armor.jpg')
+  background: url('https://i.pinimg.com/564x/5e/f8/00/5ef8009505bb2620d70800e2fc35049f.jpg')
     45% 0 no-repeat;
   background-size: cover;
 }
 
 .element.ladron {
-  background: url('https://i.pinimg.com/originals/b7/db/19/b7db19a14db891e76a4c02b18d7d40c0.png')
+  background: url('https://i.pinimg.com/564x/19/8f/e1/198fe1fc0fe2fffc83c52301ac34d1b4.jpg')
     45% 0 no-repeat;
   background-size: cover;
 }
 
 .element.lancero {
-  background: url('https://static.wixstatic.com/media/af1176_f2c167c7833b434abaadc90eed39f8f2~mv2.jpg/v1/crop/x_0,y_165,w_2828,h_3642/fill/w_560,h_650,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/The%20Way%20of%20the%20Spartans%20(11)_remini-enhanced.jpg')
+  background: url('https://i.pinimg.com/564x/dd/42/3e/dd423ea9c5de7fc637599e9f2fdde306.jpg')
     45% 0 no-repeat;
   background-size: cover;
 }
+
+.element.ronin {
+  background: url('https://preview.redd.it/xbx0uuh3z9241.jpg?width=640&crop=smart&auto=webp&s=3684ce0b495310cabef837c715746b7e2fe72b6e')
+    45% 0 no-repeat;
+  background-size: cover;
+}
+
+.element.pistolero {
+  background: url('https://cdnb.artstation.com/p/assets/images/images/015/155/029/large/vinicius-werneck-sav-20184-illu-viniciusaugustoperezwerneckdealmeida-koboldhunter.jpg?1547252159')
+    45% 0 no-repeat;
+  background-size: cover;
+}
+
+.element.mago {
+  background: url('https://i.pinimg.com/originals/d0/0b/65/d00b656ab48312fc32d49e7dc00fb1b9.png')
+    45% 0 no-repeat;
+  background-size: cover;
+}
+
+.element.barbaro {
+  background: url('https://i.pinimg.com/1200x/a9/ba/70/a9ba70ffe3fb21fe0ffe842b046e02c7.jpg')
+    45% 0 no-repeat;
+  background-size: cover;
+}
+
+.element.monje {
+  background: url('https://cdnb.artstation.com/p/assets/images/images/016/423/461/large/annie-doyon-lauriedurand-commissionjpeg2.jpg?1552101784')
+    45% 0 no-repeat;
+  background-size: cover;
+}
+
+.element.inquisidor {
+  background: url('https://preview.redd.it/am5kbrrs8ap81.jpg?auto=webp&s=bf879e5b1999832c8212d21c9164cc831dca3992')
+    45% 0 no-repeat;
+  background-size: cover;
+}
+
+.element.ferromante {
+  background: url('https://storage.googleapis.com/pai-images/67550b9212fe4e63b3d291d460edb7cb.jpeg')
+    45% 0 no-repeat;
+  background-size: cover;
+}
+
+.element.forjado {
+  background: url('https://i.pinimg.com/1200x/b2/57/7a/b2577a7c66fa7c3ada7e930575be4b2d.jpg')
+    45% 0 no-repeat;
+  background-size: cover;
+}
+
+.element.paladin {
+  background: url('https://i.pinimg.com/736x/fb/c6/b3/fbc6b34cad0b06f15dccafd394607053.jpg')
+    45% 0 no-repeat;
+  background-size: cover;
+}
+
+.element.ingeniero {
+  background: url('https://i.pinimg.com/1200x/f6/2d/e7/f62de7308fd69db832b3bfb51933cbf8.jpg')
+    45% 0 no-repeat;
+  background-size: cover;
+}
+
+.element.druida {
+  background: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/31315228-bf2a-4f15-9f3c-714058818bdb/derork4-60c4d09a-2260-4f52-a20a-68a8eb364473.jpg/v1/fill/w_1280,h_906,q_75,strp/druid_splash_art___wrath_of_nature_by_tororabbit_derork4-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTA2IiwicGF0aCI6IlwvZlwvMzEzMTUyMjgtYmYyYS00ZjE1LTlmM2MtNzE0MDU4ODE4YmRiXC9kZXJvcms0LTYwYzRkMDlhLTIyNjAtNGY1Mi1hMjBhLTY4YThlYjM2NDQ3My5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.LXDYOrY5dFcyNsAlMDHgVAaG2j67dYJhvEzDQ4dbrI8')
+    45% 0 no-repeat;
+  background-size: cover;
+}
+
+.element.erudito {
+  background: url('https://i.pinimg.com/564x/0e/a5/16/0ea51614f2ada0847f9c42cd73dc44f4.jpg')
+    45% 0 no-repeat;
+  background-size: cover;
+}
+
+.element.exorcista {
+  background: url('https://i.pinimg.com/564x/08/a8/84/08a884948a3cf31e79b1966384571ab4.jpg')
+    45% 0 no-repeat;
+  background-size: cover;
+}
+
+.element.clerigo {
+  background: url('https://i.pinimg.com/564x/b7/c7/43/b7c743853a9414f4cc4dc4287683d880.jpg')
+    45% 0 no-repeat;
+  background-size: cover;
+}
+
+.element.heraldo {
+  background: url('https://i.pinimg.com/564x/2e/cb/2f/2ecb2f550dc73fcad52c7915ad22afc2.jpg')
+    45% 0 no-repeat;
+  background-size: cover;
+}
+
+.element.alquimista {
+  background: url('https://i.pinimg.com/564x/24/c7/36/24c736aad1b4539d26d0800f8c430946.jpg')
+    45% 0 no-repeat;
+  background-size: cover;
+}
+
+.element.elementalista {
+  background: url('https://i.pinimg.com/564x/83/5a/28/835a28e0feadabb34259b2756b38ce25.jpg')
+    45% 0 no-repeat;
+  background-size: cover;
+}
+
+.element.bardo {
+  background: url('https://i.pinimg.com/564x/bf/c7/ea/bfc7ea4a42a5a5fa29de10ab46eebaed.jpg')
+    45% 0 no-repeat;
+  background-size: cover;
+}
+
+.element.crupier {
+  background: url('https://cdnb.artstation.com/p/assets/images/images/049/978/245/large/aitor-sebastian-fplutzvxma0mipg.jpg?1653773699')
+    45% 0 no-repeat;
+  background-size: cover;
+}
+
+.element.brujo {
+  background: url('https://i.pinimg.com/564x/87/05/4e/87054e3a3fa2d32fee32df8139904268.jpg')
+    45% 0 no-repeat;
+  background-size: cover;
+}
+
+.element.astrologo {
+  background: url('https://i.pinimg.com/564x/e5/b7/d0/e5b7d01dd1b9f7af38b4fce38dd6edbb.jpg')
+    45% 0 no-repeat;
+  background-size: cover;
+}
+
 .element:last-of-type {
   margin: 0;
 }
+
 @media all and (min-width: 900px) {
   .pen {
     max-width: 890px;
@@ -842,7 +970,7 @@ ul li:hover ul.dropdown-a {
   width: 100vw;
 }
 
-.dt_header{
+.dt_header {
   width: 100vw;
 }
 
@@ -1153,14 +1281,18 @@ button:hover {
 }
 
 .clase_nombre {
+  text-align: center;
   font-size: 35px;
   margin-bottom: 10px;
+  max-width: 900px;
+  min-width: 500px;
 }
 
 .img_clase {
   border-color: 6px solid rgba(0, 0, 0, 1);
   border-style: solid;
-  margin-left: auto;
+
+  margin-bottom: 15px;
   border-width: 4px;
   border-radius: 15%;
   position: relative;

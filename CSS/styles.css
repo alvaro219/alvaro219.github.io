@@ -6,6 +6,7 @@ body {
   font-family: system-ui, sans-serif;
   color: black;
   background-color: white;
+  overflow-x: hidden;
 }
 
 nav {
@@ -642,7 +643,7 @@ ul li:hover ul.dropdown-a {
   width: 100vw;
 }
 
-.dt_header{
+.dt_header {
   width: 100vw;
 }
 
