@@ -12,7 +12,6 @@ $(document).ready(function () {
     slidesPerView: 1,
     centeredSlides: true,
     roundLengths: true,
-    loop: true,
     loopAdditionalSlides: 30,
     navigation: {
       nextEl: '.swiper-button-next',
