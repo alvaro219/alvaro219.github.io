@@ -1258,7 +1258,7 @@ button:hover {
   vertical-align: center;
   justify-content: center;
   max-width: 379px;
-  min-height: 300px;
+  min-height: 400px;
   display: inline-block;
   background-color: #f6f39b;
   padding-left: 20px;
@@ -1292,7 +1292,6 @@ button:hover {
 .img_clase {
   border-color: 6px solid rgba(0, 0, 0, 1);
   border-style: solid;
-
   margin-bottom: 15px;
   border-width: 4px;
   border-radius: 15%;
