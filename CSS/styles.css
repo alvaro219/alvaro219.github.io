@@ -930,7 +930,10 @@ button:hover {
 }
 
 .div_clase {
-  max-width: 377px;
+  vertical-align: center;
+  justify-content: center;
+  max-width: 379px;
+  min-height: 300px;
   display: inline-block;
   background-color: #f6f39b;
   padding-left: 20px;

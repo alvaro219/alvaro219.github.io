@@ -189,7 +189,7 @@ body {
 }
 
 .element.druida {
-  background: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/31315228-bf2a-4f15-9f3c-714058818bdb/derork4-60c4d09a-2260-4f52-a20a-68a8eb364473.jpg/v1/fill/w_1280,h_906,q_75,strp/druid_splash_art___wrath_of_nature_by_tororabbit_derork4-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTA2IiwicGF0aCI6IlwvZlwvMzEzMTUyMjgtYmYyYS00ZjE1LTlmM2MtNzE0MDU4ODE4YmRiXC9kZXJvcms0LTYwYzRkMDlhLTIyNjAtNGY1Mi1hMjBhLTY4YThlYjM2NDQ3My5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.LXDYOrY5dFcyNsAlMDHgVAaG2j67dYJhvEzDQ4dbrI8')
+  background: url('https://i.pinimg.com/564x/44/84/a4/4484a487873d0534c4baafa98146c3ab.jpg')
     45% 0 no-repeat;
   background-size: cover;
 }
@@ -1255,7 +1255,10 @@ button:hover {
 }
 
 .div_clase {
-  max-width: 377px;
+  vertical-align: center;
+  justify-content: center;
+  max-width: 379px;
+  min-height: 300px;
   display: inline-block;
   background-color: #f6f39b;
   padding-left: 20px;
