@@ -933,6 +933,7 @@ button:hover {
   vertical-align: center;
   justify-content: center;
   border: solid;
+  border-width: 2px;
   border-color: #b86300;
   display: inline-block;
   background-color: #f6f39b;
