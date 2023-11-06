@@ -589,6 +589,14 @@ li {
   .slide-content {
     margin: 0 10px;
   }
+
+  .d-texto {
+    margin-left: 5px;
+    margin-right: 15px;
+    font-size: 18px;
+    text-align: left;
+    max-width: 400px;
+  }
 }
 
 .b_tecnico {
@@ -929,7 +937,6 @@ ul li:hover ul.dropdown-a {
 
 .footer-e {
   border-top: solid 2px #b86300;
-  width: 100vw;
 }
 
 .dt_header {
@@ -1194,10 +1201,11 @@ button:hover {
 
 .li_clase {
   text-align: justify;
+  max-width: 760px;
 }
 
 .desc_clase {
-  max-width: 600px;
+  max-width: 450px;
   text-align: justify;
 }
 
