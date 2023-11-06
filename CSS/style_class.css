@@ -215,7 +215,7 @@ body {
   margin: 0;
 }
 
-.class-center{
+.class-center {
   margin-top: 50px;
 }
 
@@ -412,6 +412,7 @@ main {
 }
 
 .m-ul {
+  margin-top: 15px;
   margin-left: 50px;
   font-size: 25px;
 }
