@@ -237,7 +237,7 @@ body {
 }
 
 .element.crupier {
-  background: url('https://cdnb.artstation.com/p/assets/images/images/049/978/245/large/aitor-sebastian-fplutzvxma0mipg.jpg?1653773699')
+  background: url('https://i.pinimg.com/564x/f6/b1/57/f6b15741ec4ae88701c919add7cf0af7.jpg')
     45% 0 no-repeat;
   background-size: cover;
 }
@@ -276,23 +276,25 @@ body {
     height: 600px;
   }
 }
+
 @media all and (max-width: 660px) {
   .pen {
-    max-width: 335px;
+    max-width: 500px;
   }
   .element {
-    width: 101px;
+    width: 159px;
   }
   .element.inactive {
-    width: 61px;
+    width: 121px;
   }
   .element.active {
-    width: 181px;
+    width: 235px;
   }
   .stage {
-    max-width: 335px;
+    max-width: 500px;
   }
 }
+
 @-webkit-keyframes appear {
   15% {
     opacity: 0;
@@ -1283,11 +1285,10 @@ button:hover {
 }
 
 .clase_nombre {
-  text-align: center;
   font-size: 35px;
   margin-bottom: 10px;
   max-width: 900px;
-  min-width: 500px;
+  min-width: 200px;
 }
 
 .img_clase {
