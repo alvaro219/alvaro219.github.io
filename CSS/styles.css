@@ -38,9 +38,6 @@ nav a {
   margin: auto;
   margin-top: 25px;
   text-align: center;
-  border-style: solid;
-  min-width: 650px;
-  max-width: 1400px;
 }
 
 nav a[aria-current='page'] {
@@ -338,7 +335,7 @@ li {
 }
 
 .nav-tecnico {
-  min-width: 787px;
+  min-width: 767px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -666,6 +663,7 @@ ul li:hover ul.dropdown-a {
 }
 
 .footer-e {
+  min-width: 767px;
   border-top: solid 2px #b86300;
 }
 

@@ -936,6 +936,7 @@ ul li:hover ul.dropdown-a {
 }
 
 .footer-e {
+  min-width: 767px;
   border-top: solid 2px #b86300;
 }
 
