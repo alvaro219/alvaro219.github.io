@@ -214,7 +214,10 @@ li {
 .i-Mensaje {
   margin-top: 12px;
   margin-bottom: 11px;
+  width:575px;
+  height:125px;
 }
+
 
 .boton-enviar {
   text-align: center;
