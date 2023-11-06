@@ -319,7 +319,9 @@ li {
 }
 
 .portada_clase {
-  max-width: 725px;
+  min-width: 725px;
+  text-align: center;
+  justify-content: center;
 }
 
 .b_tecnico {
