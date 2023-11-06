@@ -4,7 +4,6 @@ body {
   justify-content: center;
   height: 100vh;
   width: 100vw;
-  overflow-x: hidden;
 }
 
 .swiper-container {
@@ -12,7 +11,6 @@ body {
   width: 95%;
   height: 850px;
   overflow: hidden;
-  margin: auto;
   margin-top: 25px;
 }
 
@@ -42,7 +40,6 @@ body {
   justify-content: center;
   display: flex;
   margin: auto;
-  
 }
 
 .h2_clase_nombre {

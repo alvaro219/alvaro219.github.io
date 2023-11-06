@@ -34,6 +34,15 @@ nav a {
   color: #000000;
 }
 
+.div-center {
+  margin: auto;
+  margin-top: 25px;
+  text-align: center;
+  border-style: solid;
+  min-width: 650px;
+  max-width: 1400px;
+}
+
 nav a[aria-current='page'] {
   color: rgb(255, 255, 255);
   background-color: #ffffff;
@@ -615,8 +624,7 @@ ul li:hover ul.dropdown-a {
 }
 
 .c-compra {
-  margin-top: 35px;
-  margin-bottom: 20px;
+  margin: auto;
 }
 
 .div-compra {
@@ -624,10 +632,7 @@ ul li:hover ul.dropdown-a {
   border: solid 2px #b86300;
   border-radius: 6px;
   background: linear-gradient(to right, #3d1620, #5c11a7, #3d1620);
-  margin-top: 25px;
-  margin-bottom: 25px;
-  margin-left: 25px;
-  margin-right: 25px;
+  margin: 25px;
   display: inline-block;
 }
 

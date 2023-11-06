@@ -25,6 +25,10 @@ body {
   animation: 1s appear 1 forwards;
 }
 
+.div-center {
+  text-align: center;
+}
+
 .stage {
   max-width: 635px;
   width: 100%;
@@ -890,8 +894,7 @@ ul li:hover ul.dropdown-a {
 }
 
 .c-compra {
-  margin-top: 35px;
-  margin-bottom: 20px;
+  margin: auto;
 }
 
 .div-compra {
@@ -899,10 +902,7 @@ ul li:hover ul.dropdown-a {
   border: solid 2px #b86300;
   border-radius: 6px;
   background: linear-gradient(to right, #3d1620, #5c11a7, #3d1620);
-  margin-top: 25px;
-  margin-bottom: 25px;
-  margin-left: 25px;
-  margin-right: 25px;
+  margin: 25px;
   display: inline-block;
 }
 
