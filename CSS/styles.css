@@ -324,6 +324,10 @@ li {
   }
 }
 
+.portada_clase {
+  max-width: 725px;
+}
+
 .b_tecnico {
   background-color: #fcf3e4;
 }
