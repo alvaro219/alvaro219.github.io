@@ -25,49 +25,6 @@ body {
   animation: 1s appear 1 forwards;
 }
 
-.credit {
-  display: block;
-  max-width: 400px;
-  text-align: center;
-  margin: 150px auto 0;
-  padding: 0;
-  font-size: 0.8em;
-  color: #f0f0f0;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.9);
-}
-
-.credit p a,
-.credit a {
-  color: white;
-  text-decoration: none;
-  font-weight: 700;
-}
-
-.credit p a:hover,
-.credit a:hover,
-.credit p a:active,
-.credit a:active {
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
-  color: white;
-}
-
-.credit p a.button,
-.credit a.button {
-  padding: 6px 12px;
-  margin-top: 10px;
-  background: #000000;
-  border-radius: 3px;
-}
-
-.credit p a.button:hover,
-.credit a.button:hover {
-  background: #2b2b2b;
-}
-
-.credit p:last-of-type {
-  margin-bottom: 30px;
-}
-
 .stage {
   max-width: 635px;
   width: 100%;
@@ -256,6 +213,10 @@ body {
 
 .element:last-of-type {
   margin: 0;
+}
+
+.class-center{
+  margin-top: 50px;
 }
 
 @media all and (min-width: 900px) {
