@@ -333,7 +333,7 @@ nav a[aria-current='page'] {
 }
 
 main {
-  min-width: 767px;
+  min-width: 720px;
   margin: 1rem;
 }
 
