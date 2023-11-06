@@ -482,16 +482,19 @@ li {
 }
 
 .i-Nombre {
+  min-width: fit-content;
   margin-right: 15px;
   margin-left: 15px;
 }
 
 .i-Asunto {
+  min-width: fit-content;
   margin-right: 15px;
   margin-left: 15px;
 }
 
 .i-Tu-Correo {
+  min-width: fit-content;
   margin-right: 15px;
   margin-left: 15px;
 }

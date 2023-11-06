@@ -193,16 +193,19 @@ li {
 }
 
 .i-Nombre {
-  margin-right: 15px;
-  margin-left: 15px;
-}
-
-.i-Asunto {
+  min-width: fit-content;
   margin-right: 15px;
   margin-left: 15px;
 }
 
 .i-Tu-Correo {
+  min-width: fit-content;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+.i-Asunto {
+  min-width: fit-content;
   margin-right: 15px;
   margin-left: 15px;
 }
@@ -214,10 +217,9 @@ li {
 .i-Mensaje {
   margin-top: 12px;
   margin-bottom: 11px;
-  width:575px;
-  height:125px;
+  width: 575px;
+  height: 125px;
 }
-
 
 .boton-enviar {
   text-align: center;
