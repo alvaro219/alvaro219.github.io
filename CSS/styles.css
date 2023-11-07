@@ -139,7 +139,7 @@ li {
 }
 
 .aptitudes {
-  text-align: left;
+  text-align: justify;
   max-width: 1000px;
   min-width: 676px;
   margin-right: auto;
@@ -281,13 +281,13 @@ li {
   }
 
   .aptitudes {
-    text-align: left;
+    text-align: justify;
     max-width: 1000px;
     min-width: 676px;
     margin-right: auto;
     margin-left: auto;
     width: 85%;
-    font-size: 23px;
+    font-size: 20px;
   }
 
   .d-texto {
