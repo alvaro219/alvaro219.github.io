@@ -200,10 +200,13 @@ body {
 }
 
 .element.crupier {
+  
   background: url('https://i.pinimg.com/564x/f6/b1/57/f6b15741ec4ae88701c919add7cf0af7.jpg')
     45% 0 no-repeat;
   background-size: cover;
 }
+
+
 
 .element.brujo {
   background: url('https://i.pinimg.com/564x/87/05/4e/87054e3a3fa2d32fee32df8139904268.jpg')
