@@ -50,6 +50,53 @@ main {
   margin: 1rem;
 }
 
+.img_proyectos{
+  border: solid 4px black;
+  border-radius: 16px;
+}
+
+.allParent{
+  justify-content: center;
+  width: 60%;
+}
+
+.titleAll{
+  width:100%;
+  padding-top:5px;
+  background-color:#fff;
+  text-align:center;
+}
+
+.titleAll h4{
+  color:gray;
+  margin:0;
+}
+
+.parent {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  background-color:#fff;
+  text-align:justify;
+}
+
+.child{
+  vertical-align: center;
+}
+
+.parent .child {
+  padding-right: 10px;
+  flex-grow: 1;
+  font-size: 18px;
+  max-width: 500px; 
+  min-width: 400px; 
+}
+
+.parent .child:last-child {
+  padding-right: 0;
+  padding-left: 15px;
+}
+
 .FotodePerfil {
   border-color: rgba(0, 0, 0, 1);
   border-style: solid;
