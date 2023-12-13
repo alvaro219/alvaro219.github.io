@@ -373,6 +373,13 @@ li {
   .slide-content {
     margin: 0 10px;
   }
+
+  .parent {
+    padding: 10px;
+    background-color: #fff;
+    text-align: justify;
+  }
+
 }
 
 .portada_clase {
