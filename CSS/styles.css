@@ -84,12 +84,11 @@ main {
   vertical-align: center;
 }
 
-.parent .child {
+.descrip {
   padding-right: 10px;
   flex-grow: 1;
   font-size: 18px;
   max-width: 500px; 
-  min-width: 400px; 
 }
 
 .parent .child:last-child {
@@ -1024,4 +1023,8 @@ button:hover {
   display: block;
   max-width: 767px;
   max-height: 500px;
+}
+
+.descr{
+  min-width: 400px;
 }
