@@ -50,37 +50,37 @@ main {
   margin: 1rem;
 }
 
-.img_proyectos{
+.img_proyectos {
   border: solid 4px black;
   border-radius: 16px;
 }
 
-.allParent{
+.allParent {
   justify-content: center;
   width: 60%;
 }
 
-.titleAll{
-  width:100%;
-  padding-top:5px;
-  background-color:#fff;
-  text-align:center;
+.titleAll {
+  width: 100%;
+  padding-top: 5px;
+  background-color: #fff;
+  text-align: center;
 }
 
-.titleAll h4{
-  color:gray;
-  margin:0;
+.titleAll h4 {
+  color: gray;
+  margin: 0;
 }
 
 .parent {
   display: flex;
   flex-direction: row;
   padding: 10px;
-  background-color:#fff;
-  text-align:justify;
+  background-color: #fff;
+  text-align: justify;
 }
 
-.child{
+.child {
   vertical-align: center;
 }
 
@@ -88,7 +88,7 @@ main {
   padding-right: 10px;
   flex-grow: 1;
   font-size: 18px;
-  max-width: 500px; 
+  max-width: 500px;
 }
 
 .parent .child:last-child {
@@ -156,6 +156,13 @@ main {
   margin-right: 15px;
   border-radius: 15px;
 }
+
+.imagen-github-proyectos {
+  margin-left: 2rem;
+  margin-right: 15px;
+  border-radius: 15px;
+}
+
 .imagen-linkedin {
   margin-left: 15px;
   border-radius: 15px;
@@ -381,7 +388,6 @@ li {
     background-color: #fff;
     text-align: justify;
   }
-
 }
 
 .portada_clase {
@@ -1034,6 +1040,7 @@ button:hover {
   max-height: 500px;
 }
 
-.descr{
+.descr {
   min-width: 400px;
+  padding-left: 2rem;
 }
