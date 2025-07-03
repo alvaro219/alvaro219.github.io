@@ -1,0 +1,794 @@
+<div class="header-box">
+  <div class="header-logo">
+    <a href="/" title="Inicio">
+      <img src="/icons/icon.png" alt="Logotipo" class="logo-img dim" title="logotipo"/>
+      <img
+        src="/icons/icon.png"
+        alt="Logotipo"
+        class="logo-img lit"
+        title="logotipo"
+      />
+    </a>
+  </div>
+
+  <div class="navigation-box">
+    <button tabindex="0" class="hide-on-mobile" title="github">
+      <img src="/icons/github-icon.svg" alt="icono-github" title="icono-github" width="24px" height="24px">
+      <a href="https://github.com/alvaro219" target="_blank" rel="noreferrer noopener" aria-label="github" title="github">
+        Github
+      </a>
+    </button>
+
+    <button tabindex="0" class="hide-on-mobile" title="github">
+      <img src="/icons/linkedin-icon.svg" alt="icono-linkedin" title="icono-linkedin" width="24px" height="24px">
+      <a href="https://www.linkedin.com/in/alvaroantonmacia/" target="_blank" rel="noreferrer noopener" aria-label="linkedin" title="linkedin">
+        LinkedIn
+      </a>
+    </button>
+
+    <button tabindex="0"class="hide-on-mobile" aria-label="Contáctame" title="contáctame" data-target="contact_us">Contáctame</button>
+    <!-- <button tabindex="-1" data-target="contact_us" class="contact-button hide-on-mobile" title="contáctanos">
+      <a href="#" aria-label="Contáctanos" title="Contáctanos"></a>
+    </button> -->
+
+    <sl-button class="hide-on-pc" tabindex="0">
+      <img
+        class="icon not-mobile"
+        src="/icons/menu-icon.svg"
+        alt="icono-decorativo"
+        width="56"
+        height="56"
+        title="icono-decorativo"
+      />
+    </sl-button>
+
+    <sl-drawer label="Menú" class="drawer-custom-size" style="--size: 100vw; color: var(--color-header) !important;">
+      <div class="mobile-menu-div">
+        <button onclick="window.location.href='/'"><a  tabindex="-1" title="Inicio" href="/" style="color: var(--color-header) !important;">Inicio</a></button>
+
+        <button>
+          <a  tabindex="0" title="Inicio" href="https://github.com/alvaro219" target="_blank" rel="noreferrer noopener" style="color: var(--color-header) !important;">
+            <img src="/icons/github-black-icon.svg" alt="icono-github" title="icono-github" width="24px" height="24px">
+            Github
+          </a>
+        </button>
+
+        <button>
+          <a  tabindex="0" title="Inicio" href="https://www.linkedin.com/in/alvaroantonmacia/" target="_blank" rel="noreferrer noopener" style="color: var(--color-header) !important;">
+            <img src="/icons/linkedin-black-icon.svg" alt="icono-linkedin" title="icono-linkedin" width="24px" height="24px">
+            LinkedIn
+          </a>
+        </button>
+
+        <button data-target="contact_us" style="color: var(--color-header);">Contáctame</button>
+      </div>
+    </sl-drawer>
+  </div>
+</div>
+
+<script>
+  const drawer = document.querySelector('.drawer-custom-size') as HTMLElement & { show: () => void; hide: () => void };
+  const openButton = document.querySelector('sl-button') as HTMLElement;
+
+  if (openButton && drawer) {
+    openButton.addEventListener('click', () => {
+      drawer.show();
+    });
+
+    openButton.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        drawer.show();
+      }
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    function updateHeaderScrolledState() {
+      const header = document.querySelector(".header-box");
+      if (!header) return;
+      if (window.scrollY > 0) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    }
+
+    window.addEventListener("scroll", updateHeaderScrolledState);
+    updateHeaderScrolledState();
+    document
+      .querySelectorAll(".navigation-box button[data-target]")
+      .forEach((button) => {
+        button.addEventListener("click", (e) => {
+          e.preventDefault();
+          const target = button.getAttribute("data-target");
+
+          button.classList.add("fade");
+          setTimeout(() => button.classList.remove("fade"), 300);
+
+          const isHome =
+            window.location.pathname === "/" ||
+            window.location.pathname === "/index.html";
+
+          if (target === "contact_us") {
+            const section = document.getElementById(target!);
+            if (!section) return;
+
+            const headerHeight =
+              (document.querySelector(".header-box") as HTMLElement)
+                ?.offsetHeight || 0;
+            const sectionTop =
+              section.getBoundingClientRect().top + window.pageYOffset;
+            const sectionHeight = section.offsetHeight;
+            const viewportHeight = window.innerHeight;
+
+            // Si la sección cabe entera en la ventana, centrarla. Si no, alinear arriba con margen para header.
+            let y;
+            if (sectionHeight < viewportHeight) {
+              y = sectionTop - (viewportHeight - sectionHeight) / 2;
+            } else {
+              y = sectionTop - headerHeight - 20; // Pequeño margen adicional
+            }
+
+            window.scrollTo({ top: y, behavior: "smooth" });
+          } else if (!isHome && target != "contact_us") {
+            window.location.href = `/#${target}-scroll`;
+            return;
+          } else if (target === "top") {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          } else {
+            const section = document.getElementById(target!);
+            if (section) {
+              const headerHeight =
+                (document.querySelector(".header-box") as HTMLElement)
+                  ?.offsetHeight || 0;
+              const sectionTop =
+                section.getBoundingClientRect().top + window.pageYOffset;
+              const sectionHeight = section.offsetHeight;
+              const viewportHeight = window.innerHeight;
+
+              // Si la sección cabe entera en la ventana, centrarla. Si no, alinear arriba con margen para header.
+              let y;
+              if (sectionHeight < viewportHeight) {
+                y = sectionTop - (viewportHeight - sectionHeight) / 2;
+              } else {
+                y = sectionTop - headerHeight - 20; // Pequeño margen adicional
+              }
+
+              window.scrollTo({ top: y, behavior: "smooth" });
+            }
+          }
+        });
+      });
+
+    document.querySelectorAll(".logo-img").forEach((logo) => {
+      logo.addEventListener("click", () => {
+        logo.classList.add("fade");
+        setTimeout(() => logo.classList.remove("fade"), 300);
+      });
+    });
+
+    window.addEventListener("load", () => {
+      const hash = window.location.hash;
+      if (hash && hash.endsWith("-scroll")) {
+        const cleanId = hash.replace("#", "").replace("-scroll", "");
+        const section = document.getElementById(cleanId);
+        if (section) {
+          const headerHeight =
+            (document.querySelector(".header-box") as HTMLElement)
+              ?.offsetHeight || 0;
+          const sectionTop =
+            section.getBoundingClientRect().top + window.pageYOffset;
+          const sectionHeight = section.offsetHeight;
+          const viewportHeight = window.innerHeight;
+
+          // Si la sección cabe entera en la ventana, centrarla. Si no, alinear arriba con margen para header.
+          let y;
+          if (sectionHeight < viewportHeight) {
+            y = sectionTop - (viewportHeight - sectionHeight) / 2;
+          } else {
+            y = sectionTop - headerHeight - 20; // Pequeño margen adicional
+          }
+
+          window.scrollTo({ top: y, behavior: "smooth" });
+        }
+      }
+    });
+
+    const toggle = document.querySelector(".dropdown-toggle") as any;
+    const menu = document.querySelector(".dropdown-menu") as any;
+
+    toggle.addEventListener("focus", () => {
+      menu.style.display = "block";
+    });
+
+    toggle.addEventListener("keydown", (e: any) => {
+      if (e.key === "Enter" || e.key === "ArrowDown") {
+        menu.style.display = "block";
+        menu.querySelector("li").focus();
+      }
+    });
+
+    menu.addEventListener("focusout", () => {
+      setTimeout(() => {
+        if (!menu.contains(document.activeElement)) {
+          menu.style.display = "none";
+        }
+      }, 100);
+    });
+  });
+
+  document.querySelectorAll(".logo-img").forEach((logo) => {
+    logo.addEventListener("click", () => {
+      logo.classList.add("fade");
+      setTimeout(() => logo.classList.remove("fade"), 300);
+    });
+  });
+
+  window.addEventListener("load", () => {
+    const hash = window.location.hash;
+    if (hash && hash.endsWith("-scroll")) {
+      const cleanId = hash.replace("#", "").replace("-scroll", "");
+      const section = document.getElementById(cleanId);
+      if (section) {
+        const headerHeight =
+          (document.querySelector(".header-box") as HTMLElement)
+            ?.offsetHeight || 0;
+        const sectionTop =
+          section.getBoundingClientRect().top + window.pageYOffset;
+        const sectionHeight = section.offsetHeight;
+        const viewportHeight = window.innerHeight;
+
+        let y;
+        if (sectionHeight < viewportHeight) {
+          y = sectionTop - (viewportHeight - sectionHeight) / 2;
+        } else {
+          y = sectionTop - headerHeight - 20;
+        }
+
+        setTimeout(() => {
+          window.scrollTo({ top: y, behavior: "smooth" });
+        }, 100);
+      }
+    }
+  });
+
+  const mobileDrawer = document.querySelector('.drawer-custom-size') as HTMLElement & { hide: () => void };
+
+  document.querySelectorAll('.mobile-menu-div button[data-target]').forEach(button => {
+    button.addEventListener('click', () => {
+      if (mobileDrawer) {
+        mobileDrawer.hide();
+      }
+    });
+  });
+</script>
+
+<style lang="scss">
+  @use "../../components/colors/colors.scss" as *;
+
+  #logo-img {
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .header-logo {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    cursor: pointer;
+
+    .logo-img {
+      position: fixed;
+      width: 64px;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .lit {
+      opacity: 0;
+    }
+
+    &:hover .lit {
+      opacity: 1;
+    }
+
+    &:hover .dim {
+      opacity: 0;
+    }
+  }
+
+  .hide-on-pc {
+    display: none;
+  }
+  .dropdown {
+    position: relative;
+    align-self: center;
+
+    .dropdown-toggle {
+      background: none;
+      border: none;
+      font: inherit;
+      cursor: pointer;
+      padding-inline: 40px;
+      color: var(--color-body);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      svg {
+        transition: transform 0.3s ease;
+      }
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--color-body);
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 0.5rem 0;
+      display: none;
+      flex-direction: column;
+      min-width: 150px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 10000;
+
+      a {
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        color: var(--color-header);
+        white-space: nowrap;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: var(--color-secondary-reversed) !important;
+        }
+      }
+    }
+
+  .dropdown-menu.show {
+    display: block;
+  }
+
+    .dropdown-menu li {
+      list-style: none;
+    }
+
+    .dropdown-menu li a {
+      display: block;
+    }
+
+    &:hover .dropdown-menu, .dropdown-toggle:focus ~ .dropdown-menu {
+      display: flex;
+    }
+
+    &:hover .dropdown-toggle svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  .dropdown {
+    position: relative;
+    align-self: center;
+
+    .dropdown-toggle-mobile {
+      background: none;
+      border: none;
+      font: inherit;
+      cursor: pointer;
+      padding-inline: 40px;
+      color: var(--color-header);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      svg {
+        transition: transform 0.3s ease;
+        fill: var(--color-header) !important;
+      }
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--color-body);
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 0.5rem 0;
+      display: none;
+      flex-direction: column;
+      min-width: 150px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 10000;
+
+      a {
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        color: var(--color-header);
+        white-space: nowrap;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: var(--color-secondary-reversed) !important;
+        }
+      }
+    }
+
+  .dropdown-menu.show {
+    display: block;
+  }
+
+    .dropdown-menu li {
+      list-style: none;
+    }
+
+    .dropdown-menu li a {
+      display: block;
+    }
+
+    &:hover .dropdown-menu, .dropdown-toggle:focus ~ .dropdown-menu {
+      display: flex;
+    }
+
+    &:hover .dropdown-toggle svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  .header-box {
+    display: flex;
+    position: fixed;
+    // height: 100px;
+    opacity: 0.9;
+    width: 100%;
+    padding: 1rem;
+    justify-content: space-between;
+    z-index: 9999;
+    transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+
+    svg {
+      display: inline;
+    }
+
+    .navigation-box {
+      display: flex;
+      margin-inline-end: 24px;
+
+      button {
+        background: none;
+        border: none;
+        font: inherit;
+        cursor: pointer;
+        padding-inline: 40px;
+        color: var(--color-body);
+        transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+
+      a {
+        color: var(--color-body);
+        text-decoration: none;
+      }
+
+      span {
+        padding-inline: 40px;
+        color: var(--color-body);
+      }
+    }
+
+    .contact-button {
+      position: relative;
+      display: inline-flex;
+      width: 180px;
+      height: 55px;
+      margin: 0 15px;
+      perspective: 1000px;
+      border: none;
+      background: none;
+      align-self: center;
+    }
+
+    .contact-button a {
+      font-size: 19px;
+      letter-spacing: 1px;
+      transform-style: preserve-3d;
+      transform: translateZ(-25px);
+      transition: transform 0.25s;
+      font-family: "Montserrat", sans-serif;
+      position: relative;
+      display: inline-block;
+    }
+
+    .contact-button a::before,
+    .contact-button a::after {
+      position: absolute;
+      content: "Contáctanos";
+      height: 55px;
+      width: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 5px solid var(--color-secondary);
+      box-sizing: border-box;
+      border-radius: 5px;
+    }
+
+    .contact-button a::before {
+      color: var(--color-body);
+      background: var(--color-accent);
+      transform: rotateY(0deg) translateZ(25px);
+    }
+
+    .contact-button a::after {
+      color: var(--color-header);
+      background: var(--color-body);
+      transform: rotateX(90deg) translateZ(25px);
+    }
+
+    .contact-button a:hover {
+      transform: translateZ(-25px) rotateX(-90deg);
+    }
+
+    .contact-button a {
+      color: var(--color-primary, color-body);
+    }
+  }
+
+  .header-box.scrolled {
+    background-color: var(--color-header);
+    color: var(--color-body);
+
+    span,
+    svg,
+    a,
+    .contact-button a::before,
+    .contact-button a::after {
+      color: var(--color-body) !important;
+      fill: var(--color-body) !important;
+    }
+
+    .contact-button a::before {
+      background: var(--color-header);
+      border-color: var(--color-secondary-reversed);
+    }
+
+    .contact-button a::after {
+      color: var(--color-header) !important;
+      background: var(--color-body);
+      border: 5px solid var(--color-secondary-reversed);
+    }
+
+    .dropdown-toggle,
+    .dropdown-menu a {
+      color: var(--color-body) !important;
+    }
+
+    .dropdown-menu {
+      border-color: var(--color-body);
+
+      a {
+        color: var(--color-header) !important;
+
+        &:hover &:active {
+          background-color: var(--color-secondary-reversed) !important;
+        }
+      }
+    }
+  }
+
+  button.fade {
+    animation: fade 0.3s ease-in-out;
+  }
+
+  @keyframes fade {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.4;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .mobile-menu-div {
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+    gap: 20px;
+  }
+
+  @media screen and (max-width: 767px) {
+    .header-logo {
+      padding-inline-start: 10px;
+    }
+
+    .header-box {
+      display: flex;
+      position: fixed;
+      height: 100px;
+      opacity: 0.9;
+      width: 100%;
+      padding: 1rem;
+      justify-content: space-between;
+      z-index: 9999;
+      transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+
+      svg {
+        display: inline;
+      }
+
+      .navigation-box {
+        display: flex;
+        margin-inline-end: 24px;
+
+        button {
+          background: none;
+          border: none;
+          font: inherit;
+          cursor: pointer;
+          padding-inline: 40px;
+          color: var(--color-body);
+          transition:
+            opacity 0.3s ease,
+            transform 0.3s ease;
+
+          &:hover {
+            transform: scale(1.05);
+          }
+        }
+
+        span {
+          padding-inline: 40px;
+          color: var(--color-body);
+        }
+      }
+
+      .contact-button {
+        position: relative;
+        display: inline-flex;
+        width: 180px;
+        height: 55px;
+        margin: 0 15px;
+        perspective: 1000px;
+        border: none;
+        background: none;
+        align-self: center;
+      }
+
+      .contact-button a {
+        font-size: 19px;
+        letter-spacing: 1px;
+        transform-style: preserve-3d;
+        transform: translateZ(-25px);
+        transition: transform 0.25s;
+        font-family: "Montserrat", sans-serif;
+        position: relative;
+        display: inline-block;
+      }
+
+      .contact-button a::before,
+      .contact-button a::after {
+        position: absolute;
+        content: "Contáctanos";
+        height: 55px;
+        width: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 5px solid var(--color-secondary);
+        box-sizing: border-box;
+        border-radius: 5px;
+      }
+
+      .contact-button a::before {
+        color: var(--color-body);
+        background: var(--color-accent);
+        transform: rotateY(0deg) translateZ(25px);
+      }
+
+      .contact-button a::after {
+        color: var(--color-header);
+        background: var(--color-body);
+        transform: rotateX(90deg) translateZ(25px);
+      }
+
+      .contact-button a:hover {
+        transform: translateZ(-25px) rotateX(-90deg);
+      }
+
+      .contact-button a {
+        color: var(--color-primary, color-body);
+      }
+    }
+
+    .header-box.scrolled {
+      background-color: var(--color-header);
+      color: var(--color-body);
+
+      span,
+      svg,
+      a,
+      .contact-button a::before,
+      .contact-button a::after {
+        color: var(--color-body) !important;
+        fill: var(--color-body) !important;
+      }
+
+      .contact-button a::before {
+        background: var(--color-header);
+        border-color: var(--color-secondary-reversed);
+      }
+
+      .contact-button a::after {
+        color: var(--color-header) !important;
+        background: var(--color-body);
+        border: 5px solid var(--color-secondary-reversed);
+      }
+
+      .dropdown-toggle,
+      .dropdown-menu a {
+        color: var(--color-body) !important;
+      }
+
+      .dropdown-menu {
+        border-color: var(--color-body);
+
+        a {
+          color: var(--color-header) !important;
+
+          &:hover &:active {
+            background-color: var(--color-secondary-reversed) !important;
+          }
+        }
+      }
+    }
+
+    button.fade {
+      animation: fade 0.3s ease-in-out;
+    }
+
+    @keyframes fade {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.4;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+  @media screen and (max-width: 1024px) {
+      .hide-on-mobile {
+        display: none !important;
+      }
+
+      .hide-on-pc {
+        display: flex;
+        padding-inline-start: 40 !important;
+        padding-inline-end: 0 !important;
+      }
+
+      .header-logo {
+        padding-inline-start: 10px;
+      }
+
+      .header-box {
+        padding: 0px;
+        align-items: center;
+      }
+    }
+</style>

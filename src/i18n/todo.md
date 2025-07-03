@@ -1,0 +1,1 @@
+[ ] routes.json es más una tabla de redirecciones que otra cosa. Está demasiado sobreingeniado y no tengo la energía para replanteármelo ahora. Optimamente cada ruta exportaría una ruta canónica, o, mejor aún, exportaría su propia ruta traducida y routes.json se computaría dinámicamente.

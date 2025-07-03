@@ -1,0 +1,125 @@
+---
+import ButtonReturn from '../pages/button-return/button-return.astro';
+import Footer from '../pages/footer/footer.astro';
+import Header from '../pages/header/header.astro';
+
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+// const SITE_URL = "https://landing-dcubo-498d82.gitlab.io";
+const web_image =  "/images/opengraph_images.png";
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href="/icons/icon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Noto+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css"
+    />
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/carousel/carousel.js"
+    ></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/drawer/drawer.js"></script>
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/icons/icon.png" />
+
+    <!-- Tipografía -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet" />
+
+    <!-- Shoelace -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css" />
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/carousel/carousel.js"></script>
+
+    <!-- Sitemap -->
+    <!-- <link rel="sitemap" type="application/xml" title="Sitemap" href={`${SITE_URL}/sitemap.xml`} /> -->
+
+    <!-- HTML Meta Tags -->
+    <!-- <meta name="description" content="Desarrollamos plataformas, aplicaciones y sistemas de automatización adaptados a tus necesidades. Nuestro equipo creativo y apasionado te acompaña en cada etapa para llevar tus proyectos al siguiente nivel."> -->
+
+    <!-- Facebook Meta Tags -->
+    <!-- <meta property="og:image" content={`${SITE_URL}${web_image}`} /> -->
+    <!-- <meta property="og:title" content={title}> -->
+    <!-- <meta property="og:url" content="https://landing-dcubo-498d82.gitlab.io">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content="DCUBO crea soluciones tecnológicas personalizadas para transformar tu negocio.">
+    <meta property="og:image" content="https://landing-dcubo-498d82.gitlab.io/images/opengraph_image.png">
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="DCUBO: soluciones digitales a medida" />
+    <meta property="og:site_name" content="DCUBO" />
+    <meta property="og:locale" content="es_ES" /> -->
+
+    <!-- Twitter Card -->
+    <!-- <meta name="twitter:image" content={`${SITE_URL}${web_image}`} /> -->
+    <!-- <meta name="twitter:title" content={title}> -->
+    <!-- <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="landing-dcubo-498d82.gitlab.io">
+    <meta property="twitter:url" content="https://landing-dcubo-498d82.gitlab.io">
+    <meta name="twitter:title" content={title}>
+    <meta name="twitter:description" content="DCUBO crea soluciones tecnológicas personalizadas para transformar tu negocio.">
+    <meta name="twitter:image" content="https://landing-dcubo-498d82.gitlab.io/images/opengraph_image.png">
+    <meta name="twitter:site" content="@dcubo_es" /> -->
+
+  </head>
+  <body>
+    <Header />
+
+    <slot />
+    <Footer />
+
+    <ButtonReturn />
+  </body>
+</html>
+<style is:global>
+  :root {
+    --accent: 136, 58, 234;
+    --accent-light: 224, 204, 250;
+    --accent-dark: 49, 10, 101;
+    --accent-gradient: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      rgb(var(--accent-light)) 30%,
+      white 60%
+    );
+  }
+  html {
+    font-family: "Noto Sans", sans-serif;
+    background: #13151a;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Noto Sans", sans-serif;
+  }
+  code {
+    font-family:
+      Menlo,
+      Monaco,
+      Lucida Console,
+      Liberation Mono,
+      DejaVu Sans Mono,
+      Bitstream Vera Sans Mono,
+      Courier New,
+      monospace;
+  }
+</style>

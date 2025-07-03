@@ -1,0 +1,52 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import PoliticaDeCookiesPage from "./legal-pages/_politica_de_cookies_page.astro";
+import Form from "../form/form.astro";
+---
+
+<Layout title="Proyectos reales con impacto tangible.">
+  <main>
+    <PoliticaDeCookiesPage />
+
+    <Form />
+  </main>
+</Layout>
+
+<style lang="scss">
+  main {
+    margin: 0;
+    color: var(--color-header);
+    background-color: white;
+    font-size: 20px;
+    line-height: 1.6;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 200%;
+    text-align: center;
+    margin-bottom: 0.5em;
+
+    :global(.text-gradient) {
+      background-image: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 400%;
+      background-position: 0%;
+    }
+  }
+
+  // Responsive visibility control
+  @media screen and (max-width: 767px) {
+    :global(.hide-on-mobile) {
+      display: none !important;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    :global(.hide-on-desktop) {
+      display: none !important;
+    }
+  }
+</style>

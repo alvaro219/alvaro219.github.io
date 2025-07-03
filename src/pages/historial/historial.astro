@@ -1,0 +1,39 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import about from "../../content/team/about.json";
+import SobreMi from "../../components/sobre_mi.astro";
+import Form from "../form/form.astro";
+---
+
+<Layout title={about.intro.name}>
+  <main>
+    <SobreMi {...about} />
+    <Form id="contact_us" workerName={about.intro["first-name"]} />
+  </main>
+</Layout>
+
+<style lang="scss">
+  main {
+    margin: 0;
+    color: var(--color-header);
+    background-color: var(--color-body);
+    font-size: 20px;
+    line-height: 1.6;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 200%;
+    text-align: center;
+    margin-bottom: 0.5em;
+
+    :global(.text-gradient) {
+      background-image: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 400%;
+      background-position: 0%;
+    }
+  }
+</style>

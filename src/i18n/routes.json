@@ -1,0 +1,17 @@
+{
+  "en": {
+    "/": "/",
+    "/prueba": "/test",
+    "/prova": "/test"
+  },
+  "es": {
+    "/": "/",
+    "/test": "/prueba",
+    "/prova": "/prueba"
+  },
+  "ca": {
+    "/": "/",
+    "/test": "/prova",
+    "/prueba": "/prova"
+  }
+}

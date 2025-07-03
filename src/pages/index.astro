@@ -1,0 +1,87 @@
+---
+import translations from "../index.i18n.json"
+import { useI18N } from "../i18n/i18n";
+// import Hero from "./hero/hero.astro";
+// import WhyUs from "./why-us/why_us.astro";
+// import WhyUsMobile from "./why-us/why_us_mobile.astro";
+// import Successes from "./successes/successes.astro";
+// import AboutUs from "./about-us/about_us.astro";
+import about from "../content/team/about.json";
+import Form from "./form/form.astro";
+import Layout from "../layouts/Layout.astro";
+import SobreMi from "../components/sobre_mi.astro";
+
+const t = useI18N(translations, Astro.url);
+---
+
+<Layout title={t("title")}>
+  <main>
+    <!-- <div>
+      <Hero />
+    </div> -->
+
+    <!-- Desktop Only -->
+    <!-- <div class="hide-on-mobile">
+      <WhyUs id="why_us" />
+    </div> -->
+
+    <!-- Mobile Only -->
+    <!-- <div class="hide-on-desktop">
+      <WhyUsMobile id="why_us_mobile" />
+    </div> -->
+
+    <!-- <div id="successes">
+      <Successes />
+    </div> -->
+
+    <!-- <div id="about_us">
+      <AboutUs />
+    </div> -->
+
+	<SobreMi {...about}></SobreMi>
+
+    <Form id="contact_us" />
+  </main>
+</Layout>
+
+<style lang="scss">
+  main {
+    margin: 0;
+    color: var(--color-header);
+    background-color: var(--color-body);
+    font-size: 20px;
+    line-height: 1.6;
+  }
+  body {
+    margin: 0;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 200%;
+    text-align: center;
+    margin-bottom: 0.5em;
+
+    :global(.text-gradient) {
+      background-image: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 400%;
+      background-position: 0%;
+    }
+  }
+
+  // Responsive visibility control
+  @media screen and (max-width: 767px) {
+    :global(.hide-on-mobile) {
+      display: none !important;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    :global(.hide-on-desktop) {
+      display: none !important;
+    }
+  }
+</style>

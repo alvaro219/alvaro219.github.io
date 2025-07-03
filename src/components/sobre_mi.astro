@@ -1,0 +1,489 @@
+---
+const { intro, education, skills, current, projects } = Astro!.props;
+---
+
+<div class="footer-background"></div>
+
+<div class="worker-content">
+
+  <div class="worker-intro not-mobile flex gap-8">
+    <img src={intro.photo} alt={`Foto de ${intro.name}`} class="worker-photo" tabindex="0"/>
+    <div>
+      <h1 tabindex="0">{intro.name}</h1>
+      <h2 class="sm:flex-row gap-4 mb-4 items-start border-b" tabindex="0">{intro.title}</h2>
+      <p class="mb-8" tabindex="0">{intro.description}</p>
+    </div>
+  </div>
+
+  <div class="worker-intro mobile gap-8">
+    <div>
+      <h1 tabindex="0">{intro.name}</h1>
+      <h2 class="sm:flex-row gap-4 mb-4 items-start border-b" tabindex="0">{intro.title}</h2>
+    </div>
+    <img src={intro.photo} alt={`Foto de ${intro.name}`} class="worker-photo_mobile" tabindex="0"/>
+    <div>
+      <p class="mb-8" tabindex="0">{intro.description}</p>
+    </div>
+  </div>
+
+  <!-- Apartado de Habilidades -->
+  <div class="worker-card mb-8">
+    <img
+      id="content-icon"
+      class="icon not-mobile"
+      src="/icons/skills-icon.svg"
+      alt="icono-decorativo"
+      width="56"
+      height="56"
+      title="icono-decorativo"
+    />
+    <div class="w-full">
+      <div class="mobile-icon-div flex sm:flex-row mb-4 items-start border-b">
+        <img
+        id="content-icon"
+        class="icon mobile"
+        src="/icons/skills-icon.svg"
+        alt="icono-decorativo"
+        width="56"
+        height="56"
+        title="icono-decorativo"
+      />
+      <strong><h3 tabindex="0">Habilidades</h3></strong>
+      </div>
+
+      <div class="tech-list flex flex-wrap gap-2" id="skills-list">
+        {skills.map((skill: any) => (
+          <button
+            class="tech flex cursor-pointer"
+            data-skill={skill.name}
+            onclick="handleSkillClick(event)"
+          >
+            <img
+              src={skill.icon?.startsWith('/') ? skill.icon : `/icons/${skill.icon || `${skill.name.toLowerCase()}.svg`}`}
+              alt={skill.name}
+              width="20px"
+              height="20px"
+              class="tech-icon"
+            />
+            {skill.name}
+          </button>
+        ))}
+      </div>
+      <div id="clear-filter-container" onclick="clearFilter()" class="clear-filter-button flex" style="margin-top: 1rem; display: none;">
+        <button class="tech">Quitar filtro</button>
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#f2f2f2"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Apartado de Proyecto Actual -->
+  <div class="worker-card project-container">
+    <img
+      id="content-icon"
+      class="icon not-mobile"
+      src="/icons/actual-project-icon.svg"
+      alt="icono-decorativo"
+      width="56"
+      height="56"
+      title="icono-decorativo"
+    />
+    <div class="w-full project-box">
+      <div class="mobile-icon-div flex sm:flex-row mb-4 items-start border-b">
+        <img
+        id="content-icon"
+        class="icon mobile"
+        src="/icons/actual-project-icon.svg"
+        alt="icono-decorativo"
+        width="56"
+        height="56"
+        title="icono-decorativo"
+        />
+        <strong><h3 tabindex="0" class="not-mobile">Ocupación Actual</h3></strong>
+        <strong><h3 tabindex="0" class="mobile">En curso</h3></strong>
+
+      </div>
+      <div class="project">
+        <strong><h4 tabindex="0">{current.title}</h4></strong>
+        <p tabindex="0"><strong>Desde:</strong> {current.period.start} – {current.period.end}</p>
+        <div class="tech-list flex gap-2">
+          <p tabindex="0"><strong>Tecnologías:</strong></p>
+          {current.technologies.map((tech: any, index: number) => (
+              <button
+                class="tech flex cursor-pointer"
+                data-skill={tech.name}
+                onclick="handleSkillClick(event)"
+              >
+                <img
+                  src={tech.icon.startsWith('/') ? tech.icon : `/icons/${tech.icon}`}
+                  alt={tech.name}
+                  width="20px"
+                  height="20px"
+                  class="tech-icon"
+                />
+                {tech.name}
+              </button>
+            ))}
+        </div>
+        <p tabindex="0"><strong>Descripción: </strong>{current.description}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Apartado de Proyectos -->
+  <div class="worker-card" id="project-container">
+    <img
+      id="content-icon"
+      class="icon not-mobile"
+      src="/icons/projects-icon.svg"
+      alt="icono-decorativo"
+      width="56"
+      height="56"
+      title="icono-decorativo"
+    />
+    <div class="w-full project-box">
+      <div class="mobile-icon-div flex sm:flex-row mb-4 items-start border-b">
+        <img
+        id="content-icon"
+        class="icon mobile"
+        src="/icons/projects-icon.svg"
+        alt="icono-decorativo"
+        width="56"
+        height="56"
+        title="icono-decorativo"
+        />
+        <h3 tabindex="0" class="not-mobile"><strong>Proyectos Destacados</strong></h3>
+        <h3 tabindex="0" class="mobile"><strong>Proyectos</strong></h3>
+      </div>
+      {projects.map((project: any) => (
+        <div class="project" id={`project-${project.name.replace(/\s+/g, '-').toLowerCase()}`}>
+          <strong tabindex="0"><h4>{project.name}</h4></strong>
+          <p tabindex="0"><strong>Período:</strong> {project.period.start} – {project.period.end}</p>
+
+          <div class="tech-list flex gap-2">
+          <p tabindex="0"><strong>Tecnologías:</strong></p>
+            {project.technologies.map((tech: any, index: number) => (
+              <button
+                class="tech flex cursor-pointer"
+                data-skill={tech.name}
+                onclick="handleSkillClick(event)"
+              >
+                <img
+                  src={tech.icon.startsWith('/') ? tech.icon : `/icons/${tech.icon}`}
+                  alt={tech.name}
+                  width="20px"
+                  height="20px"
+                  class="tech-icon"
+                />
+                {tech.name}
+              </button>
+            ))}
+          </div>
+
+          <p><strong>Descripción: </strong>{project.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Apartado de Educación -->
+  <div class="worker-card">
+    <img
+        id="content-icon"
+        class="icon not-mobile"
+        src="/icons/education-icon.svg"
+        alt="icono-decorativo"
+        width="56"
+        height="56"
+        title="icono-decorativo"
+      />
+    <div class="w-full">
+      <div class="mobile-icon-div flex sm:flex-row mb-4 items-start border-b">
+        <img
+          id="content-icon"
+          class="icon mobile"
+          src="/icons/education-icon.svg"
+          alt="icono-decorativo"
+          width="56"
+          height="56"
+          title="icono-decorativo"
+          />
+        <strong><h3 class="sm:flex-row gap-4 items-start border-b">Educación</h3></strong>
+      </div>
+      <ul>
+        {education.map((item: any) => <li style="list-style: disc;">{item}</li>)}
+      </ul>
+  </div>
+  </div>
+</div>
+
+<style lang="scss">
+  .footer-background {
+    width: 100%;
+    height: 100px;
+    background-color: var(--color-header);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+  }
+
+  .worker-content {
+    padding: 6px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .worker-intro {
+    text-align: center;
+    display: flex;
+
+    h1 {
+      font-size: 48px;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin: 0;
+    }
+  }
+
+  .worker-card {
+    display: flex;
+    padding: 6px;
+    border-radius: 16px;
+
+    h3 {
+      font-size: 32px;
+      margin: 0;
+    }
+
+    ul {
+      padding-top: 12px;
+      padding-inline: 24px;
+      margin: 0;
+    }
+
+    img {
+      align-self: flex-start;
+      margin-inline-end: 8px;
+    }
+  }
+
+  .worker-photo {
+    width: 300px;
+    height: 300px;
+    border-radius: 32px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    margin-inline: auto;
+  }
+
+  .worker-photo_mobile {
+    width: 90%;
+    height: 90%;
+    max-width: 300px;
+    max-height: 300px;
+    border-radius: 32px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    margin-inline: auto;
+  }
+
+  .project {
+    margin-bottom: 12px;
+    background-color: var(--color-white);
+    border-radius: 16px;
+    padding-top: 8px;
+    padding-bottom: 12px;
+    padding-inline: 6px;
+    box-shadow: 4px 3px 3px rgb(179, 179, 179);
+    opacity: 1;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.3s ease;
+
+    &:hover {
+      transform: scale(1.015);
+      box-shadow: 6px 5px 10px rgba(0, 0, 0, 0.2);
+    }
+    h4 {
+      font-size: 24px;
+      margin: 0;
+    }
+    p {
+      margin: 0;
+    }
+  }
+
+  .project.fade-out {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .project.fade-in {
+    opacity: 1;
+  }
+
+  .tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    .tech {
+      display: inline-flex;
+      align-items: center;
+      background-color: #e1feef;
+      color: #047857;
+      padding: 0.25rem 0.5rem;
+      border-radius: 8px;
+      border: 2px solid black;
+      font-size: 0.875rem;
+      gap: 4px;
+      max-width: 100%;
+      word-break: break-word;
+      white-space: normal;
+      flex-shrink: 0;
+    }
+
+    .tech.active-skill {
+      background-color: #047857;
+      color: #ffffff;
+      border-color: #047857;
+      border: 2px solid black;
+    }
+  }
+
+  .clear-filter-button {
+    align-items: center;
+    cursor: pointer;
+    background-color: var(--color-accent);
+    transition: background-color 0.3s ease;
+    color: var(--color-body);
+    width: fit-content;
+    border-radius: 8px;
+    padding: 4px;
+    box-shadow: 2px 2px 4px rgb(179, 179, 179);
+  }
+
+  .mobile {
+      display: none;
+    }
+
+  @media ( max-width: 767px) {
+    .not-mobile {
+      display: none;
+    }
+
+    .mobile {
+      display: flex;
+      h1 {
+        font-size: 32px;
+      }
+      h2 {
+        font-size: 20px;
+      }
+      image {
+        margin: 0;
+      }
+      p {
+        margin: 0;
+        margin-bottom: 20px;
+        font-size: 16px;
+      }
+    }
+
+    .worker-intro.mobile{
+      display: block;
+    }
+
+    .mobile-icon-div  {
+      align-items: center;
+      text-align: start;
+      display: flex;
+
+      img {
+        width: 48px;
+        height: 48px;
+      }
+    }
+
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+
+      .tech {
+        font-size: 0.75rem;
+        display: inline-flex;
+        align-items: center;
+        white-space: nowrap;
+      }
+    }
+  }
+</style>
+
+<script is:inline>
+  let activeFilter = null;
+
+  function handleSkillClick(event) {
+    const skill = event.currentTarget.dataset.skill;
+    if (skill === activeFilter) return;
+
+    document.querySelectorAll(".tech").forEach(btn => {
+      btn.classList.remove("active-skill");
+    });
+
+    event.currentTarget.classList.add("active-skill");
+    activeFilter = skill;
+    document.getElementById("clear-filter-container").style.display = "flex";
+
+    const currentProject = document.getElementById("project-container");
+    const currentTechs = Array.from(currentProject.querySelectorAll(".tech")).map(el => el.dataset.skill);
+    const showCurrent = currentTechs.includes(skill);
+    currentProject.style.display = showCurrent ? "flex" : "none";
+
+    const projects = document.querySelectorAll("[id^='project-']");
+    projects.forEach((project) => {
+      const techs = Array.from(project.querySelectorAll(".tech")).map(el => el.dataset.skill);
+      const shouldShow = techs.includes(skill);
+
+      if (!shouldShow) {
+        project.classList.remove("fade-in");
+        project.classList.add("fade-out");
+        setTimeout(() => {
+          project.style.display = "none";
+        }, 300);
+      } else {
+        project.style.display = "block";
+        project.classList.remove("fade-out");
+        void project.offsetWidth;
+        project.classList.add("fade-in");
+      }
+    });
+
+    const highlightedContainer = document.getElementById("project-container");
+    const visibleProjects = Array.from(highlightedContainer.querySelectorAll(".project")).filter(p => p.style.display !== "none");
+    highlightedContainer.style.display = visibleProjects.length > 0 ? "flex" : "none";
+  }
+
+  function clearFilter() {
+    activeFilter = null;
+    document.getElementById("clear-filter-container").style.display = "none";
+
+    document.querySelectorAll(".tech").forEach(btn => {
+      btn.classList.remove("active-skill");
+    });
+
+    const projects = document.querySelectorAll("[id^='project-']");
+    projects.forEach(project => {
+      project.style.display = "block";
+      project.classList.remove("fade-out");
+      void project.offsetWidth;
+      project.classList.add("fade-in");
+    });
+
+    document.querySelectorAll(".project-container").forEach(container => {
+      container.style.display = "flex";
+    });
+
+    document.getElementById("project-container").style.display = "flex";
+  }
+</script>
