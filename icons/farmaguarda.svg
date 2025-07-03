@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="10.248321mm"
+   height="10.248321mm"
+   viewBox="0 0 10.248321 10.248321"
+   version="1.1"
+   id="svg514"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   sodipodi:docname="icon.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview516"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.2102413"
+     inkscape:cx="-620.71533"
+     inkscape:cy="19.025757"
+     inkscape:window-width="1367"
+     inkscape:window-height="456"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs511" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-99.958466,-143.37584)">
+    <circle
+       style="fill:#1F6F45;fill-opacity:1;stroke:none;stroke-width:1.47578;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       id="path7904"
+       cx="105.08263"
+       cy="148.5"
+       r="5.1241603"
+       inkscape:export-filename="farmaguarda.png"
+       inkscape:export-xdpi="118.96578"
+       inkscape:export-ydpi="118.96578" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:4.25254;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       id="path7892"
+       sodipodi:type="arc"
+       sodipodi:cx="-148.50002"
+       sodipodi:cy="105.08263"
+       sodipodi:rx="4.1872582"
+       sodipodi:ry="4.1872582"
+       sodipodi:start="0"
+       sodipodi:end="5.2359878"
+       sodipodi:arc-type="slice"
+       d="m -144.31276,105.08263 a 4.1872582,4.1872582 0 0 1 -3.10351,4.04458 4.1872582,4.1872582 0 0 1 -4.71002,-1.95095 4.1872582,4.1872582 0 0 1 0.66544,-5.05447 4.1872582,4.1872582 0 0 1 5.05446,-0.66544 l -2.09363,3.62628 z"
+       transform="rotate(-90)" />
+    <circle
+       style="fill:#1F6F45;fill-opacity:1;stroke:none;stroke-width:3.69496;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       id="circle7894"
+       cx="105.08263"
+       cy="148.50002"
+       r="3.6382475" />
+    <path
+       d="m 104.28888,150.61666 h 1.5875 v -1.32291 h 1.32292 v -1.5875 h -1.32292 v -1.32292 h -1.5875 v 1.32292 h -1.32291 v 1.5875 h 1.32291 z"
+       id="path7898"
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.0132292"
+       sodipodi:nodetypes="ccccccccccccc" />
+    <path
+       sodipodi:type="star"
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:302.363;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       id="path7900"
+       inkscape:flatsided="true"
+       sodipodi:sides="3"
+       sodipodi:cx="329.65082"
+       sodipodi:cy="579.65741"
+       sodipodi:r1="5.4301906"
+       sodipodi:r2="2.7150953"
+       sodipodi:arg1="-1.0471976"
+       sodipodi:arg2="0"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 332.36591,574.95473 0,9.40536 -8.14528,-4.70268 z"
+       transform="matrix(0.151993,0,0,0.151993,51.779412,58.072914)"
+       inkscape:transform-center-x="0.20633825"
+       inkscape:transform-center-y="-1.3430697e-06" />
+    <circle
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       id="circle7902"
+       cx="105.08263"
+       cy="144.53145"
+       r="0.57780427" />
+  </g>
+</svg>

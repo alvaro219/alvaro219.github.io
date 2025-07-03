@@ -1,0 +1,25 @@
+<!DOCTYPE html><style>.scroll-to-top[data-astro-cid-aldvdbns]{position:fixed;bottom:1.5rem;right:1.5rem;padding:.75rem 1rem;width:56px;height:56px;font-size:1.25rem;background-color:var(--color-primary);color:#fff;border:none;border-radius:9999px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s ease-in-out,background-color .3s ease;z-index:1000;box-shadow:1px 1px 10px #9b9b9b}.scroll-to-top[data-astro-cid-aldvdbns]:hover{background-color:var(--color-link-hover)}.scroll-to-top[data-astro-cid-aldvdbns].visible{opacity:1;pointer-events:auto}
+</style><div data-astro-cid-aldvdbns> <button class="scroll-to-top" data-target="top" onclick="scrollToTop()" id="scrollTopBtn" aria-label="Volver arriba" data-astro-cid-aldvdbns>
+↑
+</button> </div>  <script>
+    function scrollToTop() {
+      const focus = document.getElementById('primer-elemento');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      focus.focus();
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const scrollBtn = document.getElementById('scrollTopBtn');
+      if (!scrollBtn) return;
+      const toggleVisibility = () => {
+        if (window.scrollY > 100) {
+          scrollBtn.classList.add('visible');
+        } else {
+          scrollBtn.classList.remove('visible');
+        }
+      };
+
+      window.addEventListener('scroll', toggleVisibility);
+      toggleVisibility();
+    });
+  </script>
