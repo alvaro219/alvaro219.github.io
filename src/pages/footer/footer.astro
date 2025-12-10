@@ -31,12 +31,23 @@
 .footer-box {
   display: grid;
   grid-template-areas: "summary . contact legal";
-  grid-template-columns: auto 1fr auto auto;
-  gap: 80px;
-  // width: 100%;
-  padding: 30px 20px;
-  background-color: #1c1c1c;
+  grid-template-columns: 1fr 0.5fr 1fr 1fr;
+  gap: 60px;
+  padding: 60px 50px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2b2a2f 100%);
   color: #f2f2f2;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  }
   li {
     list-style-type: none;
   }
@@ -50,27 +61,110 @@
 
   .summary {
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+
+    img {
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(33, 135, 76, 0.3);
+      transition: all 0.3s ease;
+      border: 2px solid rgba(33, 135, 76, 0.2);
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(33, 135, 76, 0.4);
+        border-color: var(--color-primary);
+      }
+    }
+
+    ul {
+      li {
+        font-size: 15px;
+        margin-bottom: 6px;
+        opacity: 0.9;
+
+        &.copyright {
+          margin-top: 12px;
+          font-size: 13px;
+          opacity: 0.7;
+        }
+      }
+    }
   }
 
   .row-title {
     font-size: 22px;
-    font-weight: 500;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+    display: block;
+    position: relative;
+    padding-bottom: 12px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
+      border-radius: 2px;
+    }
   }
 
   .footer-link {
     display: flex;
+    align-items: center;
     font-size: 18px;
+    padding: 8px 0;
+    padding-left: 0;
+    transition: color 0.3s ease;
+    border-radius: 6px;
+    
     img {
-      margin-inline-end: 16px;
+      margin-inline-end: 12px;
+      transition: filter 0.3s ease;
+      min-width: 24px;
+    }
+
+    span {
+      transition: transform 0.3s ease;
+      display: inline-block;
+    }
+
+    &:hover {
+      color: var(--color-primary);
+      
+      img {
+        filter: brightness(1.2);
+      }
+
+      span {
+        transform: translateX(4px);
+      }
     }
   }
 
   .contact {
     grid-area: contact;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
   }
 
   .legal {
     grid-area: legal;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
   }
 }
 

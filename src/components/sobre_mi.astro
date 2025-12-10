@@ -6,12 +6,17 @@ const { intro, education, skills, current, projects } = Astro!.props;
 
 <div class="worker-content">
 
-  <div class="worker-intro not-mobile flex gap-8">
-    <img src={intro.photo} alt={`Foto de ${intro.name}`} class="worker-photo" tabindex="0"/>
-    <div>
-      <h1 tabindex="0">{intro.name}</h1>
-      <h2 class="sm:flex-row gap-4 mb-4 items-start border-b" tabindex="0">{intro.title}</h2>
-      <p class="mb-8" tabindex="0">{intro.description}</p>
+  <div class="worker-intro not-mobile">
+    <div class="intro-card">
+      <div class="intro-photo-container">
+        <img src={intro.photo} alt={`Foto de ${intro.name}`} class="worker-photo" tabindex="0"/>
+        <div class="photo-decoration"></div>
+      </div>
+      <div class="intro-content">
+        <h1 tabindex="0" class="intro-name">{intro.name}</h1>
+        <h2 class="intro-title" tabindex="0">{intro.title}</h2>
+        <p class="intro-description" tabindex="0">{intro.description}</p>
+      </div>
     </div>
   </div>
 
@@ -69,9 +74,13 @@ const { intro, education, skills, current, projects } = Astro!.props;
           </button>
         ))}
       </div>
-      <div id="clear-filter-container" onclick="clearFilter()" class="clear-filter-button flex" style="margin-top: 1rem; display: none;">
-        <button class="tech">Quitar filtro</button>
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#f2f2f2"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+      <div id="active-filters" class="active-filters" style="margin-top: 1rem; display: none;">
+        <span class="filter-label">Filtros activos:</span>
+        <div id="filter-chips" class="filter-chips"></div>
+        <button onclick="clearAllFilters()" class="clear-all-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="currentColor"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+          Limpiar todo
+        </button>
       </div>
     </div>
   </div>
@@ -154,34 +163,91 @@ const { intro, education, skills, current, projects } = Astro!.props;
         <h3 tabindex="0" class="not-mobile"><strong>Proyectos Destacados</strong></h3>
         <h3 tabindex="0" class="mobile"><strong>Proyectos</strong></h3>
       </div>
-      {projects.map((project: any) => (
-        <div class="project" id={`project-${project.name.replace(/\s+/g, '-').toLowerCase()}`}>
-          <strong tabindex="0"><h4>{project.name}</h4></strong>
-          <p tabindex="0"><strong>Período:</strong> {project.period.start} – {project.period.end}</p>
+      <div class="projects-grid">
+        {projects.map((project: any) => (
+          <div
+            class={`project project-${project.importance || 'medium'}`}
+            id={`project-${project.name.replace(/\s+/g, '-').toLowerCase()}`}
+            data-expanded="false"
+            onclick="toggleProjectExpand(event)"
+          >
+            <div class="project-compact">
+              <div class="project-header">
+                <div class="project-title-row">
+                  <strong tabindex="0"><h4>{project.name}</h4></strong>
+                  {project.importance === 'high' && <span class="badge badge-high">⭐</span>}
+                </div>
+                {project.role && <p class="project-role" tabindex="0">{project.role}</p>}
+              </div>
 
-          <div class="tech-list flex gap-2">
-          <p tabindex="0"><strong>Tecnologías:</strong></p>
-            {project.technologies.map((tech: any, index: number) => (
-              <button
-                class="tech flex cursor-pointer"
-                data-skill={tech.name}
-                onclick="handleSkillClick(event)"
-              >
-                <img
-                  src={tech.icon.startsWith('/') ? tech.icon : `/icons/${tech.icon}`}
-                  alt={tech.name}
-                  width="20px"
-                  height="20px"
-                  class="tech-icon"
-                />
-                {tech.name}
-              </button>
-            ))}
+              <p tabindex="0" class="project-period">{project.period.start} – {project.period.end}</p>
+
+              <div class="tech-list-compact flex gap-1">
+                {project.technologies.slice(0, 4).map((tech: any) => (
+                  <img
+                    src={tech.icon.startsWith('/') ? tech.icon : `/icons/${tech.icon}`}
+                    alt={tech.name}
+                    width="24px"
+                    height="24px"
+                    class="tech-icon-compact"
+                    title={tech.name}
+                  />
+                ))}
+                {project.technologies.length > 4 && (
+                  <span class="tech-more">+{project.technologies.length - 4}</span>
+                )}
+              </div>
+
+              <p class="project-description-compact">{project.description.substring(0, 120)}...</p>
+
+              <button class="expand-btn">Ver más ↓</button>
+            </div>
+
+            <div class="project-expanded">
+              <div class="tech-list flex gap-2">
+                <p tabindex="0"><strong>Tecnologías:</strong></p>
+                {project.technologies.map((tech: any) => (
+                  <button
+                    class="tech flex cursor-pointer"
+                    data-skill={tech.name}
+                    onclick="handleSkillClick(event); event.stopPropagation();"
+                  >
+                    <img
+                      src={tech.icon.startsWith('/') ? tech.icon : `/icons/${tech.icon}`}
+                      alt={tech.name}
+                      width="20px"
+                      height="20px"
+                      class="tech-icon"
+                    />
+                    {tech.name}
+                  </button>
+                ))}
+              </div>
+
+              <p class="project-description"><strong>Descripción: </strong>{project.description}</p>
+
+              {project.highlights && project.highlights.length > 0 && (
+                <div class="project-highlights">
+                  <strong>Logros clave:</strong>
+                  <ul>
+                    {project.highlights.map((highlight: string) => (
+                      <li>{highlight}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {project.impact && (
+                <div class="project-impact">
+                  <strong>💡 Impacto:</strong> {project.impact}
+                </div>
+              )}
+
+              <button class="collapse-btn">Ver menos ↑</button>
+            </div>
           </div>
-
-          <p><strong>Descripción: </strong>{project.description}</p>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   </div>
 
@@ -233,18 +299,94 @@ const { intro, education, skills, current, projects } = Astro!.props;
   }
 
   .worker-intro {
-    text-align: center;
+    margin-bottom: 40px;
+
+    &.not-mobile {
+      display: block;
+    }
+  }
+
+  .intro-card {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 40px;
+    align-items: start;
+    background: linear-gradient(135deg, rgba(33, 135, 76, 0.05) 0%, rgba(255, 255, 255, 0.8) 100%);
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(33, 135, 76, 0.1);
+    transition: all 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      transform: translateY(-4px);
+    }
+  }
+
+  .intro-photo-container {
+    position: relative;
+
+    .photo-decoration {
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: 10px;
+      bottom: 10px;
+      border-radius: 32px;
+      z-index: -1;
+      opacity: 0.3;
+    }
+  }
+
+  .worker-photo {
+    width: 100%;
+    height: 320px;
+    border-radius: 24px;
+    object-fit: cover;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .intro-content {
     display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+  }
 
-    h1 {
-      font-size: 48px;
-      margin: 0;
-    }
+  .intro-name {
+    font-size: 48px;
+    font-weight: 800;
+    margin: 0;
+    background: linear-gradient(135deg, var(--color-header) 0%, var(--color-primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+  }
 
-    h2 {
-      font-size: 24px;
-      margin: 0;
-    }
+  .intro-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-accent);
+    margin: 0;
+    padding-bottom: 12px;
+    border-bottom: 3px solid var(--color-primary);
+    display: inline-block;
+  }
+
+  .intro-description {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #555;
+    margin: 0;
+    text-align: justify;
   }
 
   .worker-card {
@@ -269,15 +411,6 @@ const { intro, education, skills, current, projects } = Astro!.props;
     }
   }
 
-  .worker-photo {
-    width: 300px;
-    height: 300px;
-    border-radius: 32px;
-    object-fit: cover;
-    margin-bottom: 1rem;
-    margin-inline: auto;
-  }
-
   .worker-photo_mobile {
     width: 90%;
     height: 90%;
@@ -289,29 +422,249 @@ const { intro, education, skills, current, projects } = Astro!.props;
     margin-inline: auto;
   }
 
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 16px;
+  }
+
   .project {
-    margin-bottom: 12px;
     background-color: var(--color-white);
-    border-radius: 16px;
-    padding-top: 8px;
-    padding-bottom: 12px;
-    padding-inline: 6px;
-    box-shadow: 4px 3px 3px rgb(179, 179, 179);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
     opacity: 1;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-left: 4px solid var(--color-secondary);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
 
     &:hover {
-      transform: scale(1.015);
-      box-shadow: 6px 5px 10px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      transform: translateY(-2px);
     }
-    h4 {
-      font-size: 24px;
-      margin: 0;
+
+    &.project-high {
+      border-left: 5px solid var(--color-primary);
+      background: linear-gradient(to right, #f0fdf4 0%, #ffffff 100%);
     }
-    p {
-      margin: 0;
+
+    &.project-medium {
+      border-left: 4px solid var(--color-accent);
+    }
+
+    &.project-low {
+      border-left: 3px solid var(--color-secondary-reversed);
+    }
+
+    .project-compact {
+      display: block;
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    .project-expanded {
+      display: none;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 2px solid #f0f0f0;
+      animation: slideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    &[data-expanded="true"] {
+      grid-column: 1 / -1;
+      animation: expandWidth 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+      .project-compact {
+        display: none;
+      }
+
+      .project-expanded {
+        display: block;
+      }
     }
   }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      max-height: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      max-height: 2000px;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes expandWidth {
+    from {
+      transform: scale(0.98);
+      opacity: 0.9;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+    .project-header {
+      margin-bottom: 10px;
+    }
+
+    .project-title-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 4px;
+    }
+
+    .project-role {
+      color: var(--color-accent);
+      font-size: 14px;
+      font-style: italic;
+      margin: 0 0 6px 0;
+    }
+
+    .project-period {
+      color: #666;
+      font-size: 13px;
+      margin: 6px 0;
+    }
+
+    .project-description-compact {
+      margin: 10px 0;
+      line-height: 1.5;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .project-description {
+      margin: 12px 0;
+      line-height: 1.6;
+    }
+
+    .tech-list-compact {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin: 10px 0;
+      flex-wrap: wrap;
+
+      .tech-icon-compact {
+        border-radius: 4px;
+        padding: 4px;
+        background: #f5f5f5;
+        transition: transform 0.2s ease;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+
+      .tech-more {
+        background: var(--color-secondary);
+        color: white;
+        padding: 4px 8px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 600;
+      }
+    }
+
+    .expand-btn, .collapse-btn {
+      background: var(--color-primary);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 12px;
+      transition: all 0.2s ease;
+      width: 100%;
+
+      &:hover {
+        background: var(--color-link-hover);
+        transform: translateY(-1px);
+      }
+    }
+
+    .project-highlights {
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin: 12px 0;
+
+      strong {
+        color: var(--color-primary);
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 20px;
+
+        li {
+          margin: 6px 0;
+          line-height: 1.5;
+          color: #333;
+        }
+      }
+    }
+
+    .project-impact {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-top: 12px;
+      font-size: 15px;
+      line-height: 1.6;
+
+      strong {
+        display: block;
+        margin-bottom: 4px;
+      }
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 8px;
+      border-radius: 12px;
+      font-size: 16px;
+
+      &.badge-high {
+        background-color: transparent;
+      }
+    }
+
+    h4 {
+      font-size: 18px;
+      margin: 0;
+      color: var(--color-header);
+    }
+
+    p {
+      margin: 6px 0;
+    }
 
   .project.fade-out {
     opacity: 0;
@@ -332,35 +685,131 @@ const { intro, education, skills, current, projects } = Astro!.props;
       align-items: center;
       background-color: #e1feef;
       color: #047857;
-      padding: 0.25rem 0.5rem;
+      padding: 0.5rem 0.75rem;
       border-radius: 8px;
-      border: 2px solid black;
+      border: 2px solid #047857;
       font-size: 0.875rem;
-      gap: 4px;
+      gap: 6px;
       max-width: 100%;
       word-break: break-word;
       white-space: normal;
       flex-shrink: 0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(4, 120, 87, 0.2);
+        background-color: #d1f5e6;
+      }
     }
 
     .tech.active-skill {
       background-color: #047857;
       color: #ffffff;
       border-color: #047857;
-      border: 2px solid black;
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(4, 120, 87, 0.3);
     }
   }
 
-  .clear-filter-button {
+  .active-filters {
+    display: flex;
     align-items: center;
-    cursor: pointer;
-    background-color: var(--color-accent);
-    transition: background-color 0.3s ease;
-    color: var(--color-body);
-    width: fit-content;
+    gap: 12px;
+    padding: 16px;
+    background: linear-gradient(135deg, rgba(33, 135, 76, 0.08) 0%, rgba(255, 255, 255, 0.5) 100%);
+    border-radius: 12px;
+    border: 2px solid rgba(33, 135, 76, 0.2);
+    animation: slideDown 0.3s ease-out;
+    flex-wrap: wrap;
+  }
+
+  .filter-label {
+    font-weight: 600;
+    color: var(--color-primary);
+    font-size: 14px;
+  }
+
+  .filter-chips {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    flex: 1;
+  }
+
+  .filter-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 2px solid var(--color-primary);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-primary);
+    animation: chipAppear 0.3s ease-out;
+
+    span {
+      line-height: 1;
+    }
+
+    .chip-remove {
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      color: var(--color-primary);
+      transition: all 0.2s ease;
+
+      &:hover {
+        color: #dc2626;
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  .clear-all-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--color-accent);
+    color: white;
+    border: none;
+    padding: 8px 16px;
     border-radius: 8px;
-    padding: 4px;
-    box-shadow: 2px 2px 4px rgb(179, 179, 179);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: var(--color-secondary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    svg {
+      transition: transform 0.3s ease;
+    }
+
+    &:hover svg {
+      transform: rotate(90deg);
+    }
+  }
+
+  @keyframes chipAppear {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 
   .mobile {
@@ -417,51 +866,165 @@ const { intro, education, skills, current, projects } = Astro!.props;
         white-space: nowrap;
       }
     }
+
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .project {
+      h4 {
+        font-size: 16px;
+      }
+
+      .project-role {
+        font-size: 13px;
+      }
+    }
   }
 </style>
 
 <script is:inline>
-  let activeFilter = null;
+  let activeFilters = new Set();
 
-  function handleSkillClick(event) {
-    const skill = event.currentTarget.dataset.skill;
-    if (skill === activeFilter) return;
+  function toggleProjectExpand(event) {
+    const projectCard = event.currentTarget;
+    const isExpanded = projectCard.getAttribute('data-expanded') === 'true';
+
+    // Colapsar todos los proyectos
+    document.querySelectorAll('.project[data-expanded="true"]').forEach(p => {
+      p.setAttribute('data-expanded', 'false');
+    });
+
+    // Expandir el clickeado si estaba colapsado
+    if (!isExpanded) {
+      projectCard.setAttribute('data-expanded', 'true');
+      // Scroll suave al proyecto expandido
+      setTimeout(() => {
+        projectCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 100);
+    }
+  }
+
+  function updateFilterChips() {
+    const chipsContainer = document.getElementById('filter-chips');
+    const activeFiltersContainer = document.getElementById('active-filters');
+
+    if (activeFilters.size === 0) {
+      activeFiltersContainer.style.display = 'none';
+      return;
+    }
+
+    activeFiltersContainer.style.display = 'flex';
+    chipsContainer.innerHTML = '';
+
+    activeFilters.forEach(filter => {
+      const chip = document.createElement('div');
+      chip.className = 'filter-chip';
+      chip.innerHTML = `
+        <span>${filter}</span>
+        <button onclick="removeFilter('${filter}')" class="chip-remove">
+          <svg xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 -960 960 960" width="16px" fill="currentColor">
+            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+          </svg>
+        </button>
+      `;
+      chipsContainer.appendChild(chip);
+    });
+  }
+
+  function removeFilter(skill) {
+    activeFilters.delete(skill);
+
+    const skillBtn = document.querySelector(`[data-skill="${skill}"]`);
+    if (skillBtn) {
+      skillBtn.classList.remove("active-skill");
+    }
+
+    updateFilterChips();
+    filterProjects();
+  }
+
+  function clearAllFilters() {
+    activeFilters.clear();
 
     document.querySelectorAll(".tech").forEach(btn => {
       btn.classList.remove("active-skill");
     });
 
-    event.currentTarget.classList.add("active-skill");
-    activeFilter = skill;
-    document.getElementById("clear-filter-container").style.display = "flex";
+    updateFilterChips();
+    filterProjects();
+  }
 
+  function handleSkillClick(event) {
+    const skill = event.currentTarget.dataset.skill;
+
+    if (activeFilters.has(skill)) {
+      activeFilters.delete(skill);
+      event.currentTarget.classList.remove("active-skill");
+    } else {
+      activeFilters.add(skill);
+      event.currentTarget.classList.add("active-skill");
+    }
+
+    updateFilterChips();
+    filterProjects();
+  }
+
+  function filterProjects() {
+    if (activeFilters.size === 0) {
+      // Mostrar todos los proyectos
+      const currentProject = document.getElementById("project-container");
+      if (currentProject) currentProject.style.display = "flex";
+
+      const projects = document.querySelectorAll("[id^='project-']");
+      projects.forEach((project) => {
+        project.classList.remove("fade-out");
+        project.classList.add("fade-in");
+        setTimeout(() => {
+          project.style.display = "block";
+        }, 50);
+      });
+      return;
+    }
+
+    // Filtrar proyectos
     const currentProject = document.getElementById("project-container");
-    const currentTechs = Array.from(currentProject.querySelectorAll(".tech")).map(el => el.dataset.skill);
-    const showCurrent = currentTechs.includes(skill);
-    currentProject.style.display = showCurrent ? "flex" : "none";
+    if (currentProject) {
+      const currentTechs = Array.from(currentProject.querySelectorAll(".tech")).map(el => el.dataset.skill);
+      const showCurrent = Array.from(activeFilters).some(filter => currentTechs.includes(filter));
+
+      if (showCurrent) {
+        currentProject.classList.remove("fade-out");
+        currentProject.classList.add("fade-in");
+        currentProject.style.display = "flex";
+      } else {
+        currentProject.classList.add("fade-out");
+        currentProject.classList.remove("fade-in");
+        setTimeout(() => {
+          currentProject.style.display = "none";
+        }, 300);
+      }
+    }
 
     const projects = document.querySelectorAll("[id^='project-']");
     projects.forEach((project) => {
       const techs = Array.from(project.querySelectorAll(".tech")).map(el => el.dataset.skill);
-      const shouldShow = techs.includes(skill);
+      const shouldShow = Array.from(activeFilters).some(filter => techs.includes(filter));
 
-      if (!shouldShow) {
-        project.classList.remove("fade-in");
+      if (shouldShow) {
+        project.classList.remove("fade-out");
+        project.classList.add("fade-in");
+        setTimeout(() => {
+          project.style.display = "block";
+        }, 50);
+      } else {
         project.classList.add("fade-out");
+        project.classList.remove("fade-in");
         setTimeout(() => {
           project.style.display = "none";
         }, 300);
-      } else {
-        project.style.display = "block";
-        project.classList.remove("fade-out");
-        void project.offsetWidth;
-        project.classList.add("fade-in");
       }
     });
-
-    const highlightedContainer = document.getElementById("project-container");
-    const visibleProjects = Array.from(highlightedContainer.querySelectorAll(".project")).filter(p => p.style.display !== "none");
-    highlightedContainer.style.display = visibleProjects.length > 0 ? "flex" : "none";
   }
 
   function clearFilter() {

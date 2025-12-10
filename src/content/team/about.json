@@ -2,8 +2,8 @@
   "intro": {
     "first-name": "Álvaro",
     "name": "Álvaro Antón Maciá",
-    "title": "FullStack Developer & UX/UI Designer",
-    "description": "Desarrollador Full Stack y diseñador UX/UI con amplia experiencia en soluciones digitales personalizadas, desde páginas web curriculares hasta sistemas administrativos y landing pages, con un enfoque versátil en frontend y backend.",
+    "title": "FullStack Developer · UX/UI Designer",
+    "description": "Desarrollador Full Stack especializado en la creación de productos digitales end-to-end, combinando diseño UX/UI, desarrollo frontend y backend, APIs, bases de datos relacionales y despliegue continuo. Experiencia en automatización de procesos, sistemas administrativos, marketplaces y landing pages corporativas multilingües, con foco en rendimiento, accesibilidad, testing y experiencia de usuario. Capaz de comprender procesos reales, identificar cuellos de botella y convertirlos en software que ahorra tiempo, reduce errores y genera impacto directo en negocio.",
     "photo": "/images/alvaro_intro_photo.png"
   },
   "education": [
@@ -18,113 +18,206 @@
     "Desarrollo y despliegue de aplicaciones web utilizando frameworks modernos y sistemas de bases de datos."
   ],
   "skills": [
-    { "name": "HTML5", "icon": "/icons/html5-icon.svg" },
-    { "name": "CSS3", "icon": "/icons/css3-icon.svg" },
-    { "name": "JavaScript", "icon": "/icons/javascript-icon.svg" },
-    { "name": "Typescript", "icon": "/icons/typescript-icon.svg" },
-    { "name": "Solid.js", "icon": "/icons/solid-js-icon.svg" },
     { "name": "Vue.js", "icon": "/icons/vue-js-icon.svg" },
-    { "name": "Angular.js", "icon": "/icons/angular-js-icon.svg" },
+    { "name": "Angular", "icon": "/icons/angular-js-icon.svg" },
+    { "name": "React", "icon": "/icons/preact-icon.svg" },
+    { "name": "Solid.js", "icon": "/icons/solid-js-icon.svg" },
+    { "name": "Astro", "icon": "/icons/astro-icon.svg" },
+    { "name": "TypeScript", "icon": "/icons/typescript-icon.svg" },
+    { "name": "Flutter", "icon": "/icons/flutter-icon.svg" },
+    { "name": "StencilJS", "icon": "/icons/stencil-icon.svg" },
     { "name": "Django", "icon": "/icons/django-icon.svg" },
-    { "name": "Python", "icon": "/icons/python-icon.svg" },
-    { "name": "PostgreSQL", "icon": "/icons/postgresql-icon.svg" },
+    { "name": "Laravel", "icon": "/icons/laravel-icon.svg" },
     { "name": "Prisma", "icon": "/icons/prisma-icon.svg" },
+    { "name": "PostgreSQL", "icon": "/icons/postgresql-icon.svg" },
+    { "name": "MySQL", "icon": "/icons/mysql-icon.svg" },
     { "name": "Ruby", "icon": "/icons/ruby-icon.svg" },
     { "name": "Liquid", "icon": "/icons/liquid-icon.svg" },
-    { "name": "Flutter", "icon": "/icons/flutter-icon.svg" },
-    { "name": "MySQL", "icon": "/icons/mysql-icon.svg" }
+    { "name": "Supabase", "icon": "/icons/supabase-icon.svg" },
+    { "name": "Figma", "icon": "/icons/figma-icon.svg" },
+    { "name": "Jest", "icon": "/icons/jest-icon.svg" },
+    { "name": "Vitest", "icon": "/icons/vue-js-icon.svg" },
+    { "name": "Sentry", "icon": "/icons/sentry-icon.svg" },
+    { "name": "GitHub", "icon": "/icons/github-icon.svg" },
+    { "name": "GitLab", "icon": "/icons/github-icon.svg" },
+    { "name": "Cloudflare", "icon": "/icons/cloudflare-icon.svg" }
   ],
   "projects": [
-
     {
-      "name": "Página Web de Ejemplo",
-      "period": { "start": "2023-10", "end": "2023-12" },
+      "name": "Cementum — FullStack Developer",
+      "period": { "start": "2025", "end": "2025" },
+      "importance": "high",
+      "role": "FullStack Developer",
       "technologies": [
-        { "name": "HTML5", "icon": "/icons/html5-icon.svg" },
-        { "name": "CSS3", "icon": "/icons/css3-icon.svg" },
-        { "name": "JavaScript", "icon": "/icons/javascript-icon.svg" },
-        { "name": "Responsive", "icon": "/icons/responsive-icon.svg" }
+        { "name": "Angular", "icon": "/icons/angular-js-icon.svg" },
+        { "name": "Laravel", "icon": "/icons/laravel-icon.svg" },
+        { "name": "PostgreSQL", "icon": "/icons/postgresql-icon.svg" },
+        { "name": "TypeScript", "icon": "/icons/typescript-icon.svg" }
       ],
-      "description": "Página demostrativa con diseño responsive."
+      "description": "Digitalización del proceso de planificación de transportes basado en llamadas y hojas manuales. Reducción del tiempo de trabajo del jefe de transportes de 8 horas/día a 10 minutos, permitiendo dedicar el resto de la jornada a operar camiones y generar ingresos adicionales.",
+      "highlights": [
+        "Arquitectura backend en Laravel + PostgreSQL",
+        "Sistema de asignación de rutas y horarios con validaciones",
+        "UX basada en el flujo real del responsable logístico",
+        "Confirmaciones y comunicación vía WhatsApp Business API",
+        "Historial, auditoría y registro automático de rutas"
+      ],
+      "impact": "Transformación de un proceso manual crítico en un sistema escalable y automatizado"
     },
     {
-      "name": "Angular Data Excel Test",
-      "period": { "start": "2023-12", "end": "2024-01" },
+      "name": "Abastores OS — Lead Frontend & UX/UI Tutor",
+      "period": { "start": "2024", "end": "2025" },
+      "importance": "high",
+      "role": "Lead Frontend & UX/UI Tutor",
       "technologies": [
-        { "name": "Angular.js", "icon": "/icons/angular-js-icon.svg" },
-        { "name": "API RESTful", "icon": "rest-api-icon.svg" },
-        { "name": "PostgreSQL", "icon": "/icons/postgresql-icon.svg" }
-      ],
-      "description": "Tabla de datos interactiva para rutas y carreteras."
-    },
-    {
-      "name": "Todo List Interactiva",
-      "period": { "start": "2024-01", "end": "2024-02" },
-      "technologies": [
-        { "name": "HTML5", "icon": "/icons/html5-icon.svg" },
-        { "name": "CSS3", "icon": "/icons/css3-icon.svg" },
         { "name": "Vue.js", "icon": "/icons/vue-js-icon.svg" },
-        { "name": "Typescript", "icon": "/icons/typescript-icon.svg" }
-
+        { "name": "Django", "icon": "/icons/django-icon.svg" },
+        { "name": "PostgreSQL", "icon": "/icons/postgresql-icon.svg" },
+        { "name": "TypeScript", "icon": "/icons/typescript-icon.svg" },
+        { "name": "Jest", "icon": "/icons/jest-icon.svg" },
+        { "name": "Sentry", "icon": "/icons/sentry-icon.svg" }
       ],
-      "description": "Lista de tareas completamente gestionable desde navegador."
+      "description": "Marketplace agrícola con funcionalidades avanzadas de compraventa entre productores y distribuidores. Rol como Lead Frontend & UX Tutor, definiendo arquitectura del frontend, mentorización del equipo junior y calidad del producto.",
+      "highlights": [
+        "Internacionalización completa (UI, rutas, metadata, SEO)",
+        "Testing unitario y E2E con Jest/Vitest",
+        "Lazy loading y optimización de rendimiento",
+        "Integración con Sentry y monitorización continua",
+        "Diseño UX de flujos complejos desde wireframes a handoff",
+        "Gestión de accesibilidad y semántica"
+      ],
+      "impact": "Experiencia real en liderazgo técnico y decisiones de producto"
     },
     {
-      "name": "Renovación de Backoffice",
-      "period": { "start": "2024-05", "end": "2024-07" },
+      "name": "Backoffice Administrativo — FullStack Developer",
+      "period": { "start": "2024", "end": "2024" },
+      "importance": "medium",
+      "role": "FullStack Developer",
       "technologies": [
         { "name": "Vue.js", "icon": "/icons/vue-js-icon.svg" },
         { "name": "Prisma", "icon": "/icons/prisma-icon.svg" },
-        { "name": "API RESTful", "icon": "/icons/rest-api-icon.svg" },
-        { "name": "Typescript", "icon": "/icons/typescript-icon.svg" },
-        { "name": "PostgreSQL", "icon": "/icons/postgresql-icon.svg" }
+        { "name": "PostgreSQL", "icon": "/icons/postgresql-icon.svg" },
+        { "name": "TypeScript", "icon": "/icons/typescript-icon.svg" }
       ],
-      "description": "Actualización del sistema administrativo y gestión de perfiles."
+      "description": "Sistema administrativo con roles, permisos avanzados y gestión de perfiles, diseñado para reducir errores y mejorar productividad interna.",
+      "highlights": [
+        "Rutas privadas y autenticación segura",
+        "Validaciones complejas en formularios",
+        "Optimización de consultas SQL",
+        "Migraciones con Prisma y arquitectura escalable",
+        "Diseño UX centrado en velocidad y reducción de fricción"
+      ],
+      "impact": "Diseño y desarrollo de una herramienta core para operaciones internas"
     },
     {
-      "name": "Página Web desde Cero",
-      "period": { "start": "2024-06", "end": "2024-07" },
+      "name": "Visualización y Exportación de Datos (Angular)",
+      "period": { "start": "2024", "end": "2024" },
+      "importance": "medium",
+      "role": "Frontend Developer",
       "technologies": [
-        { "name": "Angular.js", "icon": "/icons/angular-js-icon.svg" },
-        { "name": "Python", "icon": "/icons/python-icon.svg" },
-        { "name": "Django", "icon": "/icons/django-icon.svg" },
-        { "name": "API RESTful", "icon": "rest-api-icon.svg" },
-        { "name": "Typescript", "icon": "/icons/typescript-icon.svg" },
-        { "name": "PostgreSQL", "icon": "/icons/postgresql-icon.svg" }
+        { "name": "Angular", "icon": "/icons/angular-js-icon.svg" },
+        { "name": "PostgreSQL", "icon": "/icons/postgresql-icon.svg" },
+        { "name": "TypeScript", "icon": "/icons/typescript-icon.svg" }
       ],
-      "description": "Web con backend y frontend completo y sistema de administración."
+      "description": "Aplicación para visualizar rutas, aplicar filtros dinámicos y exportar datos con persistencia de estado y rendimiento optimizado.",
+      "highlights": [
+        "Filtros server-side",
+        "Componentización avanzada",
+        "Exportación Excel",
+        "Conexión robusta al backend REST",
+        "UI orientada a análisis de datos"
+      ],
+      "impact": "Integración completa entre frontend avanzado y backend real"
     },
     {
-      "name": "Página Web Personalizada",
-      "period": { "start": "2024-07", "end": "2024-09" },
+      "name": "Landing Corporativas (Proactiva, Mort.es, Dcubo)",
+      "period": { "start": "2024", "end": "2025" },
+      "importance": "medium",
+      "role": "FullStack Developer",
       "technologies": [
-        { "name": "HTML5", "icon": "/icons/html5-icon.svg" },
-        { "name": "CSS3", "icon": "/icons/css3-icon.svg" },
-        { "name": "Solid.js", "icon": "/icons/solid-js-icon.svg" },
-        { "name": "Typescript", "icon": "/icons/typescript-icon.svg" }
-
+        { "name": "Astro", "icon": "/icons/astro-icon.svg" },
+        { "name": "Cloudflare", "icon": "/icons/cloudflare-icon.svg" }
       ],
-      "description": "Landing page con automatización de consultoría digital."
+      "description": "Landing pages corporativas accesibles, multilingües, con integración CMS y despliegue CI/CD.",
+      "highlights": [
+        "Optimización de rendimiento (TTI, CLS)",
+        "Auditoría SEO y Lighthouse",
+        "Integración con CMS (Strapi)"
+      ],
+      "impact": "Páginas de alto rendimiento con excelente SEO y accesibilidad"
     },
     {
-      "name": "Renovación de Página de Productos",
-      "period": { "start": "2024-07", "end": "2024-08" },
+      "name": "Componente ChatBot IA",
+      "period": { "start": "2024", "end": "2024" },
+      "importance": "low",
+      "role": "Frontend Developer",
+      "technologies": [
+        { "name": "StencilJS", "icon": "/icons/stencil-icon.svg" },
+        { "name": "TypeScript", "icon": "/icons/typescript-icon.svg" }
+      ],
+      "description": "Componente frontend reutilizable con gestión modular, testing automatizado y diseño UX funcional.",
+      "highlights": [
+        "Test unitario/E2E",
+        "Componente web reutilizable",
+        "Integración con API"
+      ],
+      "impact": "Componente modular y testeable para múltiples proyectos"
+    },
+    {
+      "name": "Renovación Catálogo de Productos",
+      "period": { "start": "2024", "end": "2024" },
+      "importance": "low",
+      "role": "FullStack Developer",
       "technologies": [
         { "name": "Ruby", "icon": "/icons/ruby-icon.svg" },
         { "name": "Liquid", "icon": "/icons/liquid-icon.svg" },
-        { "name": "Fullstack", "icon": "/icons/fullstack-icon.svg" }
+        { "name": "Figma", "icon": "/icons/figma-icon.svg" }
       ],
-      "description": "Mejora de lógica y presentación de productos, precios y descripciones."
+      "description": "Refactor de estructura de productos, lógica de precios, accesibilidad y nueva presentación UI.",
+      "highlights": [
+        "Mejora de accesibilidad",
+        "Optimización de lógica de precios",
+        "Diseño UX/UI en Figma"
+      ],
+      "impact": "Mejora significativa en la experiencia de compra"
     },
     {
-      "name": "Página Web Curricular",
-      "period": { "start": "2023-09", "end": "2023-10" },
+      "name": "Página desde Cero (Fullstack)",
+      "period": { "start": "2024", "end": "2024" },
+      "importance": "medium",
+      "role": "FullStack Developer",
       "technologies": [
-        { "name": "HTML5", "icon": "/icons/html5-icon.svg" },
-        { "name": "CSS3", "icon": "/icons/css3-icon.svg" },
-        { "name": "JavaScript", "icon": "/icons/javascript-icon.svg" }
+        { "name": "Angular", "icon": "/icons/angular-js-icon.svg" },
+        { "name": "Django", "icon": "/icons/django-icon.svg" },
+        { "name": "PostgreSQL", "icon": "/icons/postgresql-icon.svg" },
+        { "name": "Figma", "icon": "/icons/figma-icon.svg" }
       ],
-      "description": "Catálogo personal para futuros trabajos."
+      "description": "Producto completo con sistema de gestión, arquitectura escalable y diseño UI/UX desde wireframes.",
+      "highlights": [
+        "Arquitectura escalable",
+        "Sistema de gestión completo",
+        "Diseño desde wireframes"
+      ],
+      "impact": "Producto completo end-to-end desde cero"
+    },
+    {
+      "name": "Aplicación Narrativa (La Codicia del Sabio)",
+      "period": { "start": "2024", "end": "2024" },
+      "importance": "low",
+      "role": "FullStack Developer",
+      "technologies": [
+        { "name": "Flutter", "icon": "/icons/flutter-icon.svg" },
+        { "name": "Supabase", "icon": "/icons/supabase-icon.svg" },
+        { "name": "PostgreSQL", "icon": "/icons/postgresql-icon.svg" },
+        { "name": "TypeScript", "icon": "/icons/typescript-icon.svg" }
+      ],
+      "description": "Aplicación narrativa con backend completo, autenticación y despliegue end-to-end.",
+      "highlights": [
+        "Backend completo con Supabase",
+        "Autenticación de usuarios",
+        "Despliegue end-to-end"
+      ],
+      "impact": "Aplicación móvil completa con backend y autenticación"
     }
   ],
   "current": {
