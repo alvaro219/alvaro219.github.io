@@ -7,15 +7,9 @@
     "photo": "/images/alvaro_intro_photo.png"
   },
   "education": [
-    "Curso de Desarrollo Full Stack.",
-    "Plataforma Online.",
-    "Capacitación en tecnologías como HTML5, CSS3, JavaScript, Typescript, Solid.js, Vue.js y Angular.",
-    "Curso de Diseño UX/UI.",
-    "Academia de Diseño Digital.",
-    "Enfoque en el diseño de interfaces centradas en el usuario y optimización de la experiencia.",
-    "Certificación en Desarrollo de Aplicaciones Web.",
-    "Institución Técnica.",
-    "Desarrollo y despliegue de aplicaciones web utilizando frameworks modernos y sistemas de bases de datos."
+    "Desarrollo FullStack — Formación Online — 2023-2024",
+    "Diseño UX/UI — Academia Digital — 2023",
+    "Formación autodidacta + práctica real en proyectos"
   ],
   "skills": [
     { "name": "Vue.js", "icon": "/icons/vue-js-icon.svg" },

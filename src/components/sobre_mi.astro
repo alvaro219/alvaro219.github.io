@@ -32,29 +32,30 @@ const { intro, education, skills, current, projects } = Astro!.props;
   </div>
 
   <!-- Apartado de Habilidades -->
-  <div class="worker-card mb-8">
-    <img
-      id="content-icon"
-      class="icon not-mobile"
-      src="/icons/skills-icon.svg"
-      alt="icono-decorativo"
-      width="56"
-      height="56"
-      title="icono-decorativo"
-    />
-    <div class="w-full">
-      <div class="mobile-icon-div flex sm:flex-row mb-4 items-start border-b">
-        <img
-        id="content-icon"
-        class="icon mobile"
+  <div class="section-container skills-section">
+    <div class="section-header">
+      <img
+        class="icon not-mobile"
         src="/icons/skills-icon.svg"
         alt="icono-decorativo"
         width="56"
         height="56"
         title="icono-decorativo"
       />
-      <strong><h3 tabindex="0">Habilidades</h3></strong>
+      <h3 class="desktop-title"><strong>Habilidades Técnicas</strong></h3>
+      <div class="mobile-icon-div">
+        <img
+          class="icon mobile"
+          src="/icons/skills-icon.svg"
+          alt="icono-decorativo"
+          width="56"
+          height="56"
+          title="icono-decorativo"
+        />
+        <h3><strong>Habilidades Técnicas</strong></h3>
       </div>
+    </div>
+    <div class="section-content">
 
       <div class="tech-list flex flex-wrap gap-2" id="skills-list">
         {skills.map((skill: any) => (
@@ -86,32 +87,31 @@ const { intro, education, skills, current, projects } = Astro!.props;
   </div>
 
   <!-- Apartado de Proyecto Actual -->
-  <div class="worker-card project-container">
-    <img
-      id="content-icon"
-      class="icon not-mobile"
-      src="/icons/actual-project-icon.svg"
-      alt="icono-decorativo"
-      width="56"
-      height="56"
-      title="icono-decorativo"
-    />
-    <div class="w-full project-box">
-      <div class="mobile-icon-div flex sm:flex-row mb-4 items-start border-b">
-        <img
-        id="content-icon"
-        class="icon mobile"
+  <div class="section-container current-project-section" id="project-container-current">
+    <div class="section-header">
+      <img
+        class="icon not-mobile"
         src="/icons/actual-project-icon.svg"
         alt="icono-decorativo"
         width="56"
         height="56"
         title="icono-decorativo"
+      />
+      <h3 class="desktop-title"><strong>Proyecto Actual</strong></h3>
+      <div class="mobile-icon-div">
+        <img
+          class="icon mobile"
+          src="/icons/actual-project-icon.svg"
+          alt="icono-decorativo"
+          width="56"
+          height="56"
+          title="icono-decorativo"
         />
-        <strong><h3 tabindex="0" class="not-mobile">Ocupación Actual</h3></strong>
-        <strong><h3 tabindex="0" class="mobile">En curso</h3></strong>
-
+        <h3><strong>Proyecto Actual</strong></h3>
       </div>
-      <div class="project">
+    </div>
+    <div class="section-content">
+      <div class="current-project-card">
         <strong><h4 tabindex="0">{current.title}</h4></strong>
         <p tabindex="0"><strong>Desde:</strong> {current.period.start} – {current.period.end}</p>
         <div class="tech-list flex gap-2">
@@ -139,30 +139,30 @@ const { intro, education, skills, current, projects } = Astro!.props;
   </div>
 
   <!-- Apartado de Proyectos -->
-  <div class="worker-card" id="project-container">
-    <img
-      id="content-icon"
-      class="icon not-mobile"
-      src="/icons/projects-icon.svg"
-      alt="icono-decorativo"
-      width="56"
-      height="56"
-      title="icono-decorativo"
-    />
-    <div class="w-full project-box">
-      <div class="mobile-icon-div flex sm:flex-row mb-4 items-start border-b">
-        <img
-        id="content-icon"
-        class="icon mobile"
+  <div class="section-container projects-section">
+    <div class="section-header">
+      <img
+        class="icon not-mobile"
         src="/icons/projects-icon.svg"
         alt="icono-decorativo"
         width="56"
         height="56"
         title="icono-decorativo"
+      />
+      <h3 class="desktop-title"><strong>Proyectos Destacados</strong></h3>
+      <div class="mobile-icon-div">
+        <img
+          class="icon mobile"
+          src="/icons/projects-icon.svg"
+          alt="icono-decorativo"
+          width="56"
+          height="56"
+          title="icono-decorativo"
         />
-        <h3 tabindex="0" class="not-mobile"><strong>Proyectos Destacados</strong></h3>
-        <h3 tabindex="0" class="mobile"><strong>Proyectos</strong></h3>
+        <h3><strong>Proyectos Destacados</strong></h3>
       </div>
+    </div>
+    <div class="section-content">
       <div class="projects-grid">
         {projects.map((project: any) => (
           <div
@@ -252,33 +252,18 @@ const { intro, education, skills, current, projects } = Astro!.props;
   </div>
 
   <!-- Apartado de Educación -->
-  <div class="worker-card">
-    <img
-        id="content-icon"
-        class="icon not-mobile"
-        src="/icons/education-icon.svg"
-        alt="icono-decorativo"
-        width="56"
-        height="56"
-        title="icono-decorativo"
-      />
-    <div class="w-full">
-      <div class="mobile-icon-div flex sm:flex-row mb-4 items-start border-b">
-        <img
-          id="content-icon"
-          class="icon mobile"
-          src="/icons/education-icon.svg"
-          alt="icono-decorativo"
-          width="56"
-          height="56"
-          title="icono-decorativo"
-          />
-        <strong><h3 class="sm:flex-row gap-4 items-start border-b">Educación</h3></strong>
-      </div>
-      <ul>
-        {education.map((item: any) => <li style="list-style: disc;">{item}</li>)}
-      </ul>
-  </div>
+  <div class="education-section-simple">
+    <div class="education-header">
+      <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="currentColor" class="education-icon-simple">
+        <path d="M480-120 200-272v-240L40-600l440-240 440 240v320h-80v-276l-80 44v240L480-120Zm0-332 274-148-274-148-274 148 274 148Zm0 241 200-108v-151L480-360 280-470v151l200 108Zm0-241Zm0 90Zm0 0Z"/>
+      </svg>
+      <h3 class="education-title">Formación</h3>
+    </div>
+    <ul class="education-list">
+      {education.map((item: any) => (
+        <li class="education-item">{item}</li>
+      ))}
+    </ul>
   </div>
 </div>
 
@@ -293,13 +278,14 @@ const { intro, education, skills, current, projects } = Astro!.props;
   }
 
   .worker-content {
-    padding: 6px;
+    padding: 16px;
     max-width: 900px;
     margin: 0 auto;
   }
 
   .worker-intro {
     margin-bottom: 40px;
+    margin-top: 20px;
 
     &.not-mobile {
       display: block;
@@ -351,6 +337,11 @@ const { intro, education, skills, current, projects } = Astro!.props;
       transform: scale(1.02);
       box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
     }
+
+    @media screen and (max-width: 768px) {
+      width: 70%;
+      align-self: center;
+    }
   }
 
   .intro-content {
@@ -387,6 +378,109 @@ const { intro, education, skills, current, projects } = Astro!.props;
     color: #555;
     margin: 0;
     text-align: justify;
+  }
+
+  // Estilos unificados para todas las secciones
+  .section-container {
+    margin-top: 32px;
+    padding: 32px;
+    background: linear-gradient(135deg, rgba(33, 135, 76, 0.05) 0%, rgba(255, 255, 255, 0.8) 100%);
+    border-radius: 20px;
+    border: 1px solid rgba(33, 135, 76, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+    }
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 3px solid var(--color-primary);
+
+    h3 {
+      font-size: 32px;
+      margin: 0;
+      color: var(--color-header);
+      background: linear-gradient(135deg, var(--color-header) 0%, var(--color-primary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    img {
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    }
+
+    .mobile-icon-div {
+      display: none;
+    }
+  }
+
+  .section-content {
+    animation: fadeIn 0.4s ease-out;
+  }
+
+  // Variantes de color para cada sección
+  .current-project-section {
+    background: linear-gradient(135deg, rgba(75, 1, 104, 0.05) 0%, rgba(255, 255, 255, 0.8) 100%);
+    border-color: rgba(75, 1, 104, 0.1);
+
+    .section-header {
+      border-bottom-color: var(--color-accent);
+
+      h3 {
+        background: linear-gradient(135deg, var(--color-header) 0%, var(--color-accent) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+    }
+  }
+
+  .projects-section {
+    background: linear-gradient(135deg, rgba(33, 135, 76, 0.05) 0%, rgba(255, 255, 255, 0.8) 100%);
+    border-color: rgba(33, 135, 76, 0.1);
+  }
+
+  .education-section {
+    background: linear-gradient(135deg, rgba(99, 66, 178, 0.05) 0%, rgba(255, 255, 255, 0.8) 100%);
+    border-color: rgba(99, 66, 178, 0.1);
+
+    .section-header {
+      border-bottom-color: var(--color-accent);
+
+      h3 {
+        background: linear-gradient(135deg, var(--color-header) 0%, var(--color-accent) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+    }
+  }
+
+  .current-project-card {
+    background: white;
+    padding: 24px;
+    border-radius: 16px;
+    border-left: 4px solid var(--color-accent);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+    h4 {
+      font-size: 22px;
+      margin: 0 0 12px 0;
+      color: var(--color-header);
+    }
+
+    p {
+      margin: 8px 0;
+      line-height: 1.6;
+    }
   }
 
   .worker-card {
@@ -812,11 +906,89 @@ const { intro, education, skills, current, projects } = Astro!.props;
     }
   }
 
+  // Sección de educación simplificada pero con estilo
+  .education-section-simple {
+    margin-top: 40px;
+    padding: 28px 32px;
+    background: linear-gradient(135deg, rgba(99, 66, 178, 0.03) 0%, rgba(255, 255, 255, 0.5) 100%);
+    border-radius: 16px;
+    border: 1px solid rgba(99, 66, 178, 0.08);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  .education-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid rgba(99, 66, 178, 0.15);
+  }
+
+  .education-icon-simple {
+    color: var(--color-accent);
+    filter: drop-shadow(0 2px 4px rgba(99, 66, 178, 0.2));
+  }
+
+  .education-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-header);
+    margin: 0;
+    background: linear-gradient(135deg, var(--color-header) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .education-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .education-item {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #555;
+    padding: 12px 16px;
+    padding-left: 36px;
+    position: relative;
+    background: white;
+    border-radius: 8px;
+    border-left: 3px solid var(--color-accent);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+    transition: all 0.2s ease;
+
+    &:hover {
+      transform: translateX(4px);
+      box-shadow: 0 2px 8px rgba(99, 66, 178, 0.12);
+      border-left-color: var(--color-secondary);
+    }
+
+    &::before {
+      content: "✓";
+      position: absolute;
+      left: 12px;
+      color: var(--color-accent);
+      font-weight: bold;
+      font-size: 16px;
+    }
+  }
+
   .mobile {
       display: none;
     }
 
-  @media ( max-width: 767px) {
+  @media screen and (max-width: 768px) {
     .not-mobile {
       display: none;
     }
@@ -839,8 +1011,46 @@ const { intro, education, skills, current, projects } = Astro!.props;
       }
     }
 
+    .worker-content {
+      padding: 12px;
+    }
+
     .worker-intro.mobile{
-      display: block;
+      display: none;
+    }
+
+    .intro-card {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      padding: 24px;
+    }
+
+    .intro-photo-container {
+      .photo-decoration {
+        display: none;
+      }
+
+      @media screen and (max-width: 768px){
+        justify-content: center;
+        display: flex;
+      }
+    }
+
+    .worker-photo {
+      height: 280px;
+    }
+
+    .intro-name {
+      font-size: 36px;
+    }
+
+    .intro-title {
+      font-size: 20px;
+    }
+
+    .intro-description {
+      font-size: 15px;
+      text-align: left;
     }
 
     .mobile-icon-div  {
@@ -852,15 +1062,62 @@ const { intro, education, skills, current, projects } = Astro!.props;
         width: 48px;
         height: 48px;
       }
+
+      h3 {
+        margin: 0;
+      }
+    }
+
+    .section-container {
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 16px;
+    }
+
+    .section-header {
+      flex-direction: row;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+
+      .not-mobile {
+        display: none;
+      }
+
+      .mobile-icon-div {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+      }
+
+      h3 {
+        font-size: 22px;
+      }
+
+      .desktop-title {
+        display: none;
+      }
+
+      img {
+        width: 48px;
+        height: 48px;
+      }
+    }
+
+    .section-content {
+      padding: 0;
     }
 
     .tech-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 4px;
+      gap: 6px;
 
       .tech {
         font-size: 0.75rem;
+        padding: 0.4rem 0.6rem;
         display: inline-flex;
         align-items: center;
         white-space: nowrap;
@@ -868,16 +1125,36 @@ const { intro, education, skills, current, projects } = Astro!.props;
     }
 
     .projects-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr !important;
     }
 
-    .project {
-      h4 {
-        font-size: 16px;
-      }
+    .education-section-simple {
+      margin-top: 32px;
+      padding: 20px;
+    }
 
-      .project-role {
-        font-size: 13px;
+    .education-header {
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+    }
+
+    .education-icon-simple {
+      height: 24px;
+      width: 24px;
+    }
+
+    .education-title {
+      font-size: 20px;
+    }
+
+    .education-item {
+      font-size: 14px;
+      padding: 10px 12px;
+      padding-left: 32px;
+
+      &::before {
+        left: 10px;
+        font-size: 14px;
       }
     }
   }
@@ -973,8 +1250,8 @@ const { intro, education, skills, current, projects } = Astro!.props;
   function filterProjects() {
     if (activeFilters.size === 0) {
       // Mostrar todos los proyectos
-      const currentProject = document.getElementById("project-container");
-      if (currentProject) currentProject.style.display = "flex";
+      const currentProject = document.getElementById("project-container-current");
+      if (currentProject) currentProject.style.display = "block";
 
       const projects = document.querySelectorAll("[id^='project-']");
       projects.forEach((project) => {
@@ -988,7 +1265,7 @@ const { intro, education, skills, current, projects } = Astro!.props;
     }
 
     // Filtrar proyectos
-    const currentProject = document.getElementById("project-container");
+    const currentProject = document.getElementById("project-container-current");
     if (currentProject) {
       const currentTechs = Array.from(currentProject.querySelectorAll(".tech")).map(el => el.dataset.skill);
       const showCurrent = Array.from(activeFilters).some(filter => currentTechs.includes(filter));
@@ -996,7 +1273,7 @@ const { intro, education, skills, current, projects } = Astro!.props;
       if (showCurrent) {
         currentProject.classList.remove("fade-out");
         currentProject.classList.add("fade-in");
-        currentProject.style.display = "flex";
+        currentProject.style.display = "block";
       } else {
         currentProject.classList.add("fade-out");
         currentProject.classList.remove("fade-in");
