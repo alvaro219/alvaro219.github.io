@@ -51,32 +51,29 @@
       />
     </sl-button>
 
-    <sl-drawer label="Menú" class="drawer-custom-size" style="--size: 100vw; color: var(--color-header) !important;">
+    <sl-drawer label="Menú" class="drawer-custom-size mobile-drawer">
       <div class="mobile-menu-div">
-        <button onclick="window.location.href='/'"><a  tabindex="-1" title="Inicio" href="/" style="color: var(--color-header) !important;">Inicio</a></button>
-
-        <button>
-          <a  tabindex="0" title="Inicio" href="https://github.com/alvaro219" target="_blank" rel="noreferrer noopener" style="color: var(--color-header) !important;">
-            <img src="/icons/github-black-icon.svg" alt="icono-github" title="icono-github" width="24px" height="24px">
-            Github
-          </a>
+        <button class="mobile-menu-btn" onclick="window.location.href='/'">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg>
+          Inicio
         </button>
 
-        <button>
-          <a tabindex="0" title="Inicio" href="https://www.linkedin.com/in/alvaroantonmacia/" target="_blank" rel="noreferrer noopener" style="color: var(--color-header) !important;">
-            <img src="/icons/linkedin-black-icon.svg" alt="icono-linkedin" title="icono-linkedin" width="24px" height="24px">
-            LinkedIn
-          </a>
-        </button>
+        <a class="mobile-menu-btn" href="https://github.com/alvaro219" target="_blank" rel="noreferrer noopener" title="Github">
+          <img src="/icons/github-icon.svg" alt="icono-github" width="24px" height="24px">
+          Github
+        </a>
 
-        <button>
-          <a tabindex="0" title="Inicio" href="https://drive.google.com/file/d/1jhyRC1nZ6dmS-lXIlXDOpx7ZWFw72tKj/view?usp=drive_link" target="_blank" rel="noreferrer noopener" style="color: var(--color-header) !important;">
-            <img src="/icons/download-black-icon.svg" alt="icono-descarga-currículum" title="icono-descarga-currículum" width="24px" height="24px">
-            Currículum
-          </a>
-        </button>
+        <a class="mobile-menu-btn" href="https://www.linkedin.com/in/alvaroantonmacia/" target="_blank" rel="noreferrer noopener" title="LinkedIn">
+          <img src="/icons/linkedin-icon.svg" alt="icono-linkedin" width="24px" height="24px">
+          LinkedIn
+        </a>
+
+        <a class="mobile-menu-btn" href="https://drive.google.com/file/d/1jhyRC1nZ6dmS-lXIlXDOpx7ZWFw72tKj/view?usp=drive_link" target="_blank" rel="noreferrer noopener" title="Currículum">
+          <img src="/icons/download-icon.svg" alt="icono-descarga-currículum" width="24px" height="24px">
+          Currículum
+        </a>
         
-        <button data-target="contact_us" style="color: var(--color-header);">Contáctame</button>
+        <button class="mobile-menu-btn" data-target="contact_us">Contáctame</button>
       </div>
     </sl-drawer>
   </div>
@@ -634,11 +631,84 @@
     }
   }
 
+  // Estilos del drawer móvil
+  .mobile-drawer {
+    --size: 100vw;
+    
+    &::part(panel) {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2b2a2f 100%);
+      box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    &::part(header) {
+      background: transparent;
+      border-bottom: 3px solid;
+      border-image: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%) 1;
+      padding: 20px 24px;
+    }
+
+    &::part(title) {
+      font-size: 24px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    &::part(close-button) {
+      color: #fff;
+      font-size: 24px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: var(--color-primary);
+        transform: rotate(90deg);
+      }
+    }
+
+    &::part(body) {
+      padding: 24px;
+    }
+  }
+
   .mobile-menu-div {
     display: flex;
     flex-direction: column;
-    font-size: 30px;
-    gap: 20px;
+    gap: 16px;
+    padding: 8px;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 16px 24px;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(33, 135, 76, 0.3);
+
+    img, svg {
+      width: 24px;
+      height: 24px;
+      filter: brightness(0) invert(1);
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(33, 135, 76, 0.4);
+      background: linear-gradient(135deg, var(--color-link-hover) 0%, var(--color-secondary) 100%);
+    }
+
+    &:active {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(33, 135, 76, 0.3);
+    }
   }
 
   @media screen and (max-width: 767px) {
