@@ -43,20 +43,23 @@
       "importance": "high",
       "role": "FullStack Developer",
       "technologies": [
-        { "name": "Angular", "icon": "/icons/angular-js-icon.svg" },
+        { "name": "Angular.js", "icon": "/icons/angular-js-icon.svg" },
+        { "name": "PHP", "icon": "/icons/php-icon.svg" },
         { "name": "Laravel", "icon": "/icons/laravel-icon.svg" },
+        { "name": "TypeScript", "icon": "/icons/typescript-icon.svg" },
         { "name": "PostgreSQL", "icon": "/icons/postgresql-icon.svg" },
-        { "name": "TypeScript", "icon": "/icons/typescript-icon.svg" }
+        { "name": "WhatsApp Business API", "icon": "/icons/whatsapp.svg" },
+        { "name": "Make.com", "icon": "/icons/make-icon.svg" },
+        { "name": "Facebook Business", "icon": "/icons/facebook-icon.svg" }
       ],
-      "description": "Digitalización del proceso de planificación de transportes basado en llamadas y hojas manuales. Reducción del tiempo de trabajo del jefe de transportes de 8 horas/día a 10 minutos, permitiendo dedicar el resto de la jornada a operar camiones y generar ingresos adicionales.",
+      "description": "Sistema de gestión integral para empresas de transporte con automatización de comunicaciones.",
       "highlights": [
-        "Arquitectura backend en Laravel + PostgreSQL",
-        "Sistema de asignación de rutas y horarios con validaciones",
-        "UX basada en el flujo real del responsable logístico",
-        "Confirmaciones y comunicación vía WhatsApp Business API",
-        "Historial, auditoría y registro automático de rutas"
+        "Remodelación completa del sistema de planificación de horarios y rutas",
+        "Implementación de sistema automatizado de confirmación vía WhatsApp Business con plantillas personalizadas",
+        "Integración de webhooks mediante Make.com para gestión de respuestas de chóferes, actualizando estados en tiempo real (sin mandar, mandados, aceptados, rechazados)",
+        "Panel de control en tiempo real para gestores con visibilidad completa del estado de las operaciones"
       ],
-      "impact": "Transformación de un proceso manual crítico en un sistema escalable y automatizado"
+      "impact": "Transformación de un proceso manual crítico en un sistema escalable y automatizado con comunicación en tiempo real"
     },
     {
       "name": "Abastores OS — Lead Frontend & UX/UI Tutor",
@@ -215,17 +218,19 @@
     }
   ],
   "current": {
-    "title": "Desarrollador FullStack Freelance",
-    "period": { "start": "2023-05", "end": "Presente" },
+    "title": "Cementum",
+    "period": { "start": "2025", "end": "Presente" },
     "technologies": [
-      {"name": "Django", "icon": "/icons/django-icon.svg"},
-      {"name": "Vue.js", "icon": "/icons/vue-js-icon.svg"},
       {"name": "Angular.js", "icon": "/icons/angular-js-icon.svg"},
-      {"name": "Flutter", "icon": "/icons/flutter-icon.svg"},
-      {"name": "UX/UI Design", "icon": "/icons/ux-ui-design-icon.svg"},
-      {"name": "MySQL", "icon": "/icons/mysql-icon.svg"}
+      {"name": "PHP", "icon": "/icons/php-icon.svg"},
+      {"name": "Laravel", "icon": "/icons/laravel-icon.svg"},
+      {"name": "TypeScript", "icon": "/icons/typescript-icon.svg"},
+      {"name": "PostgreSQL", "icon": "/icons/postgresql-icon.svg"},
+      {"name": "WhatsApp Business API", "icon": "/icons/whatsapp.svg"},
+      {"name": "Make.com", "icon": "/icons/make-icon.svg"},
+      {"name": "Facebook Business", "icon": "/icons/facebook-icon.svg"}
     ],
-    "description": "Proyectos web y aplicaciones, integrando frameworks para soluciones personalizadas."
+    "description": "Sistema de gestión integral para empresas de transporte con automatización de comunicaciones."
   },
   "goals": [
     {
