@@ -1,0 +1,53 @@
+<div class="editor-page">
+  <div class="editor-inner">
+    <header class="editor-header">
+      <div>
+        <a routerLink="/admin" class="back-link">&larr; Dashboard</a>
+        <h1>Gestionar Proyectos</h1>
+      </div>
+      <a routerLink="/admin/projects/new" class="btn btn-primary">+ Nuevo Proyecto</a>
+    </header>
+
+    @if (loading) {
+      <div class="loader"><div class="spinner"></div></div>
+    } @else {
+      <div class="table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Proyecto</th>
+              <th>Periodo</th>
+              <th>Importancia</th>
+              <th>Activo</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (p of projects; track p.id) {
+              <tr [class.inactive]="!p.active">
+                <td>
+                  <strong>{{ p.name }}</strong>
+                  @if (p.role) { <br><span class="table-role">{{ p.role }}</span> }
+                </td>
+                <td>{{ p.period_start }} – {{ p.period_end }}</td>
+                <td>
+                  <span class="importance-dot" [class]="'dot-' + p.importance"></span>
+                  {{ p.importance }}
+                </td>
+                <td>
+                  <button class="toggle-btn" [class.on]="p.active" (click)="toggleActive(p)">
+                    {{ p.active ? 'ON' : 'OFF' }}
+                  </button>
+                </td>
+                <td class="actions-cell">
+                  <a [routerLink]="['/admin/projects', p.id]" class="action-btn edit">Editar</a>
+                  <button class="action-btn delete" (click)="deleteProject(p.id, p.name)">Eliminar</button>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    }
+  </div>
+</div>

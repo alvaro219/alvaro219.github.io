@@ -1,0 +1,25 @@
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a routerLink="/" class="navbar-logo">Álvaro Antón Maciá</a>
+
+    <button class="mobile-toggle" (click)="menuOpen = !menuOpen" [class.active]="menuOpen">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="navbar-links" [class.open]="menuOpen">
+      <li>
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="menuOpen = false">Inicio</a>
+      </li>
+      <li>
+        <a routerLink="/proyectos" routerLinkActive="active" (click)="menuOpen = false">Proyectos</a>
+      </li>
+      @if (auth.admin()) {
+        <li>
+          <a routerLink="/admin" routerLinkActive="active" (click)="menuOpen = false" class="admin-link">CRM</a>
+        </li>
+      }
+    </ul>
+  </div>
+</nav>

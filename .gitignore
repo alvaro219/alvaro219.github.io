@@ -1,11 +1,12 @@
 # build output
 dist/
-
-# generated types
-.astro/
+out-tsc/
 
 # dependencies
 node_modules/
+
+# Angular cache
+.angular/
 
 # logs
 npm-debug.log*
@@ -22,3 +23,9 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# VS Code
+.vscode/
+
+# System files
+Thumbs.db

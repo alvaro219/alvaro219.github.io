@@ -1,0 +1,61 @@
+@if (loading) {
+  <div class="loader"><div class="spinner"></div></div>
+} @else if (project) {
+  <div class="detail-page">
+    <div class="detail-inner">
+      <a routerLink="/proyectos" class="back-link">&larr; Volver a proyectos</a>
+
+      <header class="detail-header">
+        <div class="header-top">
+          <h1>{{ project.name }}</h1>
+          @if (project.importance === 'high') {
+            <span class="importance-badge high">Destacado</span>
+          } @else if (project.importance === 'medium') {
+            <span class="importance-badge medium">Relevante</span>
+          }
+        </div>
+        @if (project.role) {
+          <p class="detail-role">{{ project.role }}</p>
+        }
+        <p class="detail-period">{{ project.period_start }} – {{ project.period_end }}</p>
+      </header>
+
+      <section class="detail-section">
+        <h2>Tecnologías</h2>
+        <div class="tech-grid">
+          @for (tech of project.technologies; track tech.id) {
+            <span class="tech-badge">
+              <img [src]="tech.icon" [alt]="tech.name" width="22" height="22" />
+              {{ tech.name }}
+            </span>
+          }
+        </div>
+      </section>
+
+      <section class="detail-section">
+        <h2>Descripción</h2>
+        <p class="detail-desc">{{ project.description }}</p>
+      </section>
+
+      @if (project.highlights && project.highlights.length > 0) {
+        <section class="detail-section highlights">
+          <h2>Logros Clave</h2>
+          <ul class="highlights-list">
+            @for (h of project.highlights; track h) {
+              <li>{{ h }}</li>
+            }
+          </ul>
+        </section>
+      }
+
+      @if (project.impact) {
+        <section class="detail-section impact">
+          <h2>Impacto</h2>
+          <div class="impact-card">
+            <p>{{ project.impact }}</p>
+          </div>
+        </section>
+      }
+    </div>
+  </div>
+}

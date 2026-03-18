@@ -1,0 +1,54 @@
+<div class="projects-page">
+  <div class="page-inner">
+    <header class="page-header">
+      <h1>Proyectos</h1>
+      <p class="page-subtitle">Una selección de los proyectos en los que he trabajado</p>
+    </header>
+
+    @if (technologies().length > 0) {
+      <div class="filter-bar">
+        <span class="filter-title">Filtrar por tecnología:</span>
+        <div class="filter-chips">
+          @for (tech of technologies(); track tech.id) {
+            <button class="filter-chip" [class.active]="isActive(tech.name)" (click)="toggleFilter(tech.name)">
+              <img [src]="tech.icon" [alt]="tech.name" width="16" height="16" />
+              {{ tech.name }}
+            </button>
+          }
+        </div>
+        @if (activeFilters.size > 0) {
+          <button class="clear-btn" (click)="clearFilters()">Limpiar filtros</button>
+        }
+      </div>
+    }
+
+    @if (loading()) {
+      <div class="loader">
+        <div class="spinner"></div>
+      </div>
+    } @else {
+      <div class="projects-list">
+        @for (project of filteredProjects; track project.id) {
+          <a [routerLink]="['/proyectos', project.id]" class="project-row" [class]="'importance-' + project.importance">
+            <div class="row-left">
+              <h3>
+                {{ project.name }}
+                @if (project.importance === 'high') { <span class="star">&#11088;</span> }
+              </h3>
+              @if (project.role) { <p class="row-role">{{ project.role }}</p> }
+              <p class="row-desc">{{ project.description }}</p>
+            </div>
+            <div class="row-right">
+              <span class="row-period">{{ project.period_start }} – {{ project.period_end }}</span>
+              <div class="row-techs">
+                @for (tech of project.technologies; track tech.id) {
+                  <img [src]="tech.icon" [alt]="tech.name" width="22" height="22" [title]="tech.name" class="row-tech-icon" />
+                }
+              </div>
+            </div>
+          </a>
+        }
+      </div>
+    }
+  </div>
+</div>

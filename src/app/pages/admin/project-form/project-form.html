@@ -1,0 +1,97 @@
+<div class="editor-page">
+  <div class="editor-inner">
+    <header class="editor-header">
+      <div>
+        <a routerLink="/admin/projects" class="back-link">&larr; Proyectos</a>
+        <h1>{{ isNew ? 'Nuevo Proyecto' : 'Editar Proyecto' }}</h1>
+      </div>
+    </header>
+
+    @if (loading) {
+      <div class="loader"><div class="spinner"></div></div>
+    } @else {
+      @if (success) { <div class="success-msg">{{ success }}</div> }
+      @if (error) { <div class="error-msg">{{ error }}</div> }
+
+      <form (ngSubmit)="onSubmit()" class="form-card">
+        <div class="form-grid">
+          <div class="form-field">
+            <label>Nombre del proyecto</label>
+            <input [(ngModel)]="project.name" name="name" required placeholder="Cementum — FullStack Developer" />
+          </div>
+          <div class="form-field">
+            <label>Rol</label>
+            <input [(ngModel)]="project.role" name="role" placeholder="FullStack Developer" />
+          </div>
+          <div class="form-field">
+            <label>Periodo inicio</label>
+            <input [(ngModel)]="project.period_start" name="period_start" placeholder="2024" />
+          </div>
+          <div class="form-field">
+            <label>Periodo fin</label>
+            <input [(ngModel)]="project.period_end" name="period_end" placeholder="Presente" />
+          </div>
+          <div class="form-field">
+            <label>Importancia</label>
+            <select [(ngModel)]="project.importance" name="importance">
+              <option value="high">Alta</option>
+              <option value="medium">Media</option>
+              <option value="low">Baja</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label>Orden</label>
+            <input type="number" [(ngModel)]="project.sort_order" name="sort_order" />
+          </div>
+          <div class="form-field form-full">
+            <label>Descripción</label>
+            <textarea [(ngModel)]="project.description" name="description" rows="4" placeholder="Descripción del proyecto..."></textarea>
+          </div>
+          <div class="form-field form-full">
+            <label>Logros (uno por línea)</label>
+            <textarea [(ngModel)]="highlightsText" name="highlights" rows="4" placeholder="Logro 1&#10;Logro 2&#10;Logro 3"></textarea>
+          </div>
+          <div class="form-field form-full">
+            <label>Impacto</label>
+            <input [(ngModel)]="project.impact" name="impact" placeholder="Impacto del proyecto..." />
+          </div>
+          <div class="form-field form-full">
+            <label>Tecnologías</label>
+            <div class="tech-selector">
+              @for (tech of allTechnologies; track tech.id) {
+                <button
+                  type="button"
+                  class="tech-toggle"
+                  [class.selected]="isTechSelected(tech.id!)"
+                  (click)="toggleTech(tech.id!)"
+                >
+                  <img [src]="tech.icon" [alt]="tech.name" width="16" height="16" />
+                  {{ tech.name }}
+                </button>
+              }
+            </div>
+          </div>
+          <div class="form-field">
+            <label>
+              <input type="checkbox" [(ngModel)]="project.is_current" name="is_current" />
+              Proyecto actual
+            </label>
+          </div>
+          <div class="form-field">
+            <label>
+              <input type="checkbox" [(ngModel)]="project.active" name="active" />
+              Visible en portfolio
+            </label>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <a routerLink="/admin/projects" class="btn btn-outline">Cancelar</a>
+          <button type="submit" class="btn btn-primary" [disabled]="saving">
+            {{ saving ? 'Guardando...' : (isNew ? 'Crear Proyecto' : 'Guardar Cambios') }}
+          </button>
+        </div>
+      </form>
+    }
+  </div>
+</div>

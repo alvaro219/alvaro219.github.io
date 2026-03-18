@@ -1,0 +1,210 @@
+.projects-page {
+  padding: 3rem 2rem;
+}
+
+.page-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.page-header {
+  margin-bottom: 1.75rem;
+
+  h1 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0 0 0.3rem;
+    letter-spacing: -0.5px;
+  }
+
+  .page-subtitle {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    margin: 0;
+  }
+}
+
+.filter-bar {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+
+  .filter-title {
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    display: block;
+    margin-bottom: 0.6rem;
+  }
+
+  .filter-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+
+  .filter-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    padding: 0.3rem 0.55rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: all 0.15s;
+
+    &:hover { border-color: var(--border-hover); }
+
+    &.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+      font-weight: 600;
+    }
+
+    img { border-radius: 2px; }
+  }
+
+  .clear-btn {
+    margin-top: 0.6rem;
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.15);
+    padding: 0.3rem 0.65rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.15s;
+
+    &:hover { background: #ef4444; color: #fff; }
+  }
+}
+
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.project-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  text-decoration: none;
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  padding: 1.1rem 1.25rem;
+  border-left: 3px solid var(--border);
+  border: 1px solid var(--border);
+  transition: all 0.15s;
+  gap: 1.25rem;
+
+  &:hover {
+    border-color: var(--border-hover);
+    background: var(--bg-card-hover);
+  }
+
+  &.importance-high { border-left: 3px solid var(--accent); }
+  &.importance-medium { border-left: 3px solid var(--orange); }
+
+  .row-left {
+    flex: 1;
+
+    h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0 0 0.2rem;
+
+      .star { font-size: 0.85rem; }
+    }
+
+    .row-role {
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 500;
+      margin: 0 0 0.35rem;
+    }
+
+    .row-desc {
+      color: var(--text-secondary);
+      font-size: 0.82rem;
+      line-height: 1.5;
+      margin: 0;
+    }
+  }
+
+  .row-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.4rem;
+    flex-shrink: 0;
+
+    .row-period {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      white-space: nowrap;
+    }
+
+    .row-techs {
+      display: flex;
+      gap: 3px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+
+      .row-tech-icon {
+        border-radius: 3px;
+        padding: 2px;
+        background: var(--bg-secondary);
+        transition: transform 0.15s;
+
+        &:hover { transform: scale(1.1); }
+      }
+    }
+  }
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  padding: 4rem;
+
+  .spinner {
+    width: 32px;
+    height: 32px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+  }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 640px) {
+  .projects-page { padding: 2rem 1rem; }
+
+  .page-header h1 { font-size: 1.3rem; }
+
+  .project-row {
+    flex-direction: column;
+    gap: 0.6rem;
+
+    .row-right {
+      align-items: flex-start;
+      flex-direction: row;
+      gap: 0.75rem;
+    }
+  }
+}

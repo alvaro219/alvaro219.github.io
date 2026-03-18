@@ -1,0 +1,46 @@
+<div class="dashboard">
+  <div class="dash-inner">
+    <header class="dash-header">
+      <div>
+        <h1>CRM Dashboard</h1>
+        <p class="dash-subtitle">Panel de gestión de tu portfolio</p>
+      </div>
+      <button class="btn btn-outline" (click)="logout()">Cerrar Sesión</button>
+    </header>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-icon">&#128193;</span>
+        <div class="stat-info">
+          <span class="stat-number">{{ projectCount }}</span>
+          <span class="stat-label">Proyectos</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-icon">&#9881;</span>
+        <div class="stat-info">
+          <span class="stat-number">{{ techCount }}</span>
+          <span class="stat-label">Tecnologías</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions-grid">
+      <a routerLink="/admin/projects" class="action-card">
+        <span class="action-icon">&#128221;</span>
+        <h3>Gestionar Proyectos</h3>
+        <p>Crear, editar y eliminar proyectos del portfolio</p>
+      </a>
+      <a routerLink="/admin/technologies" class="action-card">
+        <span class="action-icon">&#128736;</span>
+        <h3>Gestionar Tecnologías</h3>
+        <p>Añadir o editar tecnologías y sus iconos</p>
+      </a>
+      <a routerLink="/admin/profile" class="action-card">
+        <span class="action-icon">&#128100;</span>
+        <h3>Editar Perfil</h3>
+        <p>Modificar tu información personal y educación</p>
+      </a>
+    </div>
+  </div>
+</div>

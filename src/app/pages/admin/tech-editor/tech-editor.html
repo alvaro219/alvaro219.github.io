@@ -1,0 +1,81 @@
+<div class="editor-page">
+  <div class="editor-inner">
+    <header class="editor-header">
+      <div>
+        <a routerLink="/admin" class="back-link">&larr; Dashboard</a>
+        <h1>Gestionar Tecnologías</h1>
+      </div>
+    </header>
+
+    @if (success) { <div class="success-msg">{{ success }}</div> }
+    @if (error) { <div class="error-msg">{{ error }}</div> }
+
+    <div class="form-card" style="margin-bottom: 2rem;">
+      <h2 class="form-section-title">Añadir Tecnología</h2>
+      <form (ngSubmit)="addTechnology()" class="form-grid">
+        <div class="form-field">
+          <label>Nombre</label>
+          <input [(ngModel)]="newTech.name" name="name" required placeholder="Angular" />
+        </div>
+        <div class="form-field">
+          <label>Ruta del icono</label>
+          <input [(ngModel)]="newTech.icon" name="icon" required placeholder="/icons/angular-js-icon.svg" />
+        </div>
+        <div class="form-field">
+          <label>Categoría</label>
+          <input [(ngModel)]="newTech.category" name="category" placeholder="frontend" />
+        </div>
+        <div class="form-field" style="align-self: end;">
+          <button type="submit" class="btn btn-primary" [disabled]="saving">
+            {{ saving ? 'Añadiendo...' : '+ Añadir' }}
+          </button>
+        </div>
+      </form>
+    </div>
+
+    @if (loading) {
+      <div class="loader"><div class="spinner"></div></div>
+    } @else {
+      <div class="table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Icono</th>
+              <th>Nombre</th>
+              <th>Ruta icono</th>
+              <th>Categoría</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (tech of technologies(); track tech.id) {
+              @if (editingId === tech.id) {
+                <tr>
+                  <td><img [src]="editTech.icon" width="24" height="24" alt="" /></td>
+                  <td><input [(ngModel)]="editTech.name" class="inline-input" /></td>
+                  <td><input [(ngModel)]="editTech.icon" class="inline-input" /></td>
+                  <td><input [(ngModel)]="editTech.category" class="inline-input" /></td>
+                  <td class="actions-cell">
+                    <button class="action-btn edit" (click)="saveEdit()">Guardar</button>
+                    <button class="action-btn delete" (click)="cancelEdit()">Cancelar</button>
+                  </td>
+                </tr>
+              } @else {
+                <tr>
+                  <td><img [src]="tech.icon" [alt]="tech.name" width="24" height="24" /></td>
+                  <td><strong>{{ tech.name }}</strong></td>
+                  <td class="path-cell">{{ tech.icon }}</td>
+                  <td>{{ tech.category || '—' }}</td>
+                  <td class="actions-cell">
+                    <button class="action-btn edit" (click)="startEdit(tech)">Editar</button>
+                    <button class="action-btn delete" (click)="deleteTech(tech.id, tech.name)">Eliminar</button>
+                  </td>
+                </tr>
+              }
+            }
+          </tbody>
+        </table>
+      </div>
+    }
+  </div>
+</div>

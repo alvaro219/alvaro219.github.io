@@ -1,0 +1,49 @@
+<div class="editor-page">
+  <div class="editor-inner">
+    <header class="editor-header">
+      <div>
+        <a routerLink="/admin" class="back-link">&larr; Dashboard</a>
+        <h1>Editar Perfil</h1>
+      </div>
+    </header>
+
+    @if (loading) {
+      <div class="loader"><div class="spinner"></div></div>
+    } @else {
+      @if (success) { <div class="success-msg">{{ success }}</div> }
+      @if (error) { <div class="error-msg">{{ error }}</div> }
+
+      <form (ngSubmit)="onSubmit()" class="form-card">
+        <div class="form-grid">
+          <div class="form-field">
+            <label>Nombre completo</label>
+            <input [(ngModel)]="profile.name" name="name" required placeholder="Álvaro Antón Maciá" />
+          </div>
+          <div class="form-field">
+            <label>Título profesional</label>
+            <input [(ngModel)]="profile.title" name="title" required placeholder="FullStack Developer · UX/UI Designer" />
+          </div>
+          <div class="form-field form-full">
+            <label>Descripción</label>
+            <textarea [(ngModel)]="profile.description" name="description" rows="5" placeholder="Tu descripción profesional..."></textarea>
+          </div>
+          <div class="form-field form-full">
+            <label>URL de la foto</label>
+            <input [(ngModel)]="profile.photo" name="photo" placeholder="/images/alvaro_intro_photo.png" />
+          </div>
+          <div class="form-field form-full">
+            <label>Educación (una línea por entrada)</label>
+            <textarea [(ngModel)]="educationText" name="education" rows="4" placeholder="Desarrollo FullStack — Formación Online — 2023-2024&#10;Diseño UX/UI — Academia Digital — 2023"></textarea>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <a routerLink="/admin" class="btn btn-outline">Cancelar</a>
+          <button type="submit" class="btn btn-primary" [disabled]="saving">
+            {{ saving ? 'Guardando...' : 'Guardar Perfil' }}
+          </button>
+        </div>
+      </form>
+    }
+  </div>
+</div>

@@ -1,0 +1,179 @@
+<!-- ─── Two-column layout ─── -->
+<div class="layout">
+  <!-- ─── Sidebar / Profile ─── -->
+  <aside class="sidebar">
+    <div class="profile">
+      <div class="profile-photo">
+        <img [src]="profile.photo" [alt]="profile.name" width="320" height="320" />
+      </div>
+      <h1 class="profile-name">{{ profile.name }}</h1>
+      <p class="profile-title">{{ profile.title }}</p>
+      <p class="profile-desc">{{ profile.description }}</p>
+
+      <div class="profile-links">
+        <a [href]="profile.social.github" target="_blank" rel="noopener" class="profile-link">
+          <img src="/icons/github-icon.svg" alt="" width="18" height="18" />
+          <span>GitHub</span>
+        </a>
+        <a [href]="profile.social.linkedin" target="_blank" rel="noopener" class="profile-link">
+          <img src="/icons/linkedin-icon.svg" alt="" width="18" height="18" />
+          <span>LinkedIn</span>
+        </a>
+        <a href="mailto:{{ profile.social.email }}" class="profile-link">
+          <img src="/icons/mail.svg" alt="" width="18" height="18" />
+          <span>Email</span>
+        </a>
+        <a href="https://drive.google.com/file/d/1jhyRC1nZ6dmS-lXIlXDOpx7ZWFw72tKj/view" download class="profile-link">
+          <img src="/icons/download-icon.svg" alt="" width="18" height="18" />
+          <span>CV</span>
+        </a>
+      </div>
+
+      <div class="profile-location">
+        <span class="location-dot">●</span>
+        {{ profile.location }}
+      </div>
+    </div>
+  </aside>
+
+  <!-- ─── Main content ─── -->
+  <div class="main-content">
+
+    <!-- ─── Sobre mí ─── -->
+    <section class="content-section" id="about">
+      <h2 class="section-label">// sobre mí</h2>
+      <p class="about-text">{{ profile.description }}</p>
+      <div class="education-list">
+        @for (edu of profile.education; track edu) {
+          <div class="edu-item">
+            <span class="edu-dot">▸</span>
+            <span>{{ edu }}</span>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- ─── Tecnologías ─── -->
+    <section class="content-section" id="skills">
+      <h2 class="section-label">// tecnologías</h2>
+      <div class="skills-grid">
+        @for (skill of skills; track skill.name) {
+          <div class="skill-chip">
+            <img [src]="skill.icon" [alt]="skill.name" width="20" height="20" />
+            <span>{{ skill.name }}</span>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- ─── Proyectos Actuales ─── -->
+    @if (currentProjects.length > 0) {
+      <section class="content-section" id="current">
+        <h2 class="section-label">// {{ currentProjects.length === 1 ? 'proyecto actual' : 'proyectos actuales' }}</h2>
+        @for (cp of currentProjects; track cp.name) {
+          <div class="current-card">
+            <div class="current-header">
+              <h3>{{ cp.name }}</h3>
+              <span class="current-badge">En curso</span>
+            </div>
+            <p class="current-role">{{ cp.role }} · {{ cp.period }}</p>
+            <p class="current-desc">{{ cp.description }}</p>
+            <div class="current-techs">
+              @for (tech of cp.technologies; track tech.name) {
+                <span class="tech-tag" [title]="tech.name">
+                  <img [src]="tech.icon" [alt]="tech.name" width="18" height="18" />
+                </span>
+              }
+            </div>
+          </div>
+        }
+      </section>
+    }
+
+    <!-- ─── Proyectos ─── -->
+    <section class="content-section" id="projects">
+      <h2 class="section-label">// proyectos</h2>
+      <div class="projects-grid">
+        @for (project of featuredProjects; track project.name) {
+          <div class="project-card" [class.expanded]="isExpanded(project.name)">
+            <div class="project-top">
+              <h3 class="project-name">{{ project.name }}</h3>
+              @if (project.importance === 'high') {
+                <span class="project-badge">destacado</span>
+              }
+            </div>
+            <p class="project-role">{{ project.role }}</p>
+            <p class="project-period">{{ project.period }}</p>
+            <p class="project-desc">{{ project.description }}</p>
+            <div class="project-techs">
+              @for (tech of project.technologies; track tech.name) {
+                <span class="tech-tag" [title]="tech.name">
+                  <img [src]="tech.icon" [alt]="tech.name" width="18" height="18" />
+                </span>
+              }
+            </div>
+            @if (isExpanded(project.name)) {
+              <div class="project-expanded">
+                @if (project.highlights.length > 0) {
+                  <div class="expanded-block">
+                    <h4>logros clave</h4>
+                    <ul>
+                      @for (h of project.highlights; track h) {
+                        <li>{{ h }}</li>
+                      }
+                    </ul>
+                  </div>
+                }
+                @if (project.impact) {
+                  <div class="expanded-block impact-block">
+                    <h4>impacto</h4>
+                    <p>{{ project.impact }}</p>
+                  </div>
+                }
+              </div>
+            }
+            <button class="expand-btn" (click)="toggleExpand(project.name)">
+              {{ isExpanded(project.name) ? '[ ver menos ]' : '[ ver más ]' }}
+            </button>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- ─── Contacto ─── -->
+    <section class="content-section" id="contact">
+      <h2 class="section-label">// contacto</h2>
+      @if (contactSuccess) {
+        <div class="msg msg-ok">{{ contactSuccess }}</div>
+      }
+      @if (contactError) {
+        <div class="msg msg-err">{{ contactError }}</div>
+      }
+      <form class="contact-form" (ngSubmit)="sendContact()">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="c-name">nombre</label>
+            <input id="c-name" [(ngModel)]="contactForm.name" name="name" required placeholder="Tu nombre" />
+          </div>
+          <div class="form-field">
+            <label for="c-contact">email / teléfono</label>
+            <input id="c-contact" [(ngModel)]="contactForm.contact" name="contact" required placeholder="tu@email.com" />
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="c-message">mensaje</label>
+          <textarea id="c-message" [(ngModel)]="contactForm.message" name="message" required rows="4" placeholder="¿En qué te puedo ayudar?"></textarea>
+        </div>
+        <div class="form-field">
+          <label class="checkbox-label">
+            <input type="checkbox" [(ngModel)]="privacyAccepted" name="privacy" />
+            He leído y acepto la <a routerLink="/politica-privacidad">política de privacidad</a>
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="sending">
+          {{ sending ? 'enviando...' : '→ enviar mensaje' }}
+        </button>
+      </form>
+    </section>
+  </div>
+</div>
