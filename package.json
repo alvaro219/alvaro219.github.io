@@ -6,7 +6,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:prod": "ng build --configuration production --base-href /alvaro219.github.io/",
+    "build:prod": "ng build --configuration production --base-href /",
     "test": "ng test",
     "lint": "ng lint"
   },
