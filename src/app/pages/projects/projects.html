@@ -29,11 +29,12 @@
     } @else {
       <div class="projects-list">
         @for (project of filteredProjects; track project.id) {
-          <a [routerLink]="['/proyectos', project.id]" class="project-row" [class]="'importance-' + project.importance">
+          <a [routerLink]="['/proyectos', project.id]" class="project-row" [class]="'importance-' + project.importance" [class.is-current]="project.is_current">
             <div class="row-left">
               <h3>
                 {{ project.name }}
                 @if (project.importance === 'high') { <span class="star">&#11088;</span> }
+                @if (project.is_current) { <span class="current-badge">Presente</span> }
               </h3>
               @if (project.role) { <p class="row-role">{{ project.role }}</p> }
               <p class="row-desc">{{ project.description }}</p>

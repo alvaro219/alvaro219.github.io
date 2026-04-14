@@ -27,10 +27,12 @@ export class Projects implements OnInit {
   }
 
   get filteredProjects() {
-    if (this.activeFilters.size === 0) return this.projects();
-    return this.projects().filter((p) =>
-      p.technologies?.some((t) => this.activeFilters.has(t.name))
-    );
+    const list = this.activeFilters.size === 0
+      ? this.projects()
+      : this.projects().filter((p) =>
+          p.technologies?.some((t) => this.activeFilters.has(t.name))
+        );
+    return [...list].sort((a, b) => (b.is_current ? 1 : 0) - (a.is_current ? 1 : 0));
   }
 
   toggleFilter(name: string): void {

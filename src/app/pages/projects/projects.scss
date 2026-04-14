@@ -115,6 +115,15 @@
   &.importance-high { border-left: 3px solid var(--accent); }
   &.importance-medium { border-left: 3px solid var(--orange); }
 
+  &.is-current {
+    border-left: 3px solid var(--accent);
+    background: rgba(139, 92, 246, 0.04);
+
+    &:hover {
+      background: rgba(139, 92, 246, 0.08);
+    }
+  }
+
   .row-left {
     flex: 1;
 
@@ -125,6 +134,20 @@
       margin: 0 0 0.2rem;
 
       .star { font-size: 0.85rem; }
+
+      .current-badge {
+        display: inline-block;
+        font-size: 0.62rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--accent);
+        background: var(--accent-soft);
+        padding: 0.15rem 0.45rem;
+        border-radius: var(--radius-sm);
+        vertical-align: middle;
+        margin-left: 0.35rem;
+      }
     }
 
     .row-role {
