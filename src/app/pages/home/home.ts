@@ -1,8 +1,10 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { PROFILE, SKILLS, PROJECTS, StaticProject } from '../../data/static-data';
+import { PROFILE, SKILLS } from '../../data/static-data';
 import { TelegramService } from '../../services/telegram.service';
+import { ProjectService } from '../../services/project.service';
+import { Project } from '../../models/project.model';
 
 @Component({
   selector: 'app-home',
@@ -10,12 +12,13 @@ import { TelegramService } from '../../services/telegram.service';
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
-export class Home {
+export class Home implements OnInit {
   private telegram = inject(TelegramService);
+  private projectService = inject(ProjectService);
 
   profile = PROFILE;
   skills = SKILLS;
-  projects = PROJECTS;
+  projects = this.projectService.projects;
 
   expandedProject: string | null = null;
 
@@ -25,12 +28,18 @@ export class Home {
   contactSuccess = '';
   contactError = '';
 
-  get currentProjects(): StaticProject[] {
-    return this.projects.filter((p) => p.isCurrent);
+  ngOnInit(): void {
+    if (this.projects().length === 0) {
+      this.projectService.loadProjects();
+    }
   }
 
-  get featuredProjects(): StaticProject[] {
-    return this.projects.filter((p) => !p.isCurrent);
+  get currentProjects(): Project[] {
+    return this.projects().filter((p) => p.is_current);
+  }
+
+  get featuredProjects(): Project[] {
+    return this.projects().filter((p) => !p.is_current);
   }
 
   toggleExpand(name: string): void {
@@ -41,12 +50,12 @@ export class Home {
     return this.expandedProject === name;
   }
 
-  visibleTechs(project: StaticProject): number {
-    return Math.min(project.technologies.length, 4);
+  visibleTechs(project: Project): number {
+    return Math.min(project.technologies?.length ?? 0, 4);
   }
 
-  extraTechCount(project: StaticProject): number {
-    return Math.max(0, project.technologies.length - 4);
+  extraTechCount(project: Project): number {
+    return Math.max(0, (project.technologies?.length ?? 0) - 4);
   }
 
   async sendContact(): Promise<void> {
