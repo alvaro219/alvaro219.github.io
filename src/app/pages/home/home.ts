@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { PROFILE, SKILLS } from '../../data/static-data';
+import { PROFILE, SKILLS_HIGHLIGHTED, SKILL_GROUPS } from '../../data/static-data';
 import { TelegramService } from '../../services/telegram.service';
 import { ProjectService } from '../../services/project.service';
 import { Project } from '../../models/project.model';
@@ -17,7 +17,8 @@ export class Home implements OnInit {
   private projectService = inject(ProjectService);
 
   profile = PROFILE;
-  skills = SKILLS;
+  highlighted = SKILLS_HIGHLIGHTED;
+  skillGroups = SKILL_GROUPS;
   projects = this.projectService.projects;
 
   expandedProject: string | null = null;

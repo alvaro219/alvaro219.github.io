@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ProjectService } from '../../services/project.service';
 
 @Component({
@@ -10,6 +10,7 @@ import { ProjectService } from '../../services/project.service';
 })
 export class Projects implements OnInit {
   private projectService = inject(ProjectService);
+  private route = inject(ActivatedRoute);
 
   projects = this.projectService.projects;
   technologies = this.projectService.technologies;
@@ -23,6 +24,11 @@ export class Projects implements OnInit {
     }
     if (this.technologies().length === 0) {
       this.projectService.loadTechnologies();
+    }
+
+    const tech = this.route.snapshot.queryParamMap.get('tech');
+    if (tech) {
+      this.activeFilters = new Set([tech]);
     }
   }
 

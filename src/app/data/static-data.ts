@@ -3,6 +3,11 @@ export interface StaticSkill {
   icon: string;
 }
 
+export interface SkillGroup {
+  label: string;
+  skills: StaticSkill[];
+}
+
 export interface StaticProject {
   name: string;
   role: string;
@@ -35,30 +40,61 @@ export const PROFILE = {
   location: 'Callosa de Segura, Alicante, España',
 };
 
-export const SKILLS: StaticSkill[] = [
-  { name: 'Vue.js', icon: '/icons/vue-js-icon.svg' },
-  { name: 'Angular', icon: '/icons/angular-js-icon.svg' },
-  { name: 'React', icon: '/icons/preact-icon.svg' },
-  { name: 'Solid.js', icon: '/icons/solid-js-icon.svg' },
-  { name: 'Astro', icon: '/icons/astro-icon.svg' },
+export const SKILLS_HIGHLIGHTED: StaticSkill[] = [
   { name: 'TypeScript', icon: '/icons/typescript-icon.svg' },
+  { name: 'Angular', icon: '/icons/angular-js-icon.svg' },
+  { name: 'Vue.js', icon: '/icons/vue-js-icon.svg' },
+  { name: 'React', icon: '/icons/preact-icon.svg' },
   { name: 'Flutter', icon: '/icons/flutter-icon.svg' },
-  { name: 'StencilJS', icon: '/icons/stencil-icon.svg' },
-  { name: 'Django', icon: '/icons/django-icon.svg' },
+  { name: 'Astro', icon: '/icons/astro-icon.svg' },
   { name: 'Laravel', icon: '/icons/laravel-icon.svg' },
-  { name: 'Prisma', icon: '/icons/prisma-icon.svg' },
+  { name: 'Django', icon: '/icons/django-icon.svg' },
+  { name: 'Ruby', icon: '/icons/ruby-icon.svg' },
   { name: 'PostgreSQL', icon: '/icons/postgresql-icon.svg' },
   { name: 'MySQL', icon: '/icons/mysql-icon.svg' },
-  { name: 'Ruby', icon: '/icons/ruby-icon.svg' },
-  { name: 'Liquid', icon: '/icons/liquid-icon.svg' },
+  { name: 'Prisma', icon: '/icons/prisma-icon.svg' },
   { name: 'Supabase', icon: '/icons/supabase-icon.svg' },
-  { name: 'Figma', icon: '/icons/figma-icon.svg' },
-  { name: 'Jest', icon: '/icons/jest-icon.svg' },
-  { name: 'Vitest', icon: '/icons/jest-icon.svg' },
-  { name: 'Sentry', icon: '/icons/sentry-icon.svg' },
-  { name: 'GitHub', icon: '/icons/github-icon.svg' },
-  { name: 'GitLab', icon: '/icons/github-icon.svg' },
-  { name: 'Cloudflare', icon: '/icons/cloudflare-icon.svg' },
+];
+
+export const SKILL_GROUPS: SkillGroup[] = [
+  {
+    label: 'Front',
+    skills: [
+      { name: 'TypeScript', icon: '/icons/typescript-icon.svg' },
+      { name: 'Angular', icon: '/icons/angular-js-icon.svg' },
+      { name: 'Vue.js', icon: '/icons/vue-js-icon.svg' },
+      { name: 'React', icon: '/icons/preact-icon.svg' },
+      { name: 'Solid.js', icon: '/icons/solid-js-icon.svg' },
+      { name: 'Astro', icon: '/icons/astro-icon.svg' },
+      { name: 'Flutter', icon: '/icons/flutter-icon.svg' },
+      { name: 'StencilJS', icon: '/icons/stencil-icon.svg' },
+      { name: 'Liquid', icon: '/icons/liquid-icon.svg' },
+    ],
+  },
+  {
+    label: 'Back & DB',
+    skills: [
+      { name: 'Laravel', icon: '/icons/laravel-icon.svg' },
+      { name: 'Django', icon: '/icons/django-icon.svg' },
+      { name: 'Ruby', icon: '/icons/ruby-icon.svg' },
+      { name: 'Prisma', icon: '/icons/prisma-icon.svg' },
+      { name: 'PostgreSQL', icon: '/icons/postgresql-icon.svg' },
+      { name: 'MySQL', icon: '/icons/mysql-icon.svg' },
+      { name: 'Supabase', icon: '/icons/supabase-icon.svg' },
+    ],
+  },
+  {
+    label: 'Herramientas & DevOps',
+    skills: [
+      { name: 'Figma', icon: '/icons/figma-icon.svg' },
+      { name: 'Jest', icon: '/icons/jest-icon.svg' },
+      { name: 'Vitest', icon: '/icons/jest-icon.svg' },
+      { name: 'Sentry', icon: '/icons/sentry-icon.svg' },
+      { name: 'GitHub', icon: '/icons/github-icon.svg' },
+      { name: 'GitLab', icon: '/icons/github-icon.svg' },
+      { name: 'Cloudflare', icon: '/icons/cloudflare-icon.svg' },
+    ],
+  },
 ];
 
 export const PROJECTS: StaticProject[] = [

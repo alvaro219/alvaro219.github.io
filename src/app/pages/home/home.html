@@ -56,14 +56,32 @@
     <!-- ─── Tecnologías ─── -->
     <section class="content-section" id="skills">
       <h2 class="section-label">// tecnologías</h2>
-      <div class="skills-grid">
-        @for (skill of skills; track skill.name) {
-          <div class="skill-chip">
-            <img [src]="skill.icon" [alt]="skill.name" width="20" height="20" />
-            <span>{{ skill.name }}</span>
-          </div>
-        }
+
+      <div class="skills-subsection">
+        <h3 class="skills-subtitle">Destacadas</h3>
+        <div class="skills-grid">
+          @for (skill of highlighted; track skill.name) {
+            <a class="skill-chip highlighted" [routerLink]="['/proyectos']" [queryParams]="{ tech: skill.name }">
+              <img [src]="skill.icon" [alt]="skill.name" width="20" height="20" />
+              <span>{{ skill.name }}</span>
+            </a>
+          }
+        </div>
       </div>
+
+      @for (group of skillGroups; track group.label) {
+        <div class="skills-subsection">
+          <h3 class="skills-subtitle">{{ group.label }}</h3>
+          <div class="skills-grid">
+            @for (skill of group.skills; track skill.name) {
+              <a class="skill-chip" [routerLink]="['/proyectos']" [queryParams]="{ tech: skill.name }">
+                <img [src]="skill.icon" [alt]="skill.name" width="20" height="20" />
+                <span>{{ skill.name }}</span>
+              </a>
+            }
+          </div>
+        </div>
+      }
     </section>
 
     <!-- ─── Proyectos Actuales ─── -->
