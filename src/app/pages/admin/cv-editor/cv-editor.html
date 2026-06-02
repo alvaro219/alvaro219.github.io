@@ -1,0 +1,85 @@
+<div class="editor-page">
+  <div class="editor-inner">
+    <header class="editor-header">
+      <div>
+        <a routerLink="/admin" class="back-link">← Dashboard</a>
+        <h1>Gestionar CV</h1>
+      </div>
+    </header>
+
+    @if (successMsg) {
+      <div class="success-msg">{{ successMsg }}</div>
+    }
+    @if (errorMsg) {
+      <div class="error-msg">{{ errorMsg }}</div>
+    }
+
+    <div class="cv-grid">
+      <!-- CV Español -->
+      <div class="cv-card">
+        <div class="cv-card-header">
+          <span class="cv-lang-badge">ES</span>
+          <h3>CV en Español</h3>
+        </div>
+        <div class="cv-card-body">
+          @if (cvUrlEs()) {
+            <div class="cv-status uploaded">
+              <span class="status-dot"></span>
+              <span>Archivo subido</span>
+            </div>
+            <div class="cv-actions">
+              <a [href]="cvUrlEs()" target="_blank" class="action-btn edit">Ver PDF</a>
+              <button class="action-btn delete" (click)="deleteCv('es')">Eliminar</button>
+            </div>
+          } @else {
+            <div class="cv-status empty">
+              <span class="status-dot"></span>
+              <span>Sin archivo</span>
+            </div>
+          }
+          <label class="upload-area" [class.uploading]="uploading === 'es'">
+            <input type="file" accept=".pdf" (change)="onFileSelected($event, 'es')" hidden />
+            @if (uploading === 'es') {
+              <span class="upload-text">Subiendo...</span>
+            } @else {
+              <span class="upload-text">{{ cvUrlEs() ? 'Reemplazar PDF' : 'Subir PDF' }}</span>
+            }
+          </label>
+        </div>
+      </div>
+
+      <!-- CV English -->
+      <div class="cv-card">
+        <div class="cv-card-header">
+          <span class="cv-lang-badge en">EN</span>
+          <h3>CV in English</h3>
+        </div>
+        <div class="cv-card-body">
+          @if (cvUrlEn()) {
+            <div class="cv-status uploaded">
+              <span class="status-dot"></span>
+              <span>File uploaded</span>
+            </div>
+            <div class="cv-actions">
+              <a [href]="cvUrlEn()" target="_blank" class="action-btn edit">View PDF</a>
+              <button class="action-btn delete" (click)="deleteCv('en')">Delete</button>
+            </div>
+          } @else {
+            <div class="cv-status empty">
+              <span class="status-dot"></span>
+              <span>No file</span>
+            </div>
+          }
+          <label class="upload-area" [class.uploading]="uploading === 'en'">
+            <input type="file" accept=".pdf" (change)="onFileSelected($event, 'en')" hidden />
+            @if (uploading === 'en') {
+              <span class="upload-text">Uploading...</span>
+            } @else {
+              <span class="upload-text">{{ cvUrlEn() ? 'Replace PDF' : 'Upload PDF' }}</span>
+            }
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,25 +3,25 @@
 } @else if (project) {
   <div class="detail-page">
     <div class="detail-inner">
-      <a routerLink="/proyectos" class="back-link">&larr; Volver a proyectos</a>
+      <a routerLink="/proyectos" class="back-link">{{ i18n.lang() === 'es' ? '← Volver a proyectos' : '← Back to projects' }}</a>
 
       <header class="detail-header">
         <div class="header-top">
           <h1>{{ project.name }}</h1>
           @if (project.importance === 'high') {
-            <span class="importance-badge high">Destacado</span>
+            <span class="importance-badge high">{{ i18n.lang() === 'es' ? 'Destacado' : 'Featured' }}</span>
           } @else if (project.importance === 'medium') {
-            <span class="importance-badge medium">Relevante</span>
+            <span class="importance-badge medium">{{ i18n.lang() === 'es' ? 'Relevante' : 'Relevant' }}</span>
           }
         </div>
-        @if (project.role) {
-          <p class="detail-role">{{ project.role }}</p>
+        @if (role) {
+          <p class="detail-role">{{ role }}</p>
         }
-        <p class="detail-period">{{ project.period_start }} – {{ project.period_end }}</p>
+        <p class="detail-period">{{ project.period_start }} – {{ periodEnd(project.period_end) }}</p>
       </header>
 
       <section class="detail-section">
-        <h2>Tecnologías</h2>
+        <h2>{{ i18n.lang() === 'es' ? 'Tecnologías' : 'Technologies' }}</h2>
         <div class="tech-grid">
           @for (tech of project.technologies; track tech.id) {
             <span class="tech-badge">
@@ -33,26 +33,26 @@
       </section>
 
       <section class="detail-section">
-        <h2>Descripción</h2>
-        <p class="detail-desc">{{ project.description }}</p>
+        <h2>{{ i18n.lang() === 'es' ? 'Descripción' : 'Description' }}</h2>
+        <p class="detail-desc">{{ description }}</p>
       </section>
 
-      @if (project.highlights && project.highlights.length > 0) {
+      @if (highlights.length > 0) {
         <section class="detail-section highlights">
-          <h2>Logros Clave</h2>
+          <h2>{{ i18n.lang() === 'es' ? 'Logros Clave' : 'Key Achievements' }}</h2>
           <ul class="highlights-list">
-            @for (h of project.highlights; track h) {
+            @for (h of highlights; track h) {
               <li>{{ h }}</li>
             }
           </ul>
         </section>
       }
 
-      @if (project.impact) {
+      @if (impact) {
         <section class="detail-section impact">
-          <h2>Impacto</h2>
+          <h2>{{ i18n.lang() === 'es' ? 'Impacto' : 'Impact' }}</h2>
           <div class="impact-card">
-            <p>{{ project.impact }}</p>
+            <p>{{ impact }}</p>
           </div>
         </section>
       }

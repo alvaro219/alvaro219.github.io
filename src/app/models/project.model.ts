@@ -16,6 +16,10 @@ export interface Project {
   importance: 'high' | 'medium' | 'low';
   highlights: string[];
   impact: string;
+  role_en?: string;
+  description_en?: string;
+  highlights_en?: string[];
+  impact_en?: string;
   is_current: boolean;
   sort_order: number;
   active: boolean;

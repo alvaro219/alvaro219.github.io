@@ -1,6 +1,8 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ProjectService } from '../../services/project.service';
+import { I18nService } from '../../services/i18n.service';
+import { Project } from '../../models/project.model';
 
 @Component({
   selector: 'app-projects',
@@ -11,6 +13,7 @@ import { ProjectService } from '../../services/project.service';
 export class Projects implements OnInit {
   private projectService = inject(ProjectService);
   private route = inject(ActivatedRoute);
+  i18n = inject(I18nService);
 
   projects = this.projectService.projects;
   technologies = this.projectService.technologies;
@@ -56,5 +59,20 @@ export class Projects implements OnInit {
 
   isActive(name: string): boolean {
     return this.activeFilters.has(name);
+  }
+
+  periodEnd(value: string): string {
+    if (value === 'Presente') {
+      return this.i18n.lang() === 'en' ? 'Present' : 'Presente';
+    }
+    return value;
+  }
+
+  pRole(p: Project): string {
+    return (this.i18n.lang() === 'en' && p.role_en) ? p.role_en : p.role;
+  }
+
+  pDesc(p: Project): string {
+    return (this.i18n.lang() === 'en' && p.description_en) ? p.description_en : p.description;
   }
 }

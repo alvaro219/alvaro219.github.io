@@ -63,6 +63,12 @@ export const routes: Routes = [
           import('./pages/admin/profile-editor/profile-editor').then((m) => m.ProfileEditor),
         title: 'Editar Perfil',
       },
+      {
+        path: 'cv',
+        loadComponent: () =>
+          import('./pages/admin/cv-editor/cv-editor').then((m) => m.CvEditor),
+        title: 'Gestionar CV',
+      },
     ],
   },
   {

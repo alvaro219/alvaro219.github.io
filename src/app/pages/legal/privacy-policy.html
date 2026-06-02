@@ -1,56 +1,111 @@
 <div class="legal-page">
-  <a routerLink="/" class="legal-back">← Volver al inicio</a>
+  <a routerLink="/" class="legal-back">{{ i18n.lang() === 'es' ? '← Volver al inicio' : '← Back to home' }}</a>
 
-  <h1>Política de Privacidad</h1>
-  <p class="legal-updated">Última actualización: marzo 2025</p>
+  @if (i18n.lang() === 'es') {
+    <h1>Política de Privacidad</h1>
+    <p class="legal-updated">Última actualización: marzo 2025</p>
 
-  <h2>1. Responsable del tratamiento</h2>
-  <ul>
-    <li><strong>Responsable:</strong> Álvaro Antón Maciá</li>
-    <li><strong>Email:</strong> <a href="mailto:alvaroxam72@gmail.com">alvaroxam72@gmail.com</a></li>
-    <li><strong>Finalidad:</strong> Gestionar las consultas recibidas a través del formulario de contacto y mantener la comunicación profesional con los interesados.</li>
-  </ul>
+    <h2>1. Responsable del tratamiento</h2>
+    <ul>
+      <li><strong>Responsable:</strong> Álvaro Antón Maciá</li>
+      <li><strong>Email:</strong> <a href="mailto:alvaroxam72@gmail.com">alvaroxam72@gmail.com</a></li>
+      <li><strong>Finalidad:</strong> Gestionar las consultas recibidas a través del formulario de contacto y mantener la comunicación profesional con los interesados.</li>
+    </ul>
 
-  <h2>2. Datos recopilados</h2>
-  <p>A través del formulario de contacto de este sitio web se recopilan los siguientes datos personales:</p>
-  <ul>
-    <li>Nombre</li>
-    <li>Correo electrónico o teléfono de contacto</li>
-    <li>Mensaje</li>
-  </ul>
-  <p>Estos datos son proporcionados voluntariamente por el usuario y se utilizan exclusivamente para responder a su consulta.</p>
+    <h2>2. Datos recopilados</h2>
+    <p>A través del formulario de contacto de este sitio web se recopilan los siguientes datos personales:</p>
+    <ul>
+      <li>Nombre</li>
+      <li>Correo electrónico o teléfono de contacto</li>
+      <li>Mensaje</li>
+    </ul>
+    <p>Estos datos son proporcionados voluntariamente por el usuario y se utilizan exclusivamente para responder a su consulta.</p>
 
-  <h2>3. Finalidad del tratamiento</h2>
-  <p>Los datos personales recogidos se utilizan para:</p>
-  <ul>
-    <li>Responder a las consultas y solicitudes enviadas a través del formulario de contacto.</li>
-    <li>Mantener comunicación profesional con clientes o colaboradores potenciales.</li>
-  </ul>
+    <h2>3. Finalidad del tratamiento</h2>
+    <p>Los datos personales recogidos se utilizan para:</p>
+    <ul>
+      <li>Responder a las consultas y solicitudes enviadas a través del formulario de contacto.</li>
+      <li>Mantener comunicación profesional con clientes o colaboradores potenciales.</li>
+    </ul>
 
-  <h2>4. Legitimación</h2>
-  <p>La base legal para el tratamiento de los datos es el consentimiento del usuario, otorgado al marcar la casilla de aceptación de la política de privacidad antes de enviar el formulario de contacto.</p>
+    <h2>4. Legitimación</h2>
+    <p>La base legal para el tratamiento de los datos es el consentimiento del usuario, otorgado al marcar la casilla de aceptación de la política de privacidad antes de enviar el formulario de contacto.</p>
 
-  <h2>5. Conservación de datos</h2>
-  <p>Los datos personales se conservarán durante el tiempo necesario para atender la solicitud y, en su caso, durante los plazos legalmente establecidos. Una vez cumplida la finalidad, los datos serán eliminados.</p>
+    <h2>5. Conservación de datos</h2>
+    <p>Los datos personales se conservarán durante el tiempo necesario para atender la solicitud y, en su caso, durante los plazos legalmente establecidos. Una vez cumplida la finalidad, los datos serán eliminados.</p>
 
-  <h2>6. Destinatarios</h2>
-  <p>Los datos del formulario de contacto se envían a través de la API de Telegram para notificación al titular. No se ceden datos a terceros salvo obligación legal.</p>
+    <h2>6. Destinatarios</h2>
+    <p>Los datos del formulario de contacto se envían a través de la API de Telegram para notificación al titular. No se ceden datos a terceros salvo obligación legal.</p>
 
-  <h2>7. Derechos del usuario</h2>
-  <p>El usuario tiene derecho a:</p>
-  <ul>
-    <li><strong>Acceso:</strong> conocer qué datos personales se están tratando.</li>
-    <li><strong>Rectificación:</strong> solicitar la corrección de datos inexactos.</li>
-    <li><strong>Supresión:</strong> solicitar la eliminación de sus datos.</li>
-    <li><strong>Limitación:</strong> solicitar la limitación del tratamiento en determinadas circunstancias.</li>
-    <li><strong>Portabilidad:</strong> recibir los datos en un formato estructurado.</li>
-    <li><strong>Oposición:</strong> oponerse al tratamiento de sus datos.</li>
-  </ul>
-  <p>Para ejercer estos derechos, el usuario puede dirigirse a <a href="mailto:alvaroxam72@gmail.com">alvaroxam72@gmail.com</a>.</p>
+    <h2>7. Derechos del usuario</h2>
+    <p>El usuario tiene derecho a:</p>
+    <ul>
+      <li><strong>Acceso:</strong> conocer qué datos personales se están tratando.</li>
+      <li><strong>Rectificación:</strong> solicitar la corrección de datos inexactos.</li>
+      <li><strong>Supresión:</strong> solicitar la eliminación de sus datos.</li>
+      <li><strong>Limitación:</strong> solicitar la limitación del tratamiento en determinadas circunstancias.</li>
+      <li><strong>Portabilidad:</strong> recibir los datos en un formato estructurado.</li>
+      <li><strong>Oposición:</strong> oponerse al tratamiento de sus datos.</li>
+    </ul>
+    <p>Para ejercer estos derechos, el usuario puede dirigirse a <a href="mailto:alvaroxam72@gmail.com">alvaroxam72@gmail.com</a>.</p>
 
-  <h2>8. Seguridad</h2>
-  <p>Se aplican medidas técnicas y organizativas adecuadas para proteger los datos personales contra el tratamiento no autorizado o ilícito, así como contra su pérdida, destrucción o daño accidental.</p>
+    <h2>8. Seguridad</h2>
+    <p>Se aplican medidas técnicas y organizativas adecuadas para proteger los datos personales contra el tratamiento no autorizado o ilícito, así como contra su pérdida, destrucción o daño accidental.</p>
 
-  <h2>9. Modificaciones</h2>
-  <p>El titular se reserva el derecho de modificar esta política de privacidad para adaptarla a novedades legislativas o cambios en el sitio web. Se recomienda revisarla periódicamente.</p>
+    <h2>9. Modificaciones</h2>
+    <p>El titular se reserva el derecho de modificar esta política de privacidad para adaptarla a novedades legislativas o cambios en el sitio web. Se recomienda revisarla periódicamente.</p>
+  } @else {
+    <h1>Privacy Policy</h1>
+    <p class="legal-updated">Last updated: March 2025</p>
+
+    <h2>1. Data controller</h2>
+    <ul>
+      <li><strong>Controller:</strong> Álvaro Antón Maciá</li>
+      <li><strong>Email:</strong> <a href="mailto:alvaroxam72@gmail.com">alvaroxam72@gmail.com</a></li>
+      <li><strong>Purpose:</strong> Managing inquiries received through the contact form and maintaining professional communication with interested parties.</li>
+    </ul>
+
+    <h2>2. Data collected</h2>
+    <p>The following personal data is collected through the contact form on this website:</p>
+    <ul>
+      <li>Name</li>
+      <li>Email address or phone number</li>
+      <li>Message</li>
+    </ul>
+    <p>This data is voluntarily provided by the user and is used exclusively to respond to their inquiry.</p>
+
+    <h2>3. Purpose of processing</h2>
+    <p>The personal data collected is used to:</p>
+    <ul>
+      <li>Respond to inquiries and requests submitted through the contact form.</li>
+      <li>Maintain professional communication with potential clients or collaborators.</li>
+    </ul>
+
+    <h2>4. Legal basis</h2>
+    <p>The legal basis for data processing is the user's consent, given by checking the privacy policy acceptance box before submitting the contact form.</p>
+
+    <h2>5. Data retention</h2>
+    <p>Personal data will be kept for the time necessary to fulfill the request and, where applicable, for the legally established periods. Once the purpose has been fulfilled, the data will be deleted.</p>
+
+    <h2>6. Recipients</h2>
+    <p>Contact form data is sent through the Telegram API for notification to the owner. Data is not shared with third parties except where required by law.</p>
+
+    <h2>7. User rights</h2>
+    <p>The user has the right to:</p>
+    <ul>
+      <li><strong>Access:</strong> know what personal data is being processed.</li>
+      <li><strong>Rectification:</strong> request correction of inaccurate data.</li>
+      <li><strong>Erasure:</strong> request deletion of their data.</li>
+      <li><strong>Restriction:</strong> request restriction of processing in certain circumstances.</li>
+      <li><strong>Portability:</strong> receive data in a structured format.</li>
+      <li><strong>Objection:</strong> object to the processing of their data.</li>
+    </ul>
+    <p>To exercise these rights, the user can contact <a href="mailto:alvaroxam72@gmail.com">alvaroxam72@gmail.com</a>.</p>
+
+    <h2>8. Security</h2>
+    <p>Appropriate technical and organizational measures are applied to protect personal data against unauthorized or unlawful processing and against accidental loss, destruction, or damage.</p>
+
+    <h2>9. Modifications</h2>
+    <p>The owner reserves the right to modify this privacy policy to adapt it to legislative changes or changes to the website. It is recommended to review it periodically.</p>
+  }
 </div>

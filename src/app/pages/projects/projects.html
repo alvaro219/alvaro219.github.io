@@ -1,13 +1,13 @@
 <div class="projects-page">
   <div class="page-inner">
     <header class="page-header">
-      <h1>Proyectos</h1>
-      <p class="page-subtitle">Una selección de los proyectos en los que he trabajado</p>
+      <h1>{{ i18n.t().projects.title }}</h1>
+      <p class="page-subtitle">{{ i18n.t().projects.subtitle }}</p>
     </header>
 
     @if (technologies().length > 0) {
       <div class="filter-bar">
-        <span class="filter-title">Filtrar por tecnología:</span>
+        <span class="filter-title">{{ i18n.t().projects.filterTitle }}</span>
         <div class="filter-chips">
           @for (tech of technologies(); track tech.id) {
             <button class="filter-chip" [class.active]="isActive(tech.name)" (click)="toggleFilter(tech.name)">
@@ -17,7 +17,7 @@
           }
         </div>
         @if (activeFilters.size > 0) {
-          <button class="clear-btn" (click)="clearFilters()">Limpiar filtros</button>
+          <button class="clear-btn" (click)="clearFilters()">{{ i18n.t().projects.clearFilters }}</button>
         }
       </div>
     }
@@ -34,13 +34,13 @@
               <h3>
                 {{ project.name }}
                 @if (project.importance === 'high') { <span class="star">&#11088;</span> }
-                @if (project.is_current) { <span class="current-badge">Presente</span> }
+                @if (project.is_current) { <span class="current-badge">{{ i18n.t().projects.currentBadge }}</span> }
               </h3>
-              @if (project.role) { <p class="row-role">{{ project.role }}</p> }
-              <p class="row-desc">{{ project.description }}</p>
+              @if (project.role) { <p class="row-role">{{ pRole(project) }}</p> }
+              <p class="row-desc">{{ pDesc(project) }}</p>
             </div>
             <div class="row-right">
-              <span class="row-period">{{ project.period_start }} – {{ project.period_end }}</span>
+              <span class="row-period">{{ project.period_start }} – {{ periodEnd(project.period_end) }}</span>
               <div class="row-techs">
                 @for (tech of project.technologies; track tech.id) {
                   <img [src]="tech.icon" [alt]="tech.name" width="22" height="22" [title]="tech.name" class="row-tech-icon" />

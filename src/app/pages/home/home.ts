@@ -4,6 +4,8 @@ import { RouterLink } from '@angular/router';
 import { PROFILE, SKILLS_HIGHLIGHTED, SKILL_GROUPS } from '../../data/static-data';
 import { TelegramService } from '../../services/telegram.service';
 import { ProjectService } from '../../services/project.service';
+import { I18nService } from '../../services/i18n.service';
+import { CvService } from '../../services/cv.service';
 import { Project } from '../../models/project.model';
 
 @Component({
@@ -15,6 +17,8 @@ import { Project } from '../../models/project.model';
 export class Home implements OnInit {
   private telegram = inject(TelegramService);
   private projectService = inject(ProjectService);
+  private cvService = inject(CvService);
+  i18n = inject(I18nService);
 
   profile = PROFILE;
   highlighted = SKILLS_HIGHLIGHTED;
@@ -33,6 +37,12 @@ export class Home implements OnInit {
     if (this.projects().length === 0) {
       this.projectService.loadProjects();
     }
+    this.cvService.loadUrls();
+  }
+
+  get cvUrl(): string {
+    const url = this.cvService.getCvUrl(this.i18n.lang());
+    return url ?? '/cv/CV-Alvaro-Anton-Macia.pdf';
   }
 
   get currentProjects(): Project[] {
@@ -51,6 +61,39 @@ export class Home implements OnInit {
     return this.expandedProject === name;
   }
 
+  periodEnd(value: string): string {
+    if (value === 'Presente') {
+      return this.i18n.lang() === 'en' ? 'Present' : 'Presente';
+    }
+    return value;
+  }
+
+  pRole(p: Project): string {
+    return (this.i18n.lang() === 'en' && p.role_en) ? p.role_en : p.role;
+  }
+
+  pDesc(p: Project): string {
+    return (this.i18n.lang() === 'en' && p.description_en) ? p.description_en : p.description;
+  }
+
+  pHighlights(p: Project): string[] {
+    return (this.i18n.lang() === 'en' && p.highlights_en?.length) ? p.highlights_en : p.highlights;
+  }
+
+  pImpact(p: Project): string {
+    return (this.i18n.lang() === 'en' && p.impact_en) ? p.impact_en : p.impact;
+  }
+
+  groupLabel(label: string): string {
+    const map: Record<string, 'front' | 'backDb' | 'tools'> = {
+      'Front': 'front',
+      'Back & DB': 'backDb',
+      'Herramientas & DevOps': 'tools',
+    };
+    const key = map[label];
+    return key ? this.i18n.t().skillGroups[key] : label;
+  }
+
   visibleTechs(project: Project): number {
     return Math.min(project.technologies?.length ?? 0, 4);
   }
@@ -61,11 +104,11 @@ export class Home implements OnInit {
 
   async sendContact(): Promise<void> {
     if (!this.privacyAccepted) {
-      this.contactError = 'Debes aceptar la política de privacidad';
+      this.contactError = this.i18n.t().home.contactErrorPrivacy;
       return;
     }
     if (!this.contactForm.name || !this.contactForm.contact || !this.contactForm.message) {
-      this.contactError = 'Todos los campos son obligatorios';
+      this.contactError = this.i18n.t().home.contactErrorRequired;
       return;
     }
 
@@ -83,11 +126,11 @@ export class Home implements OnInit {
     this.sending = false;
 
     if (ok) {
-      this.contactSuccess = '¡Mensaje enviado correctamente! Te responderé pronto.';
+      this.contactSuccess = this.i18n.t().home.contactSuccess;
       this.contactForm = { name: '', contact: '', message: '' };
       this.privacyAccepted = false;
     } else {
-      this.contactError = 'Error al enviar. Inténtalo de nuevo o escríbeme directamente.';
+      this.contactError = this.i18n.t().home.contactErrorSend;
     }
   }
 }

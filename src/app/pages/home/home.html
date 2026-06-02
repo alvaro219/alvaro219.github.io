@@ -7,8 +7,8 @@
         <img [src]="profile.photo" [alt]="profile.name" width="320" height="320" />
       </div>
       <h1 class="profile-name">{{ profile.name }}</h1>
-      <p class="profile-title">{{ profile.title }}</p>
-      <p class="profile-desc">{{ profile.description }}</p>
+      <p class="profile-title">{{ i18n.t().profile.title }}</p>
+      <p class="profile-desc">{{ i18n.t().profile.description }}</p>
 
       <div class="profile-links">
         <a [href]="profile.social.github" target="_blank" rel="noopener" class="profile-link">
@@ -23,15 +23,15 @@
           <img src="/icons/mail.svg" alt="" width="18" height="18" />
           <span>Email</span>
         </a>
-        <a href="/cv/CV-Alvaro-Anton-Macia.pdf" download="CV-Alvaro-Anton-Macia.pdf" class="profile-link">
+        <a [href]="cvUrl" target="_blank" rel="noopener" class="profile-link">
           <img src="/icons/download-icon.svg" alt="" width="18" height="18" />
-          <span>CV</span>
+          <span>{{ i18n.t().home.cvLabel }}</span>
         </a>
       </div>
 
       <div class="profile-location">
         <span class="location-dot">●</span>
-        {{ profile.location }}
+        {{ i18n.t().profile.location }}
       </div>
     </div>
   </aside>
@@ -41,10 +41,10 @@
 
     <!-- ─── Sobre mí ─── -->
     <section class="content-section" id="about">
-      <h2 class="section-label">// sobre mí</h2>
-      <p class="about-text">{{ profile.description }}</p>
+      <h2 class="section-label">{{ i18n.t().home.aboutTitle }}</h2>
+      <p class="about-text">{{ i18n.t().profile.description }}</p>
       <div class="education-list">
-        @for (edu of profile.education; track edu) {
+        @for (edu of i18n.t().profile.education; track edu) {
           <div class="edu-item">
             <span class="edu-dot">▸</span>
             <span>{{ edu }}</span>
@@ -55,10 +55,10 @@
 
     <!-- ─── Tecnologías ─── -->
     <section class="content-section" id="skills">
-      <h2 class="section-label">// tecnologías</h2>
+      <h2 class="section-label">{{ i18n.t().home.techTitle }}</h2>
 
       <div class="skills-subsection">
-        <h3 class="skills-subtitle">Destacadas</h3>
+        <h3 class="skills-subtitle">{{ i18n.t().home.techHighlighted }}</h3>
         <div class="skills-grid">
           @for (skill of highlighted; track skill.name) {
             <a class="skill-chip highlighted" [routerLink]="['/proyectos']" [queryParams]="{ tech: skill.name }">
@@ -71,7 +71,7 @@
 
       @for (group of skillGroups; track group.label) {
         <div class="skills-subsection">
-          <h3 class="skills-subtitle">{{ group.label }}</h3>
+          <h3 class="skills-subtitle">{{ groupLabel(group.label) }}</h3>
           <div class="skills-grid">
             @for (skill of group.skills; track skill.name) {
               <a class="skill-chip" [routerLink]="['/proyectos']" [queryParams]="{ tech: skill.name }">
@@ -87,15 +87,15 @@
     <!-- ─── Proyectos Actuales ─── -->
     @if (currentProjects.length > 0) {
       <section class="content-section" id="current">
-        <h2 class="section-label">// {{ currentProjects.length === 1 ? 'proyecto actual' : 'proyectos actuales' }}</h2>
+        <h2 class="section-label">{{ currentProjects.length === 1 ? i18n.t().home.currentProjectTitle : i18n.t().home.currentProjectsTitle }}</h2>
         @for (cp of currentProjects; track cp.id) {
           <div class="current-card">
             <div class="current-header">
               <h3>{{ cp.name }}</h3>
-              <span class="current-badge">En curso</span>
+              <span class="current-badge">{{ i18n.t().home.currentBadge }}</span>
             </div>
-            <p class="current-role">{{ cp.role }} · {{ cp.period_start }} – {{ cp.period_end }}</p>
-            <p class="current-desc">{{ cp.description }}</p>
+            <p class="current-role">{{ pRole(cp) }} · {{ cp.period_start }} – {{ periodEnd(cp.period_end) }}</p>
+            <p class="current-desc">{{ pDesc(cp) }}</p>
             <div class="current-techs">
               @for (tech of cp.technologies; track tech.id) {
                 <span class="tech-tag" [title]="tech.name">
@@ -110,19 +110,19 @@
 
     <!-- ─── Proyectos ─── -->
     <section class="content-section" id="projects">
-      <h2 class="section-label">// proyectos</h2>
+      <h2 class="section-label">{{ i18n.t().home.projectsTitle }}</h2>
       <div class="projects-grid">
         @for (project of featuredProjects; track project.id) {
           <div class="project-card" [class.expanded]="isExpanded(project.name)">
             <div class="project-top">
               <h3 class="project-name">{{ project.name }}</h3>
               @if (project.importance === 'high') {
-                <span class="project-badge">destacado</span>
+                <span class="project-badge">{{ i18n.t().home.projectBadge }}</span>
               }
             </div>
-            <p class="project-role">{{ project.role }}</p>
-            <p class="project-period">{{ project.period_start }} – {{ project.period_end }}</p>
-            <p class="project-desc">{{ project.description }}</p>
+            <p class="project-role">{{ pRole(project) }}</p>
+            <p class="project-period">{{ project.period_start }} – {{ periodEnd(project.period_end) }}</p>
+            <p class="project-desc">{{ pDesc(project) }}</p>
             <div class="project-techs">
               @for (tech of project.technologies; track tech.id) {
                 <span class="tech-tag" [title]="tech.name">
@@ -132,26 +132,26 @@
             </div>
             @if (isExpanded(project.name)) {
               <div class="project-expanded">
-                @if (project.highlights.length > 0) {
+                @if (pHighlights(project).length > 0) {
                   <div class="expanded-block">
-                    <h4>logros clave</h4>
+                    <h4>{{ i18n.t().home.highlightsTitle }}</h4>
                     <ul>
-                      @for (h of project.highlights; track h) {
+                      @for (h of pHighlights(project); track h) {
                         <li>{{ h }}</li>
                       }
                     </ul>
                   </div>
                 }
-                @if (project.impact) {
+                @if (pImpact(project)) {
                   <div class="expanded-block impact-block">
-                    <h4>impacto</h4>
-                    <p>{{ project.impact }}</p>
+                    <h4>{{ i18n.t().home.impactTitle }}</h4>
+                    <p>{{ pImpact(project) }}</p>
                   </div>
                 }
               </div>
             }
             <button class="expand-btn" (click)="toggleExpand(project.name)">
-              {{ isExpanded(project.name) ? '[ ver menos ]' : '[ ver más ]' }}
+              {{ isExpanded(project.name) ? i18n.t().home.expandLess : i18n.t().home.expandMore }}
             </button>
           </div>
         }
@@ -160,7 +160,7 @@
 
     <!-- ─── Contacto ─── -->
     <section class="content-section" id="contact">
-      <h2 class="section-label">// contacto</h2>
+      <h2 class="section-label">{{ i18n.t().home.contactTitle }}</h2>
       @if (contactSuccess) {
         <div class="msg msg-ok">{{ contactSuccess }}</div>
       }
@@ -170,26 +170,26 @@
       <form class="contact-form" (ngSubmit)="sendContact()">
         <div class="form-row">
           <div class="form-field">
-            <label for="c-name">nombre</label>
-            <input id="c-name" [(ngModel)]="contactForm.name" name="name" required placeholder="Tu nombre" />
+            <label for="c-name">{{ i18n.t().home.contactNameLabel }}</label>
+            <input id="c-name" [(ngModel)]="contactForm.name" name="name" required [placeholder]="i18n.t().home.contactNamePlaceholder" />
           </div>
           <div class="form-field">
-            <label for="c-contact">email / teléfono</label>
-            <input id="c-contact" [(ngModel)]="contactForm.contact" name="contact" required placeholder="tu@email.com" />
+            <label for="c-contact">{{ i18n.t().home.contactEmailLabel }}</label>
+            <input id="c-contact" [(ngModel)]="contactForm.contact" name="contact" required [placeholder]="i18n.t().home.contactEmailPlaceholder" />
           </div>
         </div>
         <div class="form-field">
-          <label for="c-message">mensaje</label>
-          <textarea id="c-message" [(ngModel)]="contactForm.message" name="message" required rows="4" placeholder="¿En qué te puedo ayudar?"></textarea>
+          <label for="c-message">{{ i18n.t().home.contactMessageLabel }}</label>
+          <textarea id="c-message" [(ngModel)]="contactForm.message" name="message" required rows="4" [placeholder]="i18n.t().home.contactMessagePlaceholder"></textarea>
         </div>
         <div class="form-field">
           <label class="checkbox-label">
             <input type="checkbox" [(ngModel)]="privacyAccepted" name="privacy" />
-            He leído y acepto la <a routerLink="/politica-privacidad">política de privacidad</a>
+            {{ i18n.t().home.contactPrivacy }}<a routerLink="/politica-privacidad">{{ i18n.t().home.contactPrivacyLink }}</a>
           </label>
         </div>
         <button type="submit" class="btn btn-primary" [disabled]="sending">
-          {{ sending ? 'enviando...' : '→ enviar mensaje' }}
+          {{ sending ? i18n.t().home.contactSending : i18n.t().home.contactSend }}
         </button>
       </form>
     </section>

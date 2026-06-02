@@ -25,6 +25,10 @@ export class ProjectForm implements OnInit {
     importance: 'medium',
     highlights: [],
     impact: '',
+    role_en: '',
+    description_en: '',
+    highlights_en: [],
+    impact_en: '',
     is_current: false,
     sort_order: 0,
     active: true,
@@ -33,6 +37,7 @@ export class ProjectForm implements OnInit {
   allTechnologies: Technology[] = [];
   selectedTechIds = new Set<string>();
   highlightsText = '';
+  highlightsEnText = '';
   loading = true;
   saving = false;
   success = '';
@@ -50,6 +55,7 @@ export class ProjectForm implements OnInit {
       if (existing) {
         this.project = { ...existing };
         this.highlightsText = (existing.highlights ?? []).join('\n');
+        this.highlightsEnText = (existing.highlights_en ?? []).join('\n');
         existing.technologies?.forEach((t) => {
           if (t.id) this.selectedTechIds.add(t.id);
         });
@@ -77,6 +83,11 @@ export class ProjectForm implements OnInit {
     this.success = '';
 
     this.project.highlights = this.highlightsText
+      .split('\n')
+      .map((h) => h.trim())
+      .filter((h) => h.length > 0);
+
+    this.project.highlights_en = this.highlightsEnText
       .split('\n')
       .map((h) => h.trim())
       .filter((h) => h.length > 0);

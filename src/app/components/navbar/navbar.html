@@ -10,16 +10,21 @@
 
     <ul class="navbar-links" [class.open]="menuOpen">
       <li>
-        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="menuOpen = false">Inicio</a>
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="menuOpen = false">{{ i18n.t().nav.home }}</a>
       </li>
       <li>
-        <a routerLink="/proyectos" routerLinkActive="active" (click)="menuOpen = false">Proyectos</a>
+        <a routerLink="/proyectos" routerLinkActive="active" (click)="menuOpen = false">{{ i18n.t().nav.projects }}</a>
       </li>
       @if (auth.admin()) {
         <li>
           <a routerLink="/admin" routerLinkActive="active" (click)="menuOpen = false" class="admin-link">CRM</a>
         </li>
       }
+      <li class="lang-toggle">
+        <button class="lang-btn" (click)="i18n.toggle(); menuOpen = false">
+          {{ i18n.lang() === 'es' ? 'EN' : 'ES' }}
+        </button>
+      </li>
     </ul>
   </div>
 </nav>

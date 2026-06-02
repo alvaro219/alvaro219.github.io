@@ -69,6 +69,29 @@
   }
 }
 
+.lang-toggle {
+  margin-left: 0.25rem;
+}
+
+.lang-btn {
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  padding: 0.3rem 0.55rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.7rem;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: all 0.2s;
+
+  &:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-soft);
+  }
+}
+
 .mobile-toggle {
   display: none;
   flex-direction: column;

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { I18nService } from '../../services/i18n.service';
 
 @Component({
   selector: 'app-footer',
@@ -8,5 +9,6 @@ import { RouterLink } from '@angular/router';
   styleUrl: './footer.scss',
 })
 export class Footer {
+  i18n = inject(I18nService);
   year = new Date().getFullYear();
 }

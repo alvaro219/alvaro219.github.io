@@ -20,8 +20,12 @@
             <input [(ngModel)]="project.name" name="name" required placeholder="Cementum — FullStack Developer" />
           </div>
           <div class="form-field">
-            <label>Rol</label>
+            <label>Rol (ES)</label>
             <input [(ngModel)]="project.role" name="role" placeholder="FullStack Developer" />
+          </div>
+          <div class="form-field">
+            <label>Role (EN)</label>
+            <input [(ngModel)]="project.role_en" name="role_en" placeholder="FullStack Developer" />
           </div>
           <div class="form-field">
             <label>Periodo inicio</label>
@@ -44,16 +48,28 @@
             <input type="number" [(ngModel)]="project.sort_order" name="sort_order" />
           </div>
           <div class="form-field form-full">
-            <label>Descripción</label>
+            <label>Descripción (ES)</label>
             <textarea [(ngModel)]="project.description" name="description" rows="4" placeholder="Descripción del proyecto..."></textarea>
           </div>
           <div class="form-field form-full">
-            <label>Logros (uno por línea)</label>
+            <label>Description (EN)</label>
+            <textarea [(ngModel)]="project.description_en" name="description_en" rows="4" placeholder="Project description..."></textarea>
+          </div>
+          <div class="form-field form-full">
+            <label>Logros (ES, uno por línea)</label>
             <textarea [(ngModel)]="highlightsText" name="highlights" rows="4" placeholder="Logro 1&#10;Logro 2&#10;Logro 3"></textarea>
           </div>
           <div class="form-field form-full">
-            <label>Impacto</label>
+            <label>Highlights (EN, one per line)</label>
+            <textarea [(ngModel)]="highlightsEnText" name="highlights_en" rows="4" placeholder="Achievement 1&#10;Achievement 2&#10;Achievement 3"></textarea>
+          </div>
+          <div class="form-field form-full">
+            <label>Impacto (ES)</label>
             <input [(ngModel)]="project.impact" name="impact" placeholder="Impacto del proyecto..." />
+          </div>
+          <div class="form-field form-full">
+            <label>Impact (EN)</label>
+            <input [(ngModel)]="project.impact_en" name="impact_en" placeholder="Project impact..." />
           </div>
           <div class="form-field form-full">
             <label>Tecnologías</label>
