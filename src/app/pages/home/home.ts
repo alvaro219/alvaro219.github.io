@@ -45,6 +45,19 @@ export class Home implements OnInit {
     return url ?? '/cv/CV-Alvaro-Anton-Macia.pdf';
   }
 
+  downloadCv(event: Event): void {
+    event.preventDefault();
+    const lang = this.i18n.lang();
+    const fileName = lang === 'es' ? 'CV-Alvaro-Anton-Macia.pdf' : 'CV-Alvaro-Anton-Macia-EN.pdf';
+    this.telegram.send(
+      `📄 *Descarga de CV*\n` +
+      `Idioma: ${lang.toUpperCase()}\n` +
+      `Archivo: ${fileName}\n` +
+      `Fecha: ${new Date().toLocaleString('es-ES', { timeZone: 'Europe/Madrid' })}`
+    );
+    window.open(this.cvUrl, '_blank');
+  }
+
   get currentProjects(): Project[] {
     return this.projects().filter((p) => p.is_current);
   }
