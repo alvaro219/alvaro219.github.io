@@ -11,8 +11,8 @@ export class CvService {
   cvUrlEn = signal<string | null>(null);
 
   async loadUrls(): Promise<void> {
-    this.cvUrlEs.set(await this.getPublicUrl('cv-es.pdf'));
-    this.cvUrlEn.set(await this.getPublicUrl('cv-en.pdf'));
+    this.cvUrlEs.set(await this.getPublicUrl('CV-Alvaro-Anton-Macia.pdf'));
+    this.cvUrlEn.set(await this.getPublicUrl('CV-Alvaro-Anton-Macia-EN.pdf'));
   }
 
   private async getPublicUrl(path: string): Promise<string | null> {
