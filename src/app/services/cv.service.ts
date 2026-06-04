@@ -28,8 +28,12 @@ export class CvService {
     }
   }
 
+  private fileName(lang: 'es' | 'en'): string {
+    return lang === 'es' ? 'CV-Alvaro-Anton-Macia.pdf' : 'CV-Alvaro-Anton-Macia-EN.pdf';
+  }
+
   async upload(file: File, lang: 'es' | 'en'): Promise<{ success: boolean; error?: string }> {
-    const path = `cv-${lang}.pdf`;
+    const path = this.fileName(lang);
 
     const { error } = await this.supabase.client.storage
       .from(BUCKET)
@@ -44,7 +48,7 @@ export class CvService {
   }
 
   async delete(lang: 'es' | 'en'): Promise<{ success: boolean; error?: string }> {
-    const path = `cv-${lang}.pdf`;
+    const path = this.fileName(lang);
     const { error } = await this.supabase.client.storage.from(BUCKET).remove([path]);
 
     if (error) {
