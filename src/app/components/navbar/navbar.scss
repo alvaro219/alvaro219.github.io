@@ -2,7 +2,7 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(18, 18, 18, 0.95);
+  background: var(--nav-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
@@ -73,6 +73,13 @@
   margin-left: 0.25rem;
 }
 
+.theme-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
 .lang-btn {
   background: var(--bg-card);
   color: var(--text-secondary);
@@ -141,7 +148,7 @@
     top: 50px;
     left: 0;
     right: 0;
-    background: rgba(18, 18, 18, 0.97);
+    background: var(--nav-bg-solid);
     backdrop-filter: blur(12px);
     flex-direction: column;
     padding: 1rem 1.5rem;

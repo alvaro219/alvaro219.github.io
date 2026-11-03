@@ -26,6 +26,70 @@
   --radius-md: 10px;
   --radius-lg: 16px;
   --radius-xl: 9999px;
+  --nav-bg: rgba(18, 18, 18, 0.95);
+  --nav-bg-solid: rgba(18, 18, 18, 0.97);
+  --scrollbar: rgba(255, 255, 255, 0.1);
+  --scrollbar-hover: rgba(255, 255, 255, 0.2);
+  color-scheme: dark;
+}
+
+// Light theme (toggle in the navbar; see ThemeService)
+:root[data-theme='light'] {
+  --bg-primary: #f6f6f8;
+  --bg-secondary: #ffffff;
+  --bg-card: rgba(15, 15, 30, 0.035);
+  --bg-card-hover: rgba(15, 15, 30, 0.07);
+  --border: rgba(15, 15, 30, 0.1);
+  --border-hover: rgba(15, 15, 30, 0.2);
+  --accent: #7c3aed;
+  --accent-hover: #6d28d9;
+  --accent-soft: rgba(124, 58, 237, 0.1);
+  --accent-glow: rgba(124, 58, 237, 0.2);
+  --green: #16a34a;
+  --green-soft: rgba(22, 163, 74, 0.1);
+  --orange: #d97706;
+  --orange-soft: rgba(217, 119, 6, 0.1);
+  --text-primary: #18181b;
+  --text-secondary: rgba(24, 24, 27, 0.72);
+  --text-muted: rgba(24, 24, 27, 0.45);
+  --shadow-sm: 0 1px 2px rgba(15, 15, 30, 0.08);
+  --shadow-md: 0 4px 20px rgba(15, 15, 30, 0.08);
+  --shadow-lg: 0 12px 40px rgba(15, 15, 30, 0.12);
+  --nav-bg: rgba(246, 246, 248, 0.92);
+  --nav-bg-solid: rgba(246, 246, 248, 0.98);
+  --scrollbar: rgba(15, 15, 30, 0.15);
+  --scrollbar-hover: rgba(15, 15, 30, 0.3);
+  color-scheme: light;
+}
+
+// Single-colour dark technology logos are unreadable on the dark background: render them white.
+// Coloured logos keep their brand colours. Add new dark icons here.
+:root:not([data-theme='light']) img:is(
+  [src$='/angular-js-icon.svg'],
+  [src$='/astro-icon.svg'],
+  [src$='/preact-icon.svg'],
+  [src$='/vue-js-icon.svg'],
+  [src$='/cloudflare-icon.svg'],
+  [src$='/django-icon.svg'],
+  [src$='/flutter-icon.svg'],
+  [src$='/graphql-icon.svg'],
+  [src$='/liquid-icon.svg'],
+  [src$='/mysql-icon.svg'],
+  [src$='/php-icon.svg'],
+  [src$='/postgresql-icon.svg'],
+  [src$='/prisma-icon.svg'],
+  [src$='/python-icon.svg'],
+  [src$='/ruby-icon.svg'],
+  [src$='/sentry-icon.svg'],
+  [src$='/typescript-icon.svg'],
+  [src$='/vitest-icon.svg']
+) {
+  filter: brightness(0) invert(1) opacity(0.88);
+}
+
+// The opposite case: white logos vanish on the light background, so render them dark there.
+:root[data-theme='light'] img:is([src$='/github-icon.svg']) {
+  filter: brightness(0) opacity(0.85);
 }
 
 *,
@@ -122,11 +186,11 @@ code, .mono {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--scrollbar);
   border-radius: 3px;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--scrollbar-hover);
   }
 }
 

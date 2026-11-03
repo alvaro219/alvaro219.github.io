@@ -7,7 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Portfolio de Álvaro Antón Maciá — FullStack Developer & UX/UI Designer. Angular, Vue.js, Flutter, Django, Laravel, Supabase y más." />
     <meta name="author" content="Álvaro Antón Maciá" />
-    <meta name="theme-color" content="#0d0b1a" />
+    <meta name="theme-color" content="#121212" />
+    <script>
+      // Apply the saved/system theme before the app boots (no flash). Kept in sync by ThemeService.
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          if (t !== 'light' && t !== 'dark') {
+            t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+          }
+          document.documentElement.dataset.theme = t;
+        } catch (e) {
+          document.documentElement.dataset.theme = 'dark';
+        }
+      })();
+    </script>
     <meta name="keywords" content="Álvaro Antón Maciá, FullStack Developer, UX/UI Designer, Angular, Vue.js, React, Flutter, Django, Laravel, Supabase, PostgreSQL, TypeScript, portfolio" />
 
     <!-- Open Graph -->
