@@ -71,6 +71,14 @@
             <label>Impact (EN)</label>
             <input [(ngModel)]="project.impact_en" name="impact_en" placeholder="Project impact..." />
           </div>
+          <div class="form-field">
+            <label>URL del repositorio</label>
+            <input [(ngModel)]="project.repo_url" name="repo_url" type="url" placeholder="https://github.com/usuario/proyecto" />
+          </div>
+          <div class="form-field">
+            <label>URL de la web / demo</label>
+            <input [(ngModel)]="project.live_url" name="live_url" type="url" placeholder="https://..." />
+          </div>
           <div class="form-field form-full">
             <label>Tecnologías</label>
             <div class="tech-selector">

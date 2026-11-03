@@ -18,6 +18,21 @@
           <p class="detail-role">{{ role }}</p>
         }
         <p class="detail-period">{{ project.period_start }} – {{ periodEnd(project.period_end) }}</p>
+        @if (project.live_url || project.repo_url) {
+          <div class="detail-links">
+            @if (project.live_url) {
+              <a [href]="project.live_url" target="_blank" rel="noopener" class="detail-link primary">
+                {{ i18n.lang() === 'es' ? 'Ver web' : 'Visit site' }} ↗
+              </a>
+            }
+            @if (project.repo_url) {
+              <a [href]="project.repo_url" target="_blank" rel="noopener" class="detail-link">
+                <img src="/icons/github-icon.svg" alt="" width="16" height="16" />
+                {{ i18n.lang() === 'es' ? 'Ver código' : 'View code' }}
+              </a>
+            }
+          </div>
+        }
       </header>
 
       <section class="detail-section">

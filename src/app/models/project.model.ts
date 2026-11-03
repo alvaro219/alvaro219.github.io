@@ -20,6 +20,8 @@ export interface Project {
   description_en?: string;
   highlights_en?: string[];
   impact_en?: string;
+  repo_url?: string | null;
+  live_url?: string | null;
   is_current: boolean;
   sort_order: number;
   active: boolean;

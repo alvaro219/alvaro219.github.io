@@ -27,6 +27,23 @@ create policy "Users can update own profile"
   using (auth.uid() = id);
 
 -- ─── Profiles (public info) ─────────────────────────────
+-- Admin check used by every "Admins can ..." policy. SECURITY DEFINER so policies can run it
+-- for anonymous visitors, who have no access to user_profiles (otherwise every public SELECT
+-- on those tables fails with "permission denied for table user_profiles").
+create or replace function public.is_admin()
+returns boolean
+language sql
+stable
+security definer
+set search_path = public
+as $$
+  select exists (
+    select 1 from public.user_profiles where id = auth.uid() and role = 'admin'
+  );
+$$;
+revoke all on function public.is_admin() from public;
+grant execute on function public.is_admin() to anon, authenticated;
+
 create table if not exists profiles (
   id uuid default uuid_generate_v4() primary key,
   name text not null,
@@ -47,7 +64,7 @@ create policy "Public can read profiles"
 drop policy if exists "Admins can manage profiles" on profiles;
 create policy "Admins can manage profiles"
   on profiles for all using (
-    exists (select 1 from user_profiles where id = auth.uid() and role = 'admin')
+    public.is_admin()
   );
 
 -- ─── Technologies ────────────────────────────────────────
@@ -68,7 +85,7 @@ create policy "Public can read technologies"
 drop policy if exists "Admins can manage technologies" on technologies;
 create policy "Admins can manage technologies"
   on technologies for all using (
-    exists (select 1 from user_profiles where id = auth.uid() and role = 'admin')
+    public.is_admin()
   );
 
 -- ─── Projects ────────────────────────────────────────────
@@ -82,6 +99,12 @@ create table if not exists projects (
   importance text not null default 'medium' check (importance in ('high', 'medium', 'low')),
   highlights text[] default '{}',
   impact text,
+  role_en text,
+  description_en text,
+  highlights_en text[] default '{}',
+  impact_en text,
+  repo_url text,
+  live_url text,
   is_current boolean default false,
   sort_order int default 0,
   active boolean default true,
@@ -98,13 +121,13 @@ create policy "Public can read active projects"
 drop policy if exists "Admins can read all projects" on projects;
 create policy "Admins can read all projects"
   on projects for select using (
-    exists (select 1 from user_profiles where id = auth.uid() and role = 'admin')
+    public.is_admin()
   );
 
 drop policy if exists "Admins can manage projects" on projects;
 create policy "Admins can manage projects"
   on projects for all using (
-    exists (select 1 from user_profiles where id = auth.uid() and role = 'admin')
+    public.is_admin()
   );
 
 -- ─── Project Technologies (join table) ───────────────────
@@ -123,7 +146,7 @@ create policy "Public can read project technologies"
 drop policy if exists "Admins can manage project technologies" on project_technologies;
 create policy "Admins can manage project technologies"
   on project_technologies for all using (
-    exists (select 1 from user_profiles where id = auth.uid() and role = 'admin')
+    public.is_admin()
   );
 
 -- ─── Indexes ─────────────────────────────────────────────

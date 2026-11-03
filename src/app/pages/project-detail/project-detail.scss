@@ -83,6 +83,30 @@
   }
 }
 
+.detail-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.detail-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.15s ease;
+  &:hover { background: var(--accent-soft); }
+  &.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  &.primary:hover { filter: brightness(1.1); }
+}
+
 .tech-grid {
   display: flex;
   flex-wrap: wrap;

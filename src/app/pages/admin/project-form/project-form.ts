@@ -29,6 +29,8 @@ export class ProjectForm implements OnInit {
     description_en: '',
     highlights_en: [],
     impact_en: '',
+    repo_url: '',
+    live_url: '',
     is_current: false,
     sort_order: 0,
     active: true,
