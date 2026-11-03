@@ -66,9 +66,13 @@
   padding: 0.15rem 0;
 
   img {
-    opacity: 0.4;
-    filter: invert(1);
+    opacity: 0.55;
+    filter: brightness(0) invert(1);
     transition: opacity 0.2s;
+
+    :host-context(html[data-theme='light']) & {
+      filter: brightness(0);
+    }
   }
 
   &:hover img {
