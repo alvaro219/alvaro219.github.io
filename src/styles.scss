@@ -92,11 +92,14 @@
   [src$='/vitest-icon.svg']
 ) {
   filter: brightness(0) invert(1) opacity(0.88);
+  // A CSS filter also paints the element's own background: drop it or it becomes a solid square
+  background: transparent !important;
 }
 
 // The opposite case: white logos vanish on the light background, so render them dark there.
 :root[data-theme='light'] img:is([src$='/github-icon.svg']) {
   filter: brightness(0) opacity(0.85);
+  background: transparent !important;
 }
 
 *,
